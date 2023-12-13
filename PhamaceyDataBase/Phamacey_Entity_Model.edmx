@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PHANACEY_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="F_Med_Companeys">
+          <Key>
+            <PropertyRef Name="med_com_id" />
+          </Key>
+          <Property Name="med_com_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="med_com_name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="T_Med_Category">
+          <Key>
+            <PropertyRef Name="med_cat_id" />
+          </Key>
+          <Property Name="med_cat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="med_cat_name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="T_Med_Shape">
+          <Key>
+            <PropertyRef Name="med_shape_id" />
+          </Key>
+          <Property Name="med_shape_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="med_shape_name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="T_Med_Storage_Shape">
+          <Key>
+            <PropertyRef Name="med_stor_shape_id" />
+          </Key>
+          <Property Name="med_stor_shape_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="med_stor_shape_name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="T_Medician">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="med_code" Type="nvarchar(max)" />
+          <Property Name="med_name" Type="nvarchar(max)" />
+          <Property Name="med_latin_name" Type="nvarchar(max)" />
+          <Property Name="med_arabic_name" Type="nvarchar(max)" />
+          <Property Name="med_chemical_name" Type="nvarchar(max)" />
+          <Property Name="med_barcode" Type="nvarchar(max)" />
+          <Property Name="med_minimum" Type="int" />
+          <Property Name="med_state" Type="bit" />
+          <Property Name="med_note" Type="nvarchar(max)" />
+          <Property Name="med_com_id" Type="int" />
+          <Property Name="med_shape_id" Type="int" />
+          <Property Name="med_cat_id" Type="int" />
+          <Property Name="med_stor_shape_id" Type="int" />
+        </EntityType>
+        <EntityType Name="T_Pharmcey_Info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="nvarchar(max)" />
+          <Property Name="ph_name" Type="nvarchar(max)" />
+          <Property Name="ph_pers_name" Type="nvarchar(max)" />
+          <Property Name="ph_phone" Type="nvarchar(max)" />
+          <Property Name="ph_mobile" Type="nvarchar(max)" />
+          <Property Name="ph_adress" Type="nvarchar(max)" />
+          <Property Name="ph_fax" Type="nvarchar(max)" />
+          <Property Name="ph_email" Type="nvarchar(max)" />
+          <Property Name="ph_logo" Type="nvarchar(max)" />
+          <Property Name="ph_state" Type="bit" />
+          <Property Name="ph_note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="T_Store">
+          <Key>
+            <PropertyRef Name="store_id" />
+          </Key>
+          <Property Name="store_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="store_code" Type="nvarchar(max)" />
+          <Property Name="store_name" Type="nvarchar(max)" />
+          <Property Name="store_start_date" Type="date" />
+          <Property Name="store_location" Type="nvarchar(max)" />
+          <Property Name="store_mobile" Type="nvarchar(max)" />
+          <Property Name="store_state" Type="bit" />
+          <Property Name="store_note" Type="nvarchar(max)" />
+          <Property Name="store_T_id" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PHANACEY_DB.dbo.T_Store_Operation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="T_Store_Operation">
+          <Key>
+            <PropertyRef Name="store_op_id" />
+          </Key>
+          <Property Name="store_op_id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="store_op_date" Type="date" />
+          <Property Name="store_op_time" Type="time" Precision="7" />
+          <Property Name="entry_trans_text" Type="varchar(max)" />
+          <Property Name="bond_id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="bond_type_id" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="store_op_T_id" Type="int" />
+        </EntityType>
+        <EntityType Name="T_Store_Operation_Type">
+          <Key>
+            <PropertyRef Name="store_op_T_id" />
+          </Key>
+          <Property Name="store_op_T_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="store_op_T_name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="T_Store_Types">
+          <Key>
+            <PropertyRef Name="store_T_id" />
+          </Key>
+          <Property Name="store_T_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="store_T_name" Type="nvarchar(max)" />
+          <Property Name="store_defult" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="PHANACEY_DBModelStoreContainer">
+          <EntitySet Name="F_Med_Companeys" EntityType="Self.F_Med_Companeys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Med_Category" EntityType="Self.T_Med_Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Med_Shape" EntityType="Self.T_Med_Shape" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Med_Storage_Shape" EntityType="Self.T_Med_Storage_Shape" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Medician" EntityType="Self.T_Medician" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Pharmcey_Info" EntityType="Self.T_Pharmcey_Info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Store" EntityType="Self.T_Store" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Store_Operation_Type" EntityType="Self.T_Store_Operation_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Store_Types" EntityType="Self.T_Store_Types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Store_Operation" EntityType="Self.T_Store_Operation" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T_Store_Operation].[store_op_id] AS [store_op_id], 
+    [T_Store_Operation].[store_op_date] AS [store_op_date], 
+    [T_Store_Operation].[store_op_time] AS [store_op_time], 
+    [T_Store_Operation].[entry_trans_text] AS [entry_trans_text], 
+    [T_Store_Operation].[bond_id] AS [bond_id], 
+    [T_Store_Operation].[bond_type_id] AS [bond_type_id], 
+    [T_Store_Operation].[store_op_T_id] AS [store_op_T_id]
+    FROM [dbo].[T_Store_Operation] AS [T_Store_Operation]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PHANACEY_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="F_Med_Companeys">
+          <Key>
+            <PropertyRef Name="med_com_id" />
+          </Key>
+          <Property Name="med_com_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="med_com_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Med_Category">
+          <Key>
+            <PropertyRef Name="med_cat_id" />
+          </Key>
+          <Property Name="med_cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="med_cat_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Med_Shape">
+          <Key>
+            <PropertyRef Name="med_shape_id" />
+          </Key>
+          <Property Name="med_shape_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="med_shape_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Med_Storage_Shape">
+          <Key>
+            <PropertyRef Name="med_stor_shape_id" />
+          </Key>
+          <Property Name="med_stor_shape_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="med_stor_shape_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Medician">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="med_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="med_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="med_latin_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="med_arabic_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="med_chemical_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="med_barcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="med_minimum" Type="Int32" />
+          <Property Name="med_state" Type="Boolean" />
+          <Property Name="med_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="med_com_id" Type="Int32" />
+          <Property Name="med_shape_id" Type="Int32" />
+          <Property Name="med_cat_id" Type="Int32" />
+          <Property Name="med_stor_shape_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="T_Pharmcey_Info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ph_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ph_pers_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ph_phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ph_mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ph_adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ph_fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ph_email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ph_logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ph_state" Type="Boolean" />
+          <Property Name="ph_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Store">
+          <Key>
+            <PropertyRef Name="store_id" />
+          </Key>
+          <Property Name="store_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="store_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="store_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="store_start_date" Type="DateTime" Precision="0" />
+          <Property Name="store_location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="store_mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="store_state" Type="Boolean" />
+          <Property Name="store_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="store_T_id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="T_Store_Operation_Type">
+          <Key>
+            <PropertyRef Name="store_op_T_id" />
+          </Key>
+          <Property Name="store_op_T_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="store_op_T_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T_Store_Types">
+          <Key>
+            <PropertyRef Name="store_T_id" />
+          </Key>
+          <Property Name="store_T_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="store_T_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="store_defult" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="T_Store_Operation">
+          <Key>
+            <PropertyRef Name="store_op_id" />
+          </Key>
+          <Property Name="store_op_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="store_op_date" Type="DateTime" Precision="0" />
+          <Property Name="store_op_time" Type="Time" Precision="7" />
+          <Property Name="entry_trans_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bond_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="bond_type_id" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="store_op_T_id" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="PHANACEY_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="F_Med_Companeys" EntityType="Self.F_Med_Companeys" />
+          <EntitySet Name="T_Med_Category" EntityType="Self.T_Med_Category" />
+          <EntitySet Name="T_Med_Shape" EntityType="Self.T_Med_Shape" />
+          <EntitySet Name="T_Med_Storage_Shape" EntityType="Self.T_Med_Storage_Shape" />
+          <EntitySet Name="T_Medician" EntityType="Self.T_Medician" />
+          <EntitySet Name="T_Pharmcey_Info" EntityType="Self.T_Pharmcey_Info" />
+          <EntitySet Name="T_Store" EntityType="Self.T_Store" />
+          <EntitySet Name="T_Store_Operation_Type" EntityType="Self.T_Store_Operation_Type" />
+          <EntitySet Name="T_Store_Types" EntityType="Self.T_Store_Types" />
+          <EntitySet Name="T_Store_Operation" EntityType="Self.T_Store_Operation" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PHANACEY_DBModelStoreContainer" CdmEntityContainer="PHANACEY_DBEntities">
+          <EntitySetMapping Name="F_Med_Companeys">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.F_Med_Companeys">
+              <MappingFragment StoreEntitySet="F_Med_Companeys">
+                <ScalarProperty Name="med_com_id" ColumnName="med_com_id" />
+                <ScalarProperty Name="med_com_name" ColumnName="med_com_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Med_Category">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Med_Category">
+              <MappingFragment StoreEntitySet="T_Med_Category">
+                <ScalarProperty Name="med_cat_id" ColumnName="med_cat_id" />
+                <ScalarProperty Name="med_cat_name" ColumnName="med_cat_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Med_Shape">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Med_Shape">
+              <MappingFragment StoreEntitySet="T_Med_Shape">
+                <ScalarProperty Name="med_shape_id" ColumnName="med_shape_id" />
+                <ScalarProperty Name="med_shape_name" ColumnName="med_shape_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Med_Storage_Shape">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Med_Storage_Shape">
+              <MappingFragment StoreEntitySet="T_Med_Storage_Shape">
+                <ScalarProperty Name="med_stor_shape_id" ColumnName="med_stor_shape_id" />
+                <ScalarProperty Name="med_stor_shape_name" ColumnName="med_stor_shape_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Medician">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Medician">
+              <MappingFragment StoreEntitySet="T_Medician">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="med_code" ColumnName="med_code" />
+                <ScalarProperty Name="med_name" ColumnName="med_name" />
+                <ScalarProperty Name="med_latin_name" ColumnName="med_latin_name" />
+                <ScalarProperty Name="med_arabic_name" ColumnName="med_arabic_name" />
+                <ScalarProperty Name="med_chemical_name" ColumnName="med_chemical_name" />
+                <ScalarProperty Name="med_barcode" ColumnName="med_barcode" />
+                <ScalarProperty Name="med_minimum" ColumnName="med_minimum" />
+                <ScalarProperty Name="med_state" ColumnName="med_state" />
+                <ScalarProperty Name="med_note" ColumnName="med_note" />
+                <ScalarProperty Name="med_com_id" ColumnName="med_com_id" />
+                <ScalarProperty Name="med_shape_id" ColumnName="med_shape_id" />
+                <ScalarProperty Name="med_cat_id" ColumnName="med_cat_id" />
+                <ScalarProperty Name="med_stor_shape_id" ColumnName="med_stor_shape_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Pharmcey_Info">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Pharmcey_Info">
+              <MappingFragment StoreEntitySet="T_Pharmcey_Info">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="ph_name" ColumnName="ph_name" />
+                <ScalarProperty Name="ph_pers_name" ColumnName="ph_pers_name" />
+                <ScalarProperty Name="ph_phone" ColumnName="ph_phone" />
+                <ScalarProperty Name="ph_mobile" ColumnName="ph_mobile" />
+                <ScalarProperty Name="ph_adress" ColumnName="ph_adress" />
+                <ScalarProperty Name="ph_fax" ColumnName="ph_fax" />
+                <ScalarProperty Name="ph_email" ColumnName="ph_email" />
+                <ScalarProperty Name="ph_logo" ColumnName="ph_logo" />
+                <ScalarProperty Name="ph_state" ColumnName="ph_state" />
+                <ScalarProperty Name="ph_note" ColumnName="ph_note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Store">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store">
+              <MappingFragment StoreEntitySet="T_Store">
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="store_code" ColumnName="store_code" />
+                <ScalarProperty Name="store_name" ColumnName="store_name" />
+                <ScalarProperty Name="store_start_date" ColumnName="store_start_date" />
+                <ScalarProperty Name="store_location" ColumnName="store_location" />
+                <ScalarProperty Name="store_mobile" ColumnName="store_mobile" />
+                <ScalarProperty Name="store_state" ColumnName="store_state" />
+                <ScalarProperty Name="store_note" ColumnName="store_note" />
+                <ScalarProperty Name="store_T_id" ColumnName="store_T_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Store_Operation_Type">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store_Operation_Type">
+              <MappingFragment StoreEntitySet="T_Store_Operation_Type">
+                <ScalarProperty Name="store_op_T_id" ColumnName="store_op_T_id" />
+                <ScalarProperty Name="store_op_T_name" ColumnName="store_op_T_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Store_Types">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store_Types">
+              <MappingFragment StoreEntitySet="T_Store_Types">
+                <ScalarProperty Name="store_T_id" ColumnName="store_T_id" />
+                <ScalarProperty Name="store_T_name" ColumnName="store_T_name" />
+                <ScalarProperty Name="store_defult" ColumnName="store_defult" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Store_Operation">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store_Operation">
+              <MappingFragment StoreEntitySet="T_Store_Operation">
+                <ScalarProperty Name="store_op_id" ColumnName="store_op_id" />
+                <ScalarProperty Name="store_op_date" ColumnName="store_op_date" />
+                <ScalarProperty Name="store_op_time" ColumnName="store_op_time" />
+                <ScalarProperty Name="entry_trans_text" ColumnName="entry_trans_text" />
+                <ScalarProperty Name="bond_id" ColumnName="bond_id" />
+                <ScalarProperty Name="bond_type_id" ColumnName="bond_type_id" />
+                <ScalarProperty Name="store_op_T_id" ColumnName="store_op_T_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

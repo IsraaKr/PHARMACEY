@@ -52,9 +52,6 @@
   <ItemGroup>
     <Compile Include="Commander\ClsCommander.cs" />
     <Compile Include="Commander\ICommander.cs" />
-    <Compile Include="F_Med_Companeys.cs">
-      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Phamacey_Entity_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,7 +68,13 @@
       <DependentUpon>Phamacey_Entity_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="T_Medician.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Medicin_Move.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="T_Med_Category.cs">
@@ -83,19 +86,34 @@
     <Compile Include="T_Med_Storage_Shape.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="T_OPeration_Damage.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_OPeration_IN.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_OPeration_IN_Item.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_OPeration_Out.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_OPeration_Out_Item.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_OPeration_Type.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Pers_Donars.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Pers_Emploee.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_PERS_Recivers.cs">
+      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="T_Pharmcey_Info.cs">
-      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="T_Store.cs">
-      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="T_Store_Operation.cs">
-      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="T_Store_Operation_Type.cs">
-      <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="T_Store_Types.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>

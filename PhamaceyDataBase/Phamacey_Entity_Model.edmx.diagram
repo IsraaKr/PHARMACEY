@@ -5,16 +5,41 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="ce145f28e2de4e0caed48c984912c00e" Name="Diagram1">
-        <EntityTypeShape EntityType="PHANACEY_DBModel.F_Med_Companeys" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Category" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Shape" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Storage_Shape" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Medician" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pharmcey_Info" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store_Operation_Type" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store_Types" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Store_Operation" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Category" Width="1.5" PointX="0.75" PointY="10" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Shape" Width="1.5" PointX="0.75" PointY="7" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Med_Storage_Shape" Width="1.5" PointX="0.75" PointY="12.25" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Medician" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Medicin_Move" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Damage" Width="1.5" PointX="8.25" PointY="6.375" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_IN" Width="1.5" PointX="3" PointY="16.375" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_IN_Item" Width="1.5" PointX="5.25" PointY="2.125" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Out" Width="1.5" PointX="3" PointY="23.5" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Out_Item" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_OPeration_Type" Width="1.5" PointX="0.75" PointY="17.125" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Donars" Width="1.5" PointX="0.75" PointY="14.875" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pers_Emploee" Width="1.5" PointX="0.75" PointY="20.25" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_PERS_Recivers" Width="1.5" PointX="0.75" PointY="24" />
+        <EntityTypeShape EntityType="PHANACEY_DBModel.T_Pharmcey_Info" Width="1.5" PointX="0.75" PointY="2.75" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Category" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Shape" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Storage_Shape" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medician_T_Pharmcey_Info" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_Medicin_Move_T_Medician" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_Medician" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Medician" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_Medician" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_IN" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_Type" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_Pers_Emploee" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_OPeration_IN" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_T_OPeration_Type" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_T_Pers_Donars" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_IN_T_Pers_Emploee" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_Out" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_OPeration_Type" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Emploee" />
+        <AssociationConnector Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_PERS_Recivers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

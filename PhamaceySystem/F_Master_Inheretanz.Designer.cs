@@ -33,9 +33,13 @@
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barr_save = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.bar_edite = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.bar_delete = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.bar_clear = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.bar_print = new DevExpress.XtraBars.BarButtonItem();
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.bar_3 = new DevExpress.XtraBars.BarStaticItem();
@@ -45,21 +49,8 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.timer_states_bar = new System.Windows.Forms.Timer(this.components);
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.lbl_tiltle = new System.Windows.Forms.Label();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
-            this.dataLayoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -123,20 +114,25 @@
             this.barr_save.Id = 0;
             this.barr_save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barr_save.ImageOptions.Image")));
             this.barr_save.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barr_save.ImageOptions.LargeImage")));
-            this.barr_save.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barr_save.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barr_save.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barr_save.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.barr_save.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9F);
             this.barr_save.ItemAppearance.Hovered.Options.UseFont = true;
-            this.barr_save.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.barr_save.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F);
             this.barr_save.ItemAppearance.Normal.Options.UseFont = true;
             this.barr_save.ItemAppearance.Pressed.BackColor = System.Drawing.Color.DarkSalmon;
-            this.barr_save.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.barr_save.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 9F);
             this.barr_save.ItemAppearance.Pressed.Options.UseBackColor = true;
             this.barr_save.ItemAppearance.Pressed.Options.UseFont = true;
             this.barr_save.Name = "barr_save";
             this.barr_save.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.barr_save.Size = new System.Drawing.Size(75, 35);
             this.barr_save.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barr_save_ItemClick);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Id = 10;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
             // bar_edite
             // 
@@ -145,18 +141,23 @@
             this.bar_edite.Id = 1;
             this.bar_edite.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_edite.ImageOptions.Image")));
             this.bar_edite.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_edite.ImageOptions.LargeImage")));
-            this.bar_edite.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_edite.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_edite.ItemAppearance.Disabled.Options.UseFont = true;
-            this.bar_edite.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_edite.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_edite.ItemAppearance.Hovered.Options.UseFont = true;
-            this.bar_edite.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_edite.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_edite.ItemAppearance.Normal.Options.UseFont = true;
-            this.bar_edite.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_edite.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_edite.ItemAppearance.Pressed.Options.UseFont = true;
             this.bar_edite.Name = "bar_edite";
             this.bar_edite.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bar_edite.Size = new System.Drawing.Size(75, 30);
             this.bar_edite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_edite_ItemClick);
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Id = 11;
+            this.barButtonItem2.Name = "barButtonItem2";
             // 
             // bar_delete
             // 
@@ -165,18 +166,23 @@
             this.bar_delete.Id = 2;
             this.bar_delete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_delete.ImageOptions.Image")));
             this.bar_delete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_delete.ImageOptions.LargeImage")));
-            this.bar_delete.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_delete.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_delete.ItemAppearance.Disabled.Options.UseFont = true;
-            this.bar_delete.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_delete.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_delete.ItemAppearance.Hovered.Options.UseFont = true;
-            this.bar_delete.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_delete.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_delete.ItemAppearance.Normal.Options.UseFont = true;
-            this.bar_delete.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_delete.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_delete.ItemAppearance.Pressed.Options.UseFont = true;
             this.bar_delete.Name = "bar_delete";
             this.bar_delete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bar_delete.Size = new System.Drawing.Size(75, 30);
             this.bar_delete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_delete_ItemClick_1);
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Id = 12;
+            this.barButtonItem3.Name = "barButtonItem3";
             // 
             // bar_clear
             // 
@@ -185,18 +191,23 @@
             this.bar_clear.Id = 3;
             this.bar_clear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_clear.ImageOptions.Image")));
             this.bar_clear.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_clear.ImageOptions.LargeImage")));
-            this.bar_clear.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_clear.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_clear.ItemAppearance.Disabled.Options.UseFont = true;
-            this.bar_clear.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_clear.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_clear.ItemAppearance.Hovered.Options.UseFont = true;
-            this.bar_clear.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_clear.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_clear.ItemAppearance.Normal.Options.UseFont = true;
-            this.bar_clear.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_clear.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_clear.ItemAppearance.Pressed.Options.UseFont = true;
             this.bar_clear.Name = "bar_clear";
             this.bar_clear.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bar_clear.Size = new System.Drawing.Size(75, 30);
             this.bar_clear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_clear_ItemClick);
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Id = 13;
+            this.barButtonItem4.Name = "barButtonItem4";
             // 
             // bar_print
             // 
@@ -205,13 +216,13 @@
             this.bar_print.Id = 7;
             this.bar_print.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_print.ImageOptions.Image")));
             this.bar_print.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_print.ImageOptions.LargeImage")));
-            this.bar_print.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_print.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_print.ItemAppearance.Disabled.Options.UseFont = true;
-            this.bar_print.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_print.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_print.ItemAppearance.Hovered.Options.UseFont = true;
-            this.bar_print.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_print.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_print.ItemAppearance.Normal.Options.UseFont = true;
-            this.bar_print.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 11.25F);
+            this.bar_print.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 9F);
             this.bar_print.ItemAppearance.Pressed.Options.UseFont = true;
             this.bar_print.Name = "bar_print";
             this.bar_print.Size = new System.Drawing.Size(80, 30);
@@ -282,87 +293,25 @@
             this.timer_states_bar.Interval = 10000;
             this.timer_states_bar.Tick += new System.EventHandler(this.timer_states_bar_Tick_1);
             // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Id = 10;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Id = 11;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Id = 12;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Id = 13;
-            this.barButtonItem4.Name = "barButtonItem4";
-            // 
-            // dataLayoutControl1
-            // 
-            this.dataLayoutControl1.Controls.Add(this.lbl_tiltle);
-            this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.dataLayoutControl1.Name = "dataLayoutControl1";
-            this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(716, 158, 650, 400);
-            this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
-            this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(800, 392);
-            this.dataLayoutControl1.TabIndex = 4;
-            this.dataLayoutControl1.Text = "dataLayoutControl1";
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem1,
-            this.layoutControlItem1});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(800, 392);
-            this.Root.TextVisible = false;
-            // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.BackColor = System.Drawing.Color.DarkSalmon;
-            this.lbl_tiltle.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_tiltle.Location = new System.Drawing.Point(12, 12);
+            this.lbl_tiltle.BackColor = System.Drawing.Color.Orange;
+            this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_tiltle.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_tiltle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_tiltle.Location = new System.Drawing.Point(0, 0);
             this.lbl_tiltle.Name = "lbl_tiltle";
-            this.lbl_tiltle.Size = new System.Drawing.Size(776, 34);
+            this.lbl_tiltle.Size = new System.Drawing.Size(800, 58);
             this.lbl_tiltle.TabIndex = 5;
             this.lbl_tiltle.Text = "....";
             this.lbl_tiltle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 38);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(780, 334);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.lbl_tiltle;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.MaxSize = new System.Drawing.Size(0, 38);
-            this.layoutControlItem1.MinSize = new System.Drawing.Size(24, 38);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(780, 38);
-            this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // F_Master_Inheretanz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataLayoutControl1);
+            this.Controls.Add(this.lbl_tiltle);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -377,11 +326,6 @@
             this.Load += new System.EventHandler(this.F_Master_Inheretanz_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.F_Master_Inheretanz_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
-            this.dataLayoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,9 +353,5 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private System.Windows.Forms.Label lbl_tiltle;
-        private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
     }
 }

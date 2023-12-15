@@ -12,7 +12,7 @@ namespace PhamaceyDataBase.Commander
     /*ملف الانتتي .edmx 
     ثم ملف الانتتي .context.tt
     ثم ملف الانتتي .context.cs */
-    class ClsCommander<TEntity> : ICommander<TEntity> where TEntity : class
+  public  class ClsCommander<TEntity> : ICommander<TEntity> where TEntity : class
     {
         public static PHANACEY_DBEntities Context = new PHANACEY_DBEntities();
         public void Delet_Data(TEntity entity)
@@ -54,5 +54,7 @@ namespace PhamaceyDataBase.Commander
             Context.Set<TEntity>().AddOrUpdate(entity);
             Context.SaveChanges();
         }
+
+   
     }
 }

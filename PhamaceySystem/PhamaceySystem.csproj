@@ -33,17 +33,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,17 +71,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\F_Medecian.cs">
+    <Compile Include="c_db.cs" />
+    <Compile Include="C_Master.cs" />
+    <Compile Include="Forms\Medicin_Forms\F_Medecian.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\F_Medecian.Designer.cs">
+    <Compile Include="Forms\Medicin_Forms\F_Medecian.Designer.cs">
       <DependentUpon>F_Medecian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med_Categories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med_Categories.Designer.cs">
+      <DependentUpon>F_Med_Categories.cs</DependentUpon>
     </Compile>
     <Compile Include="F_Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F_Main.Designer.cs">
       <DependentUpon>F_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="F_Master_ADD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_Master_ADD.Designer.cs">
+      <DependentUpon>F_Master_ADD.cs</DependentUpon>
     </Compile>
     <Compile Include="F_Master_Inheretanz.cs">
       <SubType>Form</SubType>
@@ -75,8 +105,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Medicin_Forms\F_Medecian.resx">
+      <DependentUpon>F_Medecian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Categories.resx">
+      <DependentUpon>F_Med_Categories.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_Main.resx">
       <DependentUpon>F_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_Master_ADD.resx">
+      <DependentUpon>F_Master_ADD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Master_Inheretanz.resx">
       <DependentUpon>F_Master_Inheretanz.cs</DependentUpon>
@@ -91,6 +130,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\PhamaceyDataBase.T_Medician.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,6 +144,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PhamaceyDataBase\PhamaceyDataBase.csproj">
+      <Project>{656e5a30-aed5-4093-8f6c-e6ca5156ea03}</Project>
+      <Name>PhamaceyDataBase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

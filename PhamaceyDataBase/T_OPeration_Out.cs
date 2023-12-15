@@ -12,18 +12,23 @@ namespace PhamaceyDataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class T_Med_Category
+    public partial class T_OPeration_Out
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public T_Med_Category()
+        public T_OPeration_Out()
         {
-            this.T_Medician = new HashSet<T_Medician>();
+            this.T_OPeration_Out_Item = new HashSet<T_OPeration_Out_Item>();
         }
     
-        public int med_cat_id { get; set; }
-        public string med_cat_name { get; set; }
+        public int out_op_id { get; set; }
+        public Nullable<int> reciver_id { get; set; }
+        public Nullable<int> emp_id { get; set; }
+        public Nullable<int> op_type_id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<T_Medician> T_Medician { get; set; }
+        public virtual ICollection<T_OPeration_Out_Item> T_OPeration_Out_Item { get; set; }
+        public virtual T_OPeration_Type T_OPeration_Type { get; set; }
+        public virtual T_Pers_Emploee T_Pers_Emploee { get; set; }
+        public virtual T_PERS_Recivers T_PERS_Recivers { get; set; }
     }
 }

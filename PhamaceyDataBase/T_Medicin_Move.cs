@@ -12,14 +12,15 @@ namespace PhamaceyDataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class T_Store_Operation
+    public partial class T_Medicin_Move
     {
-        public decimal store_op_id { get; set; }
-        public Nullable<System.DateTime> store_op_date { get; set; }
-        public Nullable<System.TimeSpan> store_op_time { get; set; }
-        public string entry_trans_text { get; set; }
-        public Nullable<decimal> bond_id { get; set; }
-        public Nullable<decimal> bond_type_id { get; set; }
-        public Nullable<int> store_op_T_id { get; set; }
+        public int med_move_id { get; set; }
+        public Nullable<int> med_move_in_count { get; set; }
+        public Nullable<int> med_move_out_count { get; set; }
+        public Nullable<int> med_move_damage_count { get; set; }
+        public Nullable<int> med_move_total_quntity { get; set; }
+        public Nullable<int> med_id { get; set; }
+    
+        public virtual T_Medician T_Medician { get; set; }
     }
 }

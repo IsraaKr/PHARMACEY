@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using System.Reflection;
 using DevExpress.XtraEditors;
+using PhamaceySystem.Forms;
 
 namespace PhamaceySystem
 {
@@ -29,7 +30,55 @@ namespace PhamaceySystem
            
 
         }
+        string server_nam = "";
+        string db_nam = "PHANACEY_DB";
 
+
+
+        //انشاء قاعدة البيانات
+        private void create_db()
+        {  // أول استدعاء من اجل انشاء قاعدة البيانات و الجداول
+            try//جلب اسم السيرفر و  الاتصال بالسيرفر
+            {
+                server_nam = c_db.get_server_name();
+                //  MessageBox.Show("تم جلب اسم السيرفر : " + server_nam);
+            }
+            catch (Exception)
+            {
+                //  MessageBox.Show("Error in ServerName part");
+            }
+            c_db.server_connection(server_nam);
+            c_db.server_connection(server_nam);
+            //     MessageBox.Show ("تم الاتصال بالسيرف " + server_nam);
+
+            // ******************************************
+            string sql = "select name from sys.databases"; //تجلب اسماء قواعد البيانات التي عندي
+            DataTable dt = c_db.select(sql);
+
+            try//إنشاء قاعدة  البيانات و الاتصال بها
+            {
+                c_db.create_DB(db_nam);
+                //  MessageBox.Show("تم إنشاء قاعدة البيانات : " + db_nam);
+            }
+            catch (Exception)
+            {
+                //  MessageBox.Show("Error in data base part");
+            }
+            c_db.db_conection(server_nam, db_nam);
+            //  MessageBox.Show ("تم الاتصال بقاعدة البيانات " + db_nam);
+
+            //************************************************
+            //try//إنشاء الجداول
+            //{
+            //    c_db.Create_Tables();
+            //    //  MessageBox.Show("تم إنشاء كل الجداول  ");
+            //}
+            //catch (Exception)
+            //{
+            //    //  MessageBox.Show("Error in tables part"); 
+            //}
+
+        }
         //نستدعيه عند كل فتحة فورم جديد 
         public void nav(Form f, PanelControl p)
         {
@@ -80,6 +129,12 @@ namespace PhamaceySystem
             {
                 open_form_byname(tag);
             }
+        }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            F_Medecian f = new F_Medecian();
+            nav(f, pan_nav);
         }
     }
 }

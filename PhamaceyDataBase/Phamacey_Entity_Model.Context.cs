@@ -19,21 +19,29 @@ namespace PhamaceyDataBase
             : base("name=PHANACEY_DBEntities")
         {
         }
-    
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
+   
     
-        public virtual DbSet<F_Med_Companeys> F_Med_Companeys { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<T_Med_Category> T_Med_Category { get; set; }
         public virtual DbSet<T_Med_Shape> T_Med_Shape { get; set; }
         public virtual DbSet<T_Med_Storage_Shape> T_Med_Storage_Shape { get; set; }
         public virtual DbSet<T_Medician> T_Medician { get; set; }
+        public virtual DbSet<T_Medicin_Move> T_Medicin_Move { get; set; }
+        public virtual DbSet<T_OPeration_Damage> T_OPeration_Damage { get; set; }
+        public virtual DbSet<T_OPeration_IN> T_OPeration_IN { get; set; }
+        public virtual DbSet<T_OPeration_IN_Item> T_OPeration_IN_Item { get; set; }
+        public virtual DbSet<T_OPeration_Out> T_OPeration_Out { get; set; }
+        public virtual DbSet<T_OPeration_Out_Item> T_OPeration_Out_Item { get; set; }
+        public virtual DbSet<T_OPeration_Type> T_OPeration_Type { get; set; }
+        public virtual DbSet<T_Pers_Donars> T_Pers_Donars { get; set; }
+        public virtual DbSet<T_Pers_Emploee> T_Pers_Emploee { get; set; }
+        public virtual DbSet<T_PERS_Recivers> T_PERS_Recivers { get; set; }
         public virtual DbSet<T_Pharmcey_Info> T_Pharmcey_Info { get; set; }
-        public virtual DbSet<T_Store> T_Store { get; set; }
-        public virtual DbSet<T_Store_Operation_Type> T_Store_Operation_Type { get; set; }
-        public virtual DbSet<T_Store_Types> T_Store_Types { get; set; }
-        public virtual DbSet<T_Store_Operation> T_Store_Operation { get; set; }
     }
 }

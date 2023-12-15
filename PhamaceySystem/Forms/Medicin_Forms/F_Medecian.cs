@@ -15,6 +15,15 @@ namespace PhamaceySystem.Forms
         public F_Medecian()
         {
             InitializeComponent();
+            Title( "Define Material , تعريف مادة ");
+        }
+        public override void Title(string s_title)
+        {
+            base.Title(s_title);
+        }
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

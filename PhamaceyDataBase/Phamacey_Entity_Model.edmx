@@ -4,13 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PHANACEY_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="F_Med_Companeys">
+    <Schema Namespace="PHANACEY_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="med_com_id" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="med_com_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="med_com_name" Type="nvarchar(max)" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="T_Med_Category">
           <Key>
@@ -35,28 +38,124 @@
         </EntityType>
         <EntityType Name="T_Medician">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="med_id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="med_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="med_code" Type="nvarchar(max)" />
           <Property Name="med_name" Type="nvarchar(max)" />
-          <Property Name="med_latin_name" Type="nvarchar(max)" />
-          <Property Name="med_arabic_name" Type="nvarchar(max)" />
-          <Property Name="med_chemical_name" Type="nvarchar(max)" />
-          <Property Name="med_barcode" Type="nvarchar(max)" />
           <Property Name="med_minimum" Type="int" />
           <Property Name="med_state" Type="bit" />
           <Property Name="med_note" Type="nvarchar(max)" />
-          <Property Name="med_com_id" Type="int" />
+          <Property Name="ph_id" Type="int" />
           <Property Name="med_shape_id" Type="int" />
           <Property Name="med_cat_id" Type="int" />
           <Property Name="med_stor_shape_id" Type="int" />
         </EntityType>
-        <EntityType Name="T_Pharmcey_Info">
+        <EntityType Name="T_Medicin_Move">
+          <Key>
+            <PropertyRef Name="med_move_id" />
+          </Key>
+          <Property Name="med_move_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="med_move_in_count" Type="int" />
+          <Property Name="med_move_out_count" Type="int" />
+          <Property Name="med_move_damage_count" Type="int" />
+          <Property Name="med_move_total_quntity" Type="int" />
+          <Property Name="med_id" Type="int" />
+        </EntityType>
+        <EntityType Name="T_OPeration_Damage">
+          <Key>
+            <PropertyRef Name="dam_OP_id" />
+          </Key>
+          <Property Name="dam_OP_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="emp_id" Type="int" />
+          <Property Name="op_type_id" Type="int" />
+          <Property Name="Med_id" Type="int" />
+          <Property Name="In_op_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_OPeration_IN">
+          <Key>
+            <PropertyRef Name="in_op_id" />
+          </Key>
+          <Property Name="in_op_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="in_op_date" Type="date" />
+          <Property Name="in_op_time" Type="time" Precision="7" />
+          <Property Name="in_op_text" Type="nvarchar(max)" />
+          <Property Name="in_op_state" Type="bit" />
+          <Property Name="in_op_recipt_no" Type="int" />
+          <Property Name="in_op_recipt_name" Type="nvarchar(max)" />
+          <Property Name="in_op_recipt_date" Type="date" />
+          <Property Name="donar_emp" Type="nvarchar(max)" />
+          <Property Name="donar_id" Type="int" />
+          <Property Name="emp_id" Type="int" />
+          <Property Name="op_type_id" Type="int" />
+        </EntityType>
+        <EntityType Name="T_OPeration_IN_Item">
+          <Key>
+            <PropertyRef Name="in_item_id" />
+          </Key>
+          <Property Name="in_item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="in_item_date" Type="date" />
+          <Property Name="in_item_time" Type="time" Precision="7" />
+          <Property Name="in_item_quntity" Type="int" />
+          <Property Name="in_item_proDate" Type="date" />
+          <Property Name="in_item_expDate" Type="date" />
+          <Property Name="in_B_It_state" Type="bit" />
+          <Property Name="in_B_It_note" Type="nvarchar(max)" />
+          <Property Name="Med_id" Type="int" />
+          <Property Name="In_op_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_OPeration_Out">
+          <Key>
+            <PropertyRef Name="out_op_id" />
+          </Key>
+          <Property Name="out_op_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="reciver_id" Type="int" />
+          <Property Name="emp_id" Type="int" />
+          <Property Name="op_type_id" Type="int" />
+        </EntityType>
+        <EntityType Name="T_OPeration_Out_Item">
+          <Key>
+            <PropertyRef Name="out_item_id" />
+          </Key>
+          <Property Name="out_item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Med_id" Type="int" />
+          <Property Name="out_op_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_OPeration_Type">
+          <Key>
+            <PropertyRef Name="OP_type_id" />
+          </Key>
+          <Property Name="OP_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OP_type_name" Type="nvarchar(max)" />
+          <Property Name="OP_type_state" Type="bit" />
+          <Property Name="OP_type_nots" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="T_Pers_Donars">
+          <Key>
+            <PropertyRef Name="Donar_id" />
+          </Key>
+          <Property Name="Donar_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Donar_name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="T_Pers_Emploee">
+          <Key>
+            <PropertyRef Name="Emp_id" />
+          </Key>
+          <Property Name="Emp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emp_name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="T_PERS_Recivers">
           <Key>
             <PropertyRef Name="id" />
           </Key>
+          <Property Name="name" Type="nchar" MaxLength="10" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Pharmcey_Info">
+          <Key>
+            <PropertyRef Name="ph_id" />
+          </Key>
+          <Property Name="ph_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="code" Type="nvarchar(max)" />
           <Property Name="ph_name" Type="nvarchar(max)" />
           <Property Name="ph_pers_name" Type="nvarchar(max)" />
@@ -69,82 +168,435 @@
           <Property Name="ph_state" Type="bit" />
           <Property Name="ph_note" Type="nvarchar(max)" />
         </EntityType>
-        <EntityType Name="T_Store">
-          <Key>
-            <PropertyRef Name="store_id" />
-          </Key>
-          <Property Name="store_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="store_code" Type="nvarchar(max)" />
-          <Property Name="store_name" Type="nvarchar(max)" />
-          <Property Name="store_start_date" Type="date" />
-          <Property Name="store_location" Type="nvarchar(max)" />
-          <Property Name="store_mobile" Type="nvarchar(max)" />
-          <Property Name="store_state" Type="bit" />
-          <Property Name="store_note" Type="nvarchar(max)" />
-          <Property Name="store_T_id" Type="int" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'PHANACEY_DB.dbo.T_Store_Operation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="T_Store_Operation">
-          <Key>
-            <PropertyRef Name="store_op_id" />
-          </Key>
-          <Property Name="store_op_id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="store_op_date" Type="date" />
-          <Property Name="store_op_time" Type="time" Precision="7" />
-          <Property Name="entry_trans_text" Type="varchar(max)" />
-          <Property Name="bond_id" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="bond_type_id" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="store_op_T_id" Type="int" />
-        </EntityType>
-        <EntityType Name="T_Store_Operation_Type">
-          <Key>
-            <PropertyRef Name="store_op_T_id" />
-          </Key>
-          <Property Name="store_op_T_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="store_op_T_name" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="T_Store_Types">
-          <Key>
-            <PropertyRef Name="store_T_id" />
-          </Key>
-          <Property Name="store_T_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="store_T_name" Type="nvarchar(max)" />
-          <Property Name="store_defult" Type="bit" />
-        </EntityType>
+        <Association Name="FK_T_Medician_T_Med_Category">
+          <End Role="T_Med_Category" Type="Self.T_Med_Category" Multiplicity="0..1" />
+          <End Role="T_Medician" Type="Self.T_Medician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Med_Category">
+              <PropertyRef Name="med_cat_id" />
+            </Principal>
+            <Dependent Role="T_Medician">
+              <PropertyRef Name="med_cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Medician_T_Med_Shape">
+          <End Role="T_Med_Shape" Type="Self.T_Med_Shape" Multiplicity="0..1" />
+          <End Role="T_Medician" Type="Self.T_Medician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Med_Shape">
+              <PropertyRef Name="med_shape_id" />
+            </Principal>
+            <Dependent Role="T_Medician">
+              <PropertyRef Name="med_shape_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Medician_T_Med_Storage_Shape">
+          <End Role="T_Med_Storage_Shape" Type="Self.T_Med_Storage_Shape" Multiplicity="0..1" />
+          <End Role="T_Medician" Type="Self.T_Medician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Med_Storage_Shape">
+              <PropertyRef Name="med_stor_shape_id" />
+            </Principal>
+            <Dependent Role="T_Medician">
+              <PropertyRef Name="med_stor_shape_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Medician_T_Pharmcey_Info">
+          <End Role="T_Pharmcey_Info" Type="Self.T_Pharmcey_Info" Multiplicity="0..1" />
+          <End Role="T_Medician" Type="Self.T_Medician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pharmcey_Info">
+              <PropertyRef Name="ph_id" />
+            </Principal>
+            <Dependent Role="T_Medician">
+              <PropertyRef Name="ph_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Medicin_Move_T_Medician">
+          <End Role="T_Medician" Type="Self.T_Medician" Multiplicity="0..1" />
+          <End Role="T_Medicin_Move" Type="Self.T_Medicin_Move" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Medician">
+              <PropertyRef Name="med_id" />
+            </Principal>
+            <Dependent Role="T_Medicin_Move">
+              <PropertyRef Name="med_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Damage_T_Medician">
+          <End Role="T_Medician" Type="Self.T_Medician" Multiplicity="0..1" />
+          <End Role="T_OPeration_Damage" Type="Self.T_OPeration_Damage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Medician">
+              <PropertyRef Name="med_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Damage">
+              <PropertyRef Name="Med_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Damage_T_OPeration_IN">
+          <End Role="T_OPeration_IN" Type="Self.T_OPeration_IN" Multiplicity="1" />
+          <End Role="T_OPeration_Damage" Type="Self.T_OPeration_Damage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_IN">
+              <PropertyRef Name="in_op_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Damage">
+              <PropertyRef Name="In_op_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Damage_T_OPeration_Type">
+          <End Role="T_OPeration_Type" Type="Self.T_OPeration_Type" Multiplicity="0..1" />
+          <End Role="T_OPeration_Damage" Type="Self.T_OPeration_Damage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_Type">
+              <PropertyRef Name="OP_type_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Damage">
+              <PropertyRef Name="op_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Damage_T_Pers_Emploee">
+          <End Role="T_Pers_Emploee" Type="Self.T_Pers_Emploee" Multiplicity="0..1" />
+          <End Role="T_OPeration_Damage" Type="Self.T_OPeration_Damage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pers_Emploee">
+              <PropertyRef Name="Emp_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Damage">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_IN_Item_T_Medician">
+          <End Role="T_Medician" Type="Self.T_Medician" Multiplicity="0..1" />
+          <End Role="T_OPeration_IN_Item" Type="Self.T_OPeration_IN_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Medician">
+              <PropertyRef Name="med_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_IN_Item">
+              <PropertyRef Name="Med_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_IN_Item_T_OPeration_IN">
+          <End Role="T_OPeration_IN" Type="Self.T_OPeration_IN" Multiplicity="1" />
+          <End Role="T_OPeration_IN_Item" Type="Self.T_OPeration_IN_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_IN">
+              <PropertyRef Name="in_op_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_IN_Item">
+              <PropertyRef Name="In_op_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_IN_T_OPeration_Type">
+          <End Role="T_OPeration_Type" Type="Self.T_OPeration_Type" Multiplicity="0..1" />
+          <End Role="T_OPeration_IN" Type="Self.T_OPeration_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_Type">
+              <PropertyRef Name="OP_type_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_IN">
+              <PropertyRef Name="op_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_IN_T_Pers_Donars">
+          <End Role="T_Pers_Donars" Type="Self.T_Pers_Donars" Multiplicity="0..1" />
+          <End Role="T_OPeration_IN" Type="Self.T_OPeration_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pers_Donars">
+              <PropertyRef Name="Donar_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_IN">
+              <PropertyRef Name="donar_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_IN_T_Pers_Emploee">
+          <End Role="T_Pers_Emploee" Type="Self.T_Pers_Emploee" Multiplicity="0..1" />
+          <End Role="T_OPeration_IN" Type="Self.T_OPeration_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pers_Emploee">
+              <PropertyRef Name="Emp_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_IN">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_Item_T_Medician">
+          <End Role="T_Medician" Type="Self.T_Medician" Multiplicity="0..1" />
+          <End Role="T_OPeration_Out_Item" Type="Self.T_OPeration_Out_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Medician">
+              <PropertyRef Name="med_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out_Item">
+              <PropertyRef Name="Med_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_Item_T_OPeration_Out">
+          <End Role="T_OPeration_Out" Type="Self.T_OPeration_Out" Multiplicity="1" />
+          <End Role="T_OPeration_Out_Item" Type="Self.T_OPeration_Out_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_Out">
+              <PropertyRef Name="out_op_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out_Item">
+              <PropertyRef Name="out_op_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_T_OPeration_Type">
+          <End Role="T_OPeration_Type" Type="Self.T_OPeration_Type" Multiplicity="0..1" />
+          <End Role="T_OPeration_Out" Type="Self.T_OPeration_Out" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_Type">
+              <PropertyRef Name="OP_type_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out">
+              <PropertyRef Name="op_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_T_Pers_Emploee">
+          <End Role="T_Pers_Emploee" Type="Self.T_Pers_Emploee" Multiplicity="0..1" />
+          <End Role="T_OPeration_Out" Type="Self.T_OPeration_Out" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pers_Emploee">
+              <PropertyRef Name="Emp_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_T_PERS_Recivers">
+          <End Role="T_PERS_Recivers" Type="Self.T_PERS_Recivers" Multiplicity="0..1" />
+          <End Role="T_OPeration_Out" Type="Self.T_OPeration_Out" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_PERS_Recivers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out">
+              <PropertyRef Name="reciver_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PHANACEY_DBModelStoreContainer">
-          <EntitySet Name="F_Med_Companeys" EntityType="Self.F_Med_Companeys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Med_Category" EntityType="Self.T_Med_Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Med_Shape" EntityType="Self.T_Med_Shape" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Med_Storage_Shape" EntityType="Self.T_Med_Storage_Shape" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Medician" EntityType="Self.T_Medician" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Medicin_Move" EntityType="Self.T_Medicin_Move" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_OPeration_Damage" EntityType="Self.T_OPeration_Damage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_OPeration_IN" EntityType="Self.T_OPeration_IN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_OPeration_IN_Item" EntityType="Self.T_OPeration_IN_Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_OPeration_Out" EntityType="Self.T_OPeration_Out" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_OPeration_Out_Item" EntityType="Self.T_OPeration_Out_Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_OPeration_Type" EntityType="Self.T_OPeration_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Pers_Donars" EntityType="Self.T_Pers_Donars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Pers_Emploee" EntityType="Self.T_Pers_Emploee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_PERS_Recivers" EntityType="Self.T_PERS_Recivers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Pharmcey_Info" EntityType="Self.T_Pharmcey_Info" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="T_Store" EntityType="Self.T_Store" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="T_Store_Operation_Type" EntityType="Self.T_Store_Operation_Type" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="T_Store_Types" EntityType="Self.T_Store_Types" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="T_Store_Operation" EntityType="Self.T_Store_Operation" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [T_Store_Operation].[store_op_id] AS [store_op_id], 
-    [T_Store_Operation].[store_op_date] AS [store_op_date], 
-    [T_Store_Operation].[store_op_time] AS [store_op_time], 
-    [T_Store_Operation].[entry_trans_text] AS [entry_trans_text], 
-    [T_Store_Operation].[bond_id] AS [bond_id], 
-    [T_Store_Operation].[bond_type_id] AS [bond_type_id], 
-    [T_Store_Operation].[store_op_T_id] AS [store_op_T_id]
-    FROM [dbo].[T_Store_Operation] AS [T_Store_Operation]</DefiningQuery>
-          </EntitySet>
+          <AssociationSet Name="FK_T_Medician_T_Med_Category" Association="Self.FK_T_Medician_T_Med_Category">
+            <End Role="T_Med_Category" EntitySet="T_Med_Category" />
+            <End Role="T_Medician" EntitySet="T_Medician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Medician_T_Med_Shape" Association="Self.FK_T_Medician_T_Med_Shape">
+            <End Role="T_Med_Shape" EntitySet="T_Med_Shape" />
+            <End Role="T_Medician" EntitySet="T_Medician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Medician_T_Med_Storage_Shape" Association="Self.FK_T_Medician_T_Med_Storage_Shape">
+            <End Role="T_Med_Storage_Shape" EntitySet="T_Med_Storage_Shape" />
+            <End Role="T_Medician" EntitySet="T_Medician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Medician_T_Pharmcey_Info" Association="Self.FK_T_Medician_T_Pharmcey_Info">
+            <End Role="T_Pharmcey_Info" EntitySet="T_Pharmcey_Info" />
+            <End Role="T_Medician" EntitySet="T_Medician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Medicin_Move_T_Medician" Association="Self.FK_T_Medicin_Move_T_Medician">
+            <End Role="T_Medician" EntitySet="T_Medician" />
+            <End Role="T_Medicin_Move" EntitySet="T_Medicin_Move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Damage_T_Medician" Association="Self.FK_T_OPeration_Damage_T_Medician">
+            <End Role="T_Medician" EntitySet="T_Medician" />
+            <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Damage_T_OPeration_IN" Association="Self.FK_T_OPeration_Damage_T_OPeration_IN">
+            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
+            <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Damage_T_OPeration_Type" Association="Self.FK_T_OPeration_Damage_T_OPeration_Type">
+            <End Role="T_OPeration_Type" EntitySet="T_OPeration_Type" />
+            <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Damage_T_Pers_Emploee" Association="Self.FK_T_OPeration_Damage_T_Pers_Emploee">
+            <End Role="T_Pers_Emploee" EntitySet="T_Pers_Emploee" />
+            <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_IN_Item_T_Medician" Association="Self.FK_T_OPeration_IN_Item_T_Medician">
+            <End Role="T_Medician" EntitySet="T_Medician" />
+            <End Role="T_OPeration_IN_Item" EntitySet="T_OPeration_IN_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_IN_Item_T_OPeration_IN" Association="Self.FK_T_OPeration_IN_Item_T_OPeration_IN">
+            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
+            <End Role="T_OPeration_IN_Item" EntitySet="T_OPeration_IN_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_IN_T_OPeration_Type" Association="Self.FK_T_OPeration_IN_T_OPeration_Type">
+            <End Role="T_OPeration_Type" EntitySet="T_OPeration_Type" />
+            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_IN_T_Pers_Donars" Association="Self.FK_T_OPeration_IN_T_Pers_Donars">
+            <End Role="T_Pers_Donars" EntitySet="T_Pers_Donars" />
+            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_IN_T_Pers_Emploee" Association="Self.FK_T_OPeration_IN_T_Pers_Emploee">
+            <End Role="T_Pers_Emploee" EntitySet="T_Pers_Emploee" />
+            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_Item_T_Medician" Association="Self.FK_T_OPeration_Out_Item_T_Medician">
+            <End Role="T_Medician" EntitySet="T_Medician" />
+            <End Role="T_OPeration_Out_Item" EntitySet="T_OPeration_Out_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_Item_T_OPeration_Out" Association="Self.FK_T_OPeration_Out_Item_T_OPeration_Out">
+            <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+            <End Role="T_OPeration_Out_Item" EntitySet="T_OPeration_Out_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_T_OPeration_Type" Association="Self.FK_T_OPeration_Out_T_OPeration_Type">
+            <End Role="T_OPeration_Type" EntitySet="T_OPeration_Type" />
+            <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_T_Pers_Emploee" Association="Self.FK_T_OPeration_Out_T_Pers_Emploee">
+            <End Role="T_Pers_Emploee" EntitySet="T_Pers_Emploee" />
+            <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_T_PERS_Recivers" Association="Self.FK_T_OPeration_Out_T_PERS_Recivers">
+            <End Role="T_PERS_Recivers" EntitySet="T_PERS_Recivers" />
+            <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PHANACEY_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="F_Med_Companeys">
+        <EntityContainer Name="PHANACEY_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="PHANACEY_DBModel.sysdiagrams" />
+          <EntitySet Name="T_Med_Category" EntityType="PHANACEY_DBModel.T_Med_Category" />
+          <EntitySet Name="T_Med_Shape" EntityType="PHANACEY_DBModel.T_Med_Shape" />
+          <EntitySet Name="T_Med_Storage_Shape" EntityType="PHANACEY_DBModel.T_Med_Storage_Shape" />
+          <EntitySet Name="T_Medician" EntityType="PHANACEY_DBModel.T_Medician" />
+          <EntitySet Name="T_Medicin_Move" EntityType="PHANACEY_DBModel.T_Medicin_Move" />
+          <EntitySet Name="T_OPeration_Damage" EntityType="PHANACEY_DBModel.T_OPeration_Damage" />
+          <EntitySet Name="T_OPeration_IN" EntityType="PHANACEY_DBModel.T_OPeration_IN" />
+          <EntitySet Name="T_OPeration_IN_Item" EntityType="PHANACEY_DBModel.T_OPeration_IN_Item" />
+          <EntitySet Name="T_OPeration_Out" EntityType="PHANACEY_DBModel.T_OPeration_Out" />
+          <EntitySet Name="T_OPeration_Out_Item" EntityType="PHANACEY_DBModel.T_OPeration_Out_Item" />
+          <EntitySet Name="T_OPeration_Type" EntityType="PHANACEY_DBModel.T_OPeration_Type" />
+          <EntitySet Name="T_Pers_Donars" EntityType="PHANACEY_DBModel.T_Pers_Donars" />
+          <EntitySet Name="T_Pers_Emploee" EntityType="PHANACEY_DBModel.T_Pers_Emploee" />
+          <EntitySet Name="T_PERS_Recivers" EntityType="PHANACEY_DBModel.T_PERS_Recivers" />
+          <EntitySet Name="T_Pharmcey_Info" EntityType="PHANACEY_DBModel.T_Pharmcey_Info" />
+          <AssociationSet Name="FK_T_Medician_T_Med_Category" Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Category">
+            <End Role="T_Med_Category" EntitySet="T_Med_Category" />
+            <End Role="T_Medician" EntitySet="T_Medician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Medician_T_Med_Shape" Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Shape">
+            <End Role="T_Med_Shape" EntitySet="T_Med_Shape" />
+            <End Role="T_Medician" EntitySet="T_Medician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Medician_T_Med_Storage_Shape" Association="PHANACEY_DBModel.FK_T_Medician_T_Med_Storage_Shape">
+            <End Role="T_Med_Storage_Shape" EntitySet="T_Med_Storage_Shape" />
+            <End Role="T_Medician" EntitySet="T_Medician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Medician_T_Pharmcey_Info" Association="PHANACEY_DBModel.FK_T_Medician_T_Pharmcey_Info">
+            <End Role="T_Pharmcey_Info" EntitySet="T_Pharmcey_Info" />
+            <End Role="T_Medician" EntitySet="T_Medician" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Medicin_Move_T_Medician" Association="PHANACEY_DBModel.FK_T_Medicin_Move_T_Medician">
+            <End Role="T_Medician" EntitySet="T_Medician" />
+            <End Role="T_Medicin_Move" EntitySet="T_Medicin_Move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Damage_T_Medician" Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_Medician">
+            <End Role="T_Medician" EntitySet="T_Medician" />
+            <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_IN_Item_T_Medician" Association="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Medician">
+            <End Role="T_Medician" EntitySet="T_Medician" />
+            <End Role="T_OPeration_IN_Item" EntitySet="T_OPeration_IN_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_Item_T_Medician" Association="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_Medician">
+            <End Role="T_Medician" EntitySet="T_Medician" />
+            <End Role="T_OPeration_Out_Item" EntitySet="T_OPeration_Out_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Damage_T_OPeration_IN" Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_IN">
+            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
+            <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Damage_T_OPeration_Type" Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_Type">
+            <End Role="T_OPeration_Type" EntitySet="T_OPeration_Type" />
+            <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Damage_T_Pers_Emploee" Association="PHANACEY_DBModel.FK_T_OPeration_Damage_T_Pers_Emploee">
+            <End Role="T_Pers_Emploee" EntitySet="T_Pers_Emploee" />
+            <End Role="T_OPeration_Damage" EntitySet="T_OPeration_Damage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_IN_Item_T_OPeration_IN" Association="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_OPeration_IN">
+            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
+            <End Role="T_OPeration_IN_Item" EntitySet="T_OPeration_IN_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_IN_T_OPeration_Type" Association="PHANACEY_DBModel.FK_T_OPeration_IN_T_OPeration_Type">
+            <End Role="T_OPeration_Type" EntitySet="T_OPeration_Type" />
+            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_IN_T_Pers_Donars" Association="PHANACEY_DBModel.FK_T_OPeration_IN_T_Pers_Donars">
+            <End Role="T_Pers_Donars" EntitySet="T_Pers_Donars" />
+            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_IN_T_Pers_Emploee" Association="PHANACEY_DBModel.FK_T_OPeration_IN_T_Pers_Emploee">
+            <End Role="T_Pers_Emploee" EntitySet="T_Pers_Emploee" />
+            <End Role="T_OPeration_IN" EntitySet="T_OPeration_IN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_Item_T_OPeration_Out" Association="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_Out">
+            <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+            <End Role="T_OPeration_Out_Item" EntitySet="T_OPeration_Out_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_T_OPeration_Type" Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_OPeration_Type">
+            <End Role="T_OPeration_Type" EntitySet="T_OPeration_Type" />
+            <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_T_Pers_Emploee" Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Emploee">
+            <End Role="T_Pers_Emploee" EntitySet="T_Pers_Emploee" />
+            <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_OPeration_Out_T_PERS_Recivers" Association="PHANACEY_DBModel.FK_T_OPeration_Out_T_PERS_Recivers">
+            <End Role="T_PERS_Recivers" EntitySet="T_PERS_Recivers" />
+            <End Role="T_OPeration_Out" EntitySet="T_OPeration_Out" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
           <Key>
-            <PropertyRef Name="med_com_id" />
+            <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="med_com_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="med_com_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="T_Med_Category">
           <Key>
@@ -152,6 +604,7 @@ warning 6002: The table/view 'PHANACEY_DB.dbo.T_Store_Operation' does not have a
           </Key>
           <Property Name="med_cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="med_cat_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_Medician_T_Med_Category" FromRole="T_Med_Category" ToRole="T_Medician" />
         </EntityType>
         <EntityType Name="T_Med_Shape">
           <Key>
@@ -159,6 +612,7 @@ warning 6002: The table/view 'PHANACEY_DB.dbo.T_Store_Operation' does not have a
           </Key>
           <Property Name="med_shape_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="med_shape_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_Medician_T_Med_Shape" FromRole="T_Med_Shape" ToRole="T_Medician" />
         </EntityType>
         <EntityType Name="T_Med_Storage_Shape">
           <Key>
@@ -166,31 +620,162 @@ warning 6002: The table/view 'PHANACEY_DB.dbo.T_Store_Operation' does not have a
           </Key>
           <Property Name="med_stor_shape_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="med_stor_shape_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_Medician_T_Med_Storage_Shape" FromRole="T_Med_Storage_Shape" ToRole="T_Medician" />
         </EntityType>
         <EntityType Name="T_Medician">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="med_id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="med_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="med_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="med_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="med_latin_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="med_arabic_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="med_chemical_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="med_barcode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="med_minimum" Type="Int32" />
           <Property Name="med_state" Type="Boolean" />
           <Property Name="med_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="med_com_id" Type="Int32" />
+          <Property Name="ph_id" Type="Int32" />
           <Property Name="med_shape_id" Type="Int32" />
           <Property Name="med_cat_id" Type="Int32" />
           <Property Name="med_stor_shape_id" Type="Int32" />
+          <NavigationProperty Name="T_Med_Category" Relationship="PHANACEY_DBModel.FK_T_Medician_T_Med_Category" FromRole="T_Medician" ToRole="T_Med_Category" />
+          <NavigationProperty Name="T_Med_Shape" Relationship="PHANACEY_DBModel.FK_T_Medician_T_Med_Shape" FromRole="T_Medician" ToRole="T_Med_Shape" />
+          <NavigationProperty Name="T_Med_Storage_Shape" Relationship="PHANACEY_DBModel.FK_T_Medician_T_Med_Storage_Shape" FromRole="T_Medician" ToRole="T_Med_Storage_Shape" />
+          <NavigationProperty Name="T_Pharmcey_Info" Relationship="PHANACEY_DBModel.FK_T_Medician_T_Pharmcey_Info" FromRole="T_Medician" ToRole="T_Pharmcey_Info" />
+          <NavigationProperty Name="T_Medicin_Move" Relationship="PHANACEY_DBModel.FK_T_Medicin_Move_T_Medician" FromRole="T_Medician" ToRole="T_Medicin_Move" />
+          <NavigationProperty Name="T_OPeration_Damage" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_Medician" FromRole="T_Medician" ToRole="T_OPeration_Damage" />
+          <NavigationProperty Name="T_OPeration_IN_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Medician" FromRole="T_Medician" ToRole="T_OPeration_IN_Item" />
+          <NavigationProperty Name="T_OPeration_Out_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_Medician" FromRole="T_Medician" ToRole="T_OPeration_Out_Item" />
         </EntityType>
-        <EntityType Name="T_Pharmcey_Info">
+        <EntityType Name="T_Medicin_Move">
+          <Key>
+            <PropertyRef Name="med_move_id" />
+          </Key>
+          <Property Name="med_move_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="med_move_in_count" Type="Int32" />
+          <Property Name="med_move_out_count" Type="Int32" />
+          <Property Name="med_move_damage_count" Type="Int32" />
+          <Property Name="med_move_total_quntity" Type="Int32" />
+          <Property Name="med_id" Type="Int32" />
+          <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_Medicin_Move_T_Medician" FromRole="T_Medicin_Move" ToRole="T_Medician" />
+        </EntityType>
+        <EntityType Name="T_OPeration_Damage">
+          <Key>
+            <PropertyRef Name="dam_OP_id" />
+          </Key>
+          <Property Name="dam_OP_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emp_id" Type="Int32" />
+          <Property Name="op_type_id" Type="Int32" />
+          <Property Name="Med_id" Type="Int32" />
+          <Property Name="In_op_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_Medician" FromRole="T_OPeration_Damage" ToRole="T_Medician" />
+          <NavigationProperty Name="T_OPeration_IN" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_IN" FromRole="T_OPeration_Damage" ToRole="T_OPeration_IN" />
+          <NavigationProperty Name="T_OPeration_Type" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_Type" FromRole="T_OPeration_Damage" ToRole="T_OPeration_Type" />
+          <NavigationProperty Name="T_Pers_Emploee" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_Pers_Emploee" FromRole="T_OPeration_Damage" ToRole="T_Pers_Emploee" />
+        </EntityType>
+        <EntityType Name="T_OPeration_IN">
+          <Key>
+            <PropertyRef Name="in_op_id" />
+          </Key>
+          <Property Name="in_op_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="in_op_date" Type="DateTime" Precision="0" />
+          <Property Name="in_op_time" Type="Time" Precision="7" />
+          <Property Name="in_op_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="in_op_state" Type="Boolean" />
+          <Property Name="in_op_recipt_no" Type="Int32" />
+          <Property Name="in_op_recipt_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="in_op_recipt_date" Type="DateTime" Precision="0" />
+          <Property Name="donar_emp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="donar_id" Type="Int32" />
+          <Property Name="emp_id" Type="Int32" />
+          <Property Name="op_type_id" Type="Int32" />
+          <NavigationProperty Name="T_OPeration_Damage" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_IN" FromRole="T_OPeration_IN" ToRole="T_OPeration_Damage" />
+          <NavigationProperty Name="T_OPeration_IN_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_OPeration_IN" FromRole="T_OPeration_IN" ToRole="T_OPeration_IN_Item" />
+          <NavigationProperty Name="T_OPeration_Type" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_T_OPeration_Type" FromRole="T_OPeration_IN" ToRole="T_OPeration_Type" />
+          <NavigationProperty Name="T_Pers_Donars" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_T_Pers_Donars" FromRole="T_OPeration_IN" ToRole="T_Pers_Donars" />
+          <NavigationProperty Name="T_Pers_Emploee" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_T_Pers_Emploee" FromRole="T_OPeration_IN" ToRole="T_Pers_Emploee" />
+        </EntityType>
+        <EntityType Name="T_OPeration_IN_Item">
+          <Key>
+            <PropertyRef Name="in_item_id" />
+          </Key>
+          <Property Name="in_item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="in_item_date" Type="DateTime" Precision="0" />
+          <Property Name="in_item_time" Type="Time" Precision="7" />
+          <Property Name="in_item_quntity" Type="Int32" />
+          <Property Name="in_item_proDate" Type="DateTime" Precision="0" />
+          <Property Name="in_item_expDate" Type="DateTime" Precision="0" />
+          <Property Name="in_B_It_state" Type="Boolean" />
+          <Property Name="in_B_It_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Med_id" Type="Int32" />
+          <Property Name="In_op_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_Medician" FromRole="T_OPeration_IN_Item" ToRole="T_Medician" />
+          <NavigationProperty Name="T_OPeration_IN" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_Item_T_OPeration_IN" FromRole="T_OPeration_IN_Item" ToRole="T_OPeration_IN" />
+        </EntityType>
+        <EntityType Name="T_OPeration_Out">
+          <Key>
+            <PropertyRef Name="out_op_id" />
+          </Key>
+          <Property Name="out_op_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reciver_id" Type="Int32" />
+          <Property Name="emp_id" Type="Int32" />
+          <Property Name="op_type_id" Type="Int32" />
+          <NavigationProperty Name="T_OPeration_Out_Item" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_Out" FromRole="T_OPeration_Out" ToRole="T_OPeration_Out_Item" />
+          <NavigationProperty Name="T_OPeration_Type" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_OPeration_Type" FromRole="T_OPeration_Out" ToRole="T_OPeration_Type" />
+          <NavigationProperty Name="T_Pers_Emploee" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Emploee" FromRole="T_OPeration_Out" ToRole="T_Pers_Emploee" />
+          <NavigationProperty Name="T_PERS_Recivers" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_PERS_Recivers" FromRole="T_OPeration_Out" ToRole="T_PERS_Recivers" />
+        </EntityType>
+        <EntityType Name="T_OPeration_Out_Item">
+          <Key>
+            <PropertyRef Name="out_item_id" />
+          </Key>
+          <Property Name="out_item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Med_id" Type="Int32" />
+          <Property Name="out_op_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_Medician" FromRole="T_OPeration_Out_Item" ToRole="T_Medician" />
+          <NavigationProperty Name="T_OPeration_Out" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_Item_T_OPeration_Out" FromRole="T_OPeration_Out_Item" ToRole="T_OPeration_Out" />
+        </EntityType>
+        <EntityType Name="T_OPeration_Type">
+          <Key>
+            <PropertyRef Name="OP_type_id" />
+          </Key>
+          <Property Name="OP_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OP_type_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OP_type_state" Type="Boolean" />
+          <Property Name="OP_type_nots" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_OPeration_Damage" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_OPeration_Type" FromRole="T_OPeration_Type" ToRole="T_OPeration_Damage" />
+          <NavigationProperty Name="T_OPeration_IN" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_T_OPeration_Type" FromRole="T_OPeration_Type" ToRole="T_OPeration_IN" />
+          <NavigationProperty Name="T_OPeration_Out" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_OPeration_Type" FromRole="T_OPeration_Type" ToRole="T_OPeration_Out" />
+        </EntityType>
+        <EntityType Name="T_Pers_Donars">
+          <Key>
+            <PropertyRef Name="Donar_id" />
+          </Key>
+          <Property Name="Donar_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Donar_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_OPeration_IN" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_T_Pers_Donars" FromRole="T_Pers_Donars" ToRole="T_OPeration_IN" />
+        </EntityType>
+        <EntityType Name="T_Pers_Emploee">
+          <Key>
+            <PropertyRef Name="Emp_id" />
+          </Key>
+          <Property Name="Emp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_OPeration_Damage" Relationship="PHANACEY_DBModel.FK_T_OPeration_Damage_T_Pers_Emploee" FromRole="T_Pers_Emploee" ToRole="T_OPeration_Damage" />
+          <NavigationProperty Name="T_OPeration_IN" Relationship="PHANACEY_DBModel.FK_T_OPeration_IN_T_Pers_Emploee" FromRole="T_Pers_Emploee" ToRole="T_OPeration_IN" />
+          <NavigationProperty Name="T_OPeration_Out" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_Pers_Emploee" FromRole="T_Pers_Emploee" ToRole="T_OPeration_Out" />
+        </EntityType>
+        <EntityType Name="T_PERS_Recivers">
           <Key>
             <PropertyRef Name="id" />
           </Key>
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="T_OPeration_Out" Relationship="PHANACEY_DBModel.FK_T_OPeration_Out_T_PERS_Recivers" FromRole="T_PERS_Recivers" ToRole="T_OPeration_Out" />
+        </EntityType>
+        <EntityType Name="T_Pharmcey_Info">
+          <Key>
+            <PropertyRef Name="ph_id" />
+          </Key>
+          <Property Name="ph_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ph_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ph_pers_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -202,178 +787,418 @@ warning 6002: The table/view 'PHANACEY_DB.dbo.T_Store_Operation' does not have a
           <Property Name="ph_logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ph_state" Type="Boolean" />
           <Property Name="ph_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_Medician" Relationship="PHANACEY_DBModel.FK_T_Medician_T_Pharmcey_Info" FromRole="T_Pharmcey_Info" ToRole="T_Medician" />
         </EntityType>
-        <EntityType Name="T_Store">
-          <Key>
-            <PropertyRef Name="store_id" />
-          </Key>
-          <Property Name="store_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="store_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="store_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="store_start_date" Type="DateTime" Precision="0" />
-          <Property Name="store_location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="store_mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="store_state" Type="Boolean" />
-          <Property Name="store_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="store_T_id" Type="Int32" />
-        </EntityType>
-        <EntityType Name="T_Store_Operation_Type">
-          <Key>
-            <PropertyRef Name="store_op_T_id" />
-          </Key>
-          <Property Name="store_op_T_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="store_op_T_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="T_Store_Types">
-          <Key>
-            <PropertyRef Name="store_T_id" />
-          </Key>
-          <Property Name="store_T_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="store_T_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="store_defult" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="T_Store_Operation">
-          <Key>
-            <PropertyRef Name="store_op_id" />
-          </Key>
-          <Property Name="store_op_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="store_op_date" Type="DateTime" Precision="0" />
-          <Property Name="store_op_time" Type="Time" Precision="7" />
-          <Property Name="entry_trans_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="bond_id" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="bond_type_id" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="store_op_T_id" Type="Int32" />
-        </EntityType>
-        <EntityContainer Name="PHANACEY_DBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="F_Med_Companeys" EntityType="Self.F_Med_Companeys" />
-          <EntitySet Name="T_Med_Category" EntityType="Self.T_Med_Category" />
-          <EntitySet Name="T_Med_Shape" EntityType="Self.T_Med_Shape" />
-          <EntitySet Name="T_Med_Storage_Shape" EntityType="Self.T_Med_Storage_Shape" />
-          <EntitySet Name="T_Medician" EntityType="Self.T_Medician" />
-          <EntitySet Name="T_Pharmcey_Info" EntityType="Self.T_Pharmcey_Info" />
-          <EntitySet Name="T_Store" EntityType="Self.T_Store" />
-          <EntitySet Name="T_Store_Operation_Type" EntityType="Self.T_Store_Operation_Type" />
-          <EntitySet Name="T_Store_Types" EntityType="Self.T_Store_Types" />
-          <EntitySet Name="T_Store_Operation" EntityType="Self.T_Store_Operation" />
-        </EntityContainer>
-      </Schema>
+        <Association Name="FK_T_Medician_T_Med_Category">
+          <End Type="PHANACEY_DBModel.T_Med_Category" Role="T_Med_Category" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_Medician" Role="T_Medician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Med_Category">
+              <PropertyRef Name="med_cat_id" />
+            </Principal>
+            <Dependent Role="T_Medician">
+              <PropertyRef Name="med_cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Medician_T_Med_Shape">
+          <End Type="PHANACEY_DBModel.T_Med_Shape" Role="T_Med_Shape" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_Medician" Role="T_Medician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Med_Shape">
+              <PropertyRef Name="med_shape_id" />
+            </Principal>
+            <Dependent Role="T_Medician">
+              <PropertyRef Name="med_shape_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Medician_T_Med_Storage_Shape">
+          <End Type="PHANACEY_DBModel.T_Med_Storage_Shape" Role="T_Med_Storage_Shape" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_Medician" Role="T_Medician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Med_Storage_Shape">
+              <PropertyRef Name="med_stor_shape_id" />
+            </Principal>
+            <Dependent Role="T_Medician">
+              <PropertyRef Name="med_stor_shape_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Medician_T_Pharmcey_Info">
+          <End Type="PHANACEY_DBModel.T_Pharmcey_Info" Role="T_Pharmcey_Info" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_Medician" Role="T_Medician" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pharmcey_Info">
+              <PropertyRef Name="ph_id" />
+            </Principal>
+            <Dependent Role="T_Medician">
+              <PropertyRef Name="ph_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Medicin_Move_T_Medician">
+          <End Type="PHANACEY_DBModel.T_Medician" Role="T_Medician" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_Medicin_Move" Role="T_Medicin_Move" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Medician">
+              <PropertyRef Name="med_id" />
+            </Principal>
+            <Dependent Role="T_Medicin_Move">
+              <PropertyRef Name="med_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Damage_T_Medician">
+          <End Type="PHANACEY_DBModel.T_Medician" Role="T_Medician" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_Damage" Role="T_OPeration_Damage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Medician">
+              <PropertyRef Name="med_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Damage">
+              <PropertyRef Name="Med_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_IN_Item_T_Medician">
+          <End Type="PHANACEY_DBModel.T_Medician" Role="T_Medician" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_IN_Item" Role="T_OPeration_IN_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Medician">
+              <PropertyRef Name="med_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_IN_Item">
+              <PropertyRef Name="Med_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_Item_T_Medician">
+          <End Type="PHANACEY_DBModel.T_Medician" Role="T_Medician" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_Out_Item" Role="T_OPeration_Out_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Medician">
+              <PropertyRef Name="med_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out_Item">
+              <PropertyRef Name="Med_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Damage_T_OPeration_IN">
+          <End Type="PHANACEY_DBModel.T_OPeration_IN" Role="T_OPeration_IN" Multiplicity="1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_Damage" Role="T_OPeration_Damage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_IN">
+              <PropertyRef Name="in_op_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Damage">
+              <PropertyRef Name="In_op_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Damage_T_OPeration_Type">
+          <End Type="PHANACEY_DBModel.T_OPeration_Type" Role="T_OPeration_Type" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_Damage" Role="T_OPeration_Damage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_Type">
+              <PropertyRef Name="OP_type_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Damage">
+              <PropertyRef Name="op_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Damage_T_Pers_Emploee">
+          <End Type="PHANACEY_DBModel.T_Pers_Emploee" Role="T_Pers_Emploee" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_Damage" Role="T_OPeration_Damage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pers_Emploee">
+              <PropertyRef Name="Emp_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Damage">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_IN_Item_T_OPeration_IN">
+          <End Type="PHANACEY_DBModel.T_OPeration_IN" Role="T_OPeration_IN" Multiplicity="1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_IN_Item" Role="T_OPeration_IN_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_IN">
+              <PropertyRef Name="in_op_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_IN_Item">
+              <PropertyRef Name="In_op_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_IN_T_OPeration_Type">
+          <End Type="PHANACEY_DBModel.T_OPeration_Type" Role="T_OPeration_Type" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_IN" Role="T_OPeration_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_Type">
+              <PropertyRef Name="OP_type_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_IN">
+              <PropertyRef Name="op_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_IN_T_Pers_Donars">
+          <End Type="PHANACEY_DBModel.T_Pers_Donars" Role="T_Pers_Donars" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_IN" Role="T_OPeration_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pers_Donars">
+              <PropertyRef Name="Donar_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_IN">
+              <PropertyRef Name="donar_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_IN_T_Pers_Emploee">
+          <End Type="PHANACEY_DBModel.T_Pers_Emploee" Role="T_Pers_Emploee" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_IN" Role="T_OPeration_IN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pers_Emploee">
+              <PropertyRef Name="Emp_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_IN">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_Item_T_OPeration_Out">
+          <End Type="PHANACEY_DBModel.T_OPeration_Out" Role="T_OPeration_Out" Multiplicity="1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_Out_Item" Role="T_OPeration_Out_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_Out">
+              <PropertyRef Name="out_op_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out_Item">
+              <PropertyRef Name="out_op_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_T_OPeration_Type">
+          <End Type="PHANACEY_DBModel.T_OPeration_Type" Role="T_OPeration_Type" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_Out" Role="T_OPeration_Out" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OPeration_Type">
+              <PropertyRef Name="OP_type_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out">
+              <PropertyRef Name="op_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_T_Pers_Emploee">
+          <End Type="PHANACEY_DBModel.T_Pers_Emploee" Role="T_Pers_Emploee" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_Out" Role="T_OPeration_Out" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Pers_Emploee">
+              <PropertyRef Name="Emp_id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_OPeration_Out_T_PERS_Recivers">
+          <End Type="PHANACEY_DBModel.T_PERS_Recivers" Role="T_PERS_Recivers" Multiplicity="0..1" />
+          <End Type="PHANACEY_DBModel.T_OPeration_Out" Role="T_OPeration_Out" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_PERS_Recivers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="T_OPeration_Out">
+              <PropertyRef Name="reciver_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PHANACEY_DBModelStoreContainer" CdmEntityContainer="PHANACEY_DBEntities">
-          <EntitySetMapping Name="F_Med_Companeys">
-            <EntityTypeMapping TypeName="PHANACEY_DBModel.F_Med_Companeys">
-              <MappingFragment StoreEntitySet="F_Med_Companeys">
-                <ScalarProperty Name="med_com_id" ColumnName="med_com_id" />
-                <ScalarProperty Name="med_com_name" ColumnName="med_com_name" />
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Med_Category">
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Med_Category">
               <MappingFragment StoreEntitySet="T_Med_Category">
-                <ScalarProperty Name="med_cat_id" ColumnName="med_cat_id" />
                 <ScalarProperty Name="med_cat_name" ColumnName="med_cat_name" />
+                <ScalarProperty Name="med_cat_id" ColumnName="med_cat_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Med_Shape">
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Med_Shape">
               <MappingFragment StoreEntitySet="T_Med_Shape">
-                <ScalarProperty Name="med_shape_id" ColumnName="med_shape_id" />
                 <ScalarProperty Name="med_shape_name" ColumnName="med_shape_name" />
+                <ScalarProperty Name="med_shape_id" ColumnName="med_shape_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Med_Storage_Shape">
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Med_Storage_Shape">
               <MappingFragment StoreEntitySet="T_Med_Storage_Shape">
-                <ScalarProperty Name="med_stor_shape_id" ColumnName="med_stor_shape_id" />
                 <ScalarProperty Name="med_stor_shape_name" ColumnName="med_stor_shape_name" />
+                <ScalarProperty Name="med_stor_shape_id" ColumnName="med_stor_shape_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Medician">
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Medician">
               <MappingFragment StoreEntitySet="T_Medician">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="med_code" ColumnName="med_code" />
-                <ScalarProperty Name="med_name" ColumnName="med_name" />
-                <ScalarProperty Name="med_latin_name" ColumnName="med_latin_name" />
-                <ScalarProperty Name="med_arabic_name" ColumnName="med_arabic_name" />
-                <ScalarProperty Name="med_chemical_name" ColumnName="med_chemical_name" />
-                <ScalarProperty Name="med_barcode" ColumnName="med_barcode" />
-                <ScalarProperty Name="med_minimum" ColumnName="med_minimum" />
-                <ScalarProperty Name="med_state" ColumnName="med_state" />
-                <ScalarProperty Name="med_note" ColumnName="med_note" />
-                <ScalarProperty Name="med_com_id" ColumnName="med_com_id" />
-                <ScalarProperty Name="med_shape_id" ColumnName="med_shape_id" />
-                <ScalarProperty Name="med_cat_id" ColumnName="med_cat_id" />
                 <ScalarProperty Name="med_stor_shape_id" ColumnName="med_stor_shape_id" />
+                <ScalarProperty Name="med_cat_id" ColumnName="med_cat_id" />
+                <ScalarProperty Name="med_shape_id" ColumnName="med_shape_id" />
+                <ScalarProperty Name="ph_id" ColumnName="ph_id" />
+                <ScalarProperty Name="med_note" ColumnName="med_note" />
+                <ScalarProperty Name="med_state" ColumnName="med_state" />
+                <ScalarProperty Name="med_minimum" ColumnName="med_minimum" />
+                <ScalarProperty Name="med_name" ColumnName="med_name" />
+                <ScalarProperty Name="med_code" ColumnName="med_code" />
+                <ScalarProperty Name="med_id" ColumnName="med_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Medicin_Move">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Medicin_Move">
+              <MappingFragment StoreEntitySet="T_Medicin_Move">
+                <ScalarProperty Name="med_id" ColumnName="med_id" />
+                <ScalarProperty Name="med_move_total_quntity" ColumnName="med_move_total_quntity" />
+                <ScalarProperty Name="med_move_damage_count" ColumnName="med_move_damage_count" />
+                <ScalarProperty Name="med_move_out_count" ColumnName="med_move_out_count" />
+                <ScalarProperty Name="med_move_in_count" ColumnName="med_move_in_count" />
+                <ScalarProperty Name="med_move_id" ColumnName="med_move_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_OPeration_Damage">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_OPeration_Damage">
+              <MappingFragment StoreEntitySet="T_OPeration_Damage">
+                <ScalarProperty Name="In_op_id" ColumnName="In_op_id" />
+                <ScalarProperty Name="Med_id" ColumnName="Med_id" />
+                <ScalarProperty Name="op_type_id" ColumnName="op_type_id" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="dam_OP_id" ColumnName="dam_OP_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_OPeration_IN">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_OPeration_IN">
+              <MappingFragment StoreEntitySet="T_OPeration_IN">
+                <ScalarProperty Name="op_type_id" ColumnName="op_type_id" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="donar_id" ColumnName="donar_id" />
+                <ScalarProperty Name="donar_emp" ColumnName="donar_emp" />
+                <ScalarProperty Name="in_op_recipt_date" ColumnName="in_op_recipt_date" />
+                <ScalarProperty Name="in_op_recipt_name" ColumnName="in_op_recipt_name" />
+                <ScalarProperty Name="in_op_recipt_no" ColumnName="in_op_recipt_no" />
+                <ScalarProperty Name="in_op_state" ColumnName="in_op_state" />
+                <ScalarProperty Name="in_op_text" ColumnName="in_op_text" />
+                <ScalarProperty Name="in_op_time" ColumnName="in_op_time" />
+                <ScalarProperty Name="in_op_date" ColumnName="in_op_date" />
+                <ScalarProperty Name="in_op_id" ColumnName="in_op_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_OPeration_IN_Item">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_OPeration_IN_Item">
+              <MappingFragment StoreEntitySet="T_OPeration_IN_Item">
+                <ScalarProperty Name="In_op_id" ColumnName="In_op_id" />
+                <ScalarProperty Name="Med_id" ColumnName="Med_id" />
+                <ScalarProperty Name="in_B_It_note" ColumnName="in_B_It_note" />
+                <ScalarProperty Name="in_B_It_state" ColumnName="in_B_It_state" />
+                <ScalarProperty Name="in_item_expDate" ColumnName="in_item_expDate" />
+                <ScalarProperty Name="in_item_proDate" ColumnName="in_item_proDate" />
+                <ScalarProperty Name="in_item_quntity" ColumnName="in_item_quntity" />
+                <ScalarProperty Name="in_item_time" ColumnName="in_item_time" />
+                <ScalarProperty Name="in_item_date" ColumnName="in_item_date" />
+                <ScalarProperty Name="in_item_id" ColumnName="in_item_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_OPeration_Out">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_OPeration_Out">
+              <MappingFragment StoreEntitySet="T_OPeration_Out">
+                <ScalarProperty Name="op_type_id" ColumnName="op_type_id" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="reciver_id" ColumnName="reciver_id" />
+                <ScalarProperty Name="out_op_id" ColumnName="out_op_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_OPeration_Out_Item">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_OPeration_Out_Item">
+              <MappingFragment StoreEntitySet="T_OPeration_Out_Item">
+                <ScalarProperty Name="out_op_id" ColumnName="out_op_id" />
+                <ScalarProperty Name="Med_id" ColumnName="Med_id" />
+                <ScalarProperty Name="out_item_id" ColumnName="out_item_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_OPeration_Type">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_OPeration_Type">
+              <MappingFragment StoreEntitySet="T_OPeration_Type">
+                <ScalarProperty Name="OP_type_nots" ColumnName="OP_type_nots" />
+                <ScalarProperty Name="OP_type_state" ColumnName="OP_type_state" />
+                <ScalarProperty Name="OP_type_name" ColumnName="OP_type_name" />
+                <ScalarProperty Name="OP_type_id" ColumnName="OP_type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Pers_Donars">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Pers_Donars">
+              <MappingFragment StoreEntitySet="T_Pers_Donars">
+                <ScalarProperty Name="Donar_name" ColumnName="Donar_name" />
+                <ScalarProperty Name="Donar_id" ColumnName="Donar_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Pers_Emploee">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Pers_Emploee">
+              <MappingFragment StoreEntitySet="T_Pers_Emploee">
+                <ScalarProperty Name="Emp_name" ColumnName="Emp_name" />
+                <ScalarProperty Name="Emp_id" ColumnName="Emp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_PERS_Recivers">
+            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_PERS_Recivers">
+              <MappingFragment StoreEntitySet="T_PERS_Recivers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="T_Pharmcey_Info">
             <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Pharmcey_Info">
               <MappingFragment StoreEntitySet="T_Pharmcey_Info">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="code" ColumnName="code" />
-                <ScalarProperty Name="ph_name" ColumnName="ph_name" />
-                <ScalarProperty Name="ph_pers_name" ColumnName="ph_pers_name" />
-                <ScalarProperty Name="ph_phone" ColumnName="ph_phone" />
-                <ScalarProperty Name="ph_mobile" ColumnName="ph_mobile" />
-                <ScalarProperty Name="ph_adress" ColumnName="ph_adress" />
-                <ScalarProperty Name="ph_fax" ColumnName="ph_fax" />
-                <ScalarProperty Name="ph_email" ColumnName="ph_email" />
-                <ScalarProperty Name="ph_logo" ColumnName="ph_logo" />
-                <ScalarProperty Name="ph_state" ColumnName="ph_state" />
                 <ScalarProperty Name="ph_note" ColumnName="ph_note" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="T_Store">
-            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store">
-              <MappingFragment StoreEntitySet="T_Store">
-                <ScalarProperty Name="store_id" ColumnName="store_id" />
-                <ScalarProperty Name="store_code" ColumnName="store_code" />
-                <ScalarProperty Name="store_name" ColumnName="store_name" />
-                <ScalarProperty Name="store_start_date" ColumnName="store_start_date" />
-                <ScalarProperty Name="store_location" ColumnName="store_location" />
-                <ScalarProperty Name="store_mobile" ColumnName="store_mobile" />
-                <ScalarProperty Name="store_state" ColumnName="store_state" />
-                <ScalarProperty Name="store_note" ColumnName="store_note" />
-                <ScalarProperty Name="store_T_id" ColumnName="store_T_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="T_Store_Operation_Type">
-            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store_Operation_Type">
-              <MappingFragment StoreEntitySet="T_Store_Operation_Type">
-                <ScalarProperty Name="store_op_T_id" ColumnName="store_op_T_id" />
-                <ScalarProperty Name="store_op_T_name" ColumnName="store_op_T_name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="T_Store_Types">
-            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store_Types">
-              <MappingFragment StoreEntitySet="T_Store_Types">
-                <ScalarProperty Name="store_T_id" ColumnName="store_T_id" />
-                <ScalarProperty Name="store_T_name" ColumnName="store_T_name" />
-                <ScalarProperty Name="store_defult" ColumnName="store_defult" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="T_Store_Operation">
-            <EntityTypeMapping TypeName="PHANACEY_DBModel.T_Store_Operation">
-              <MappingFragment StoreEntitySet="T_Store_Operation">
-                <ScalarProperty Name="store_op_id" ColumnName="store_op_id" />
-                <ScalarProperty Name="store_op_date" ColumnName="store_op_date" />
-                <ScalarProperty Name="store_op_time" ColumnName="store_op_time" />
-                <ScalarProperty Name="entry_trans_text" ColumnName="entry_trans_text" />
-                <ScalarProperty Name="bond_id" ColumnName="bond_id" />
-                <ScalarProperty Name="bond_type_id" ColumnName="bond_type_id" />
-                <ScalarProperty Name="store_op_T_id" ColumnName="store_op_T_id" />
+                <ScalarProperty Name="ph_state" ColumnName="ph_state" />
+                <ScalarProperty Name="ph_logo" ColumnName="ph_logo" />
+                <ScalarProperty Name="ph_email" ColumnName="ph_email" />
+                <ScalarProperty Name="ph_fax" ColumnName="ph_fax" />
+                <ScalarProperty Name="ph_adress" ColumnName="ph_adress" />
+                <ScalarProperty Name="ph_mobile" ColumnName="ph_mobile" />
+                <ScalarProperty Name="ph_phone" ColumnName="ph_phone" />
+                <ScalarProperty Name="ph_pers_name" ColumnName="ph_pers_name" />
+                <ScalarProperty Name="ph_name" ColumnName="ph_name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="ph_id" ColumnName="ph_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

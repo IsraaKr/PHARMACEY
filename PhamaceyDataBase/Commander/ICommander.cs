@@ -11,7 +11,7 @@ using System.Linq.Expressions;//من اجل الاكسبريشن
 //insert/update/delete/max/getall/getby
 namespace PhamaceyDataBase.Commander
 {
-    interface ICommander<TEntity>
+   public interface ICommander<TEntity>
     {
         //نوع الداتا التي تمر داخل الانترفس هو Tentity
         //لاستخدام الانترفيس نعمل منها انستنس اوبجكت مثل الكلاس
@@ -30,6 +30,8 @@ namespace PhamaceyDataBase.Commander
         //بوليان لنرى النتيجة هل  رجع داتا او لا
         // البي هي اسم الاكسبريشن
         IEnumerable<TEntity> Max_Id(Expression<Func<TEntity, bool>> p);
+
+     
     }
     
     

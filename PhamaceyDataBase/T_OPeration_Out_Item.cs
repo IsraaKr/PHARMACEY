@@ -12,10 +12,13 @@ namespace PhamaceyDataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class T_Store_Types
+    public partial class T_OPeration_Out_Item
     {
-        public int store_T_id { get; set; }
-        public string store_T_name { get; set; }
-        public Nullable<bool> store_defult { get; set; }
+        public int out_item_id { get; set; }
+        public Nullable<int> Med_id { get; set; }
+        public int out_op_id { get; set; }
+    
+        public virtual T_Medician T_Medician { get; set; }
+        public virtual T_OPeration_Out T_OPeration_Out { get; set; }
     }
 }

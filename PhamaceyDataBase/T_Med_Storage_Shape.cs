@@ -14,7 +14,16 @@ namespace PhamaceyDataBase
     
     public partial class T_Med_Storage_Shape
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public T_Med_Storage_Shape()
+        {
+            this.T_Medician = new HashSet<T_Medician>();
+        }
+    
         public int med_stor_shape_id { get; set; }
         public string med_stor_shape_name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_Medician> T_Medician { get; set; }
     }
 }

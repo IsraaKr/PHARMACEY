@@ -12,9 +12,12 @@ namespace PhamaceyDataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class F_Med_Companeys
+    public partial class sysdiagrams
     {
-        public int med_com_id { get; set; }
-        public string med_com_name { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

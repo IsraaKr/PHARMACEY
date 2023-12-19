@@ -73,11 +73,11 @@
   <ItemGroup>
     <Compile Include="c_db.cs" />
     <Compile Include="C_Master.cs" />
-    <Compile Include="Forms\Medicin_Forms\F_Medecian.cs">
+    <Compile Include="Forms\Medicin_Forms\F_Med_add_update.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Medicin_Forms\F_Medecian.Designer.cs">
-      <DependentUpon>F_Medecian.cs</DependentUpon>
+    <Compile Include="Forms\Medicin_Forms\F_Med_add_update.Designer.cs">
+      <DependentUpon>F_Med_add_update.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Medicin_Forms\F_Med_Categories.cs">
       <SubType>Form</SubType>
@@ -85,39 +85,75 @@
     <Compile Include="Forms\Medicin_Forms\F_Med_Categories.Designer.cs">
       <DependentUpon>F_Med_Categories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med_Grid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med_Grid.Designer.cs">
+      <DependentUpon>F_Med_Grid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med_Shape.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med_Shape.Designer.cs">
+      <DependentUpon>F_Med_Shape.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F_Main.Designer.cs">
       <DependentUpon>F_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="F_Master_ADD.cs">
+    <Compile Include="Inheratenz_Forms\F_Master_Add_Update.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F_Master_ADD.Designer.cs">
-      <DependentUpon>F_Master_ADD.cs</DependentUpon>
+    <Compile Include="Inheratenz_Forms\F_Master_Add_Update.Designer.cs">
+      <DependentUpon>F_Master_Add_Update.cs</DependentUpon>
     </Compile>
-    <Compile Include="F_Master_Inheretanz.cs">
+    <Compile Include="Inheratenz_Forms\F_Master_Grid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F_Master_Inheretanz.Designer.cs">
+    <Compile Include="Inheratenz_Forms\F_Master_Grid.Designer.cs">
+      <DependentUpon>F_Master_Grid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inheratenz_Forms\F_Master_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inheratenz_Forms\F_Master_List.Designer.cs">
+      <DependentUpon>F_Master_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inheratenz_Forms\F_Master_Inheretanz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inheratenz_Forms\F_Master_Inheretanz.Designer.cs">
       <DependentUpon>F_Master_Inheretanz.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Medicin_Forms\F_Medecian.resx">
-      <DependentUpon>F_Medecian.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_add_update.resx">
+      <DependentUpon>F_Med_add_update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Categories.resx">
       <DependentUpon>F_Med_Categories.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Grid.resx">
+      <DependentUpon>F_Med_Grid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Shape.resx">
+      <DependentUpon>F_Med_Shape.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_Main.resx">
       <DependentUpon>F_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F_Master_ADD.resx">
-      <DependentUpon>F_Master_ADD.cs</DependentUpon>
+    <EmbeddedResource Include="Inheratenz_Forms\F_Master_Add_Update.resx">
+      <DependentUpon>F_Master_Add_Update.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F_Master_Inheretanz.resx">
+    <EmbeddedResource Include="Inheratenz_Forms\F_Master_Grid.resx">
+      <DependentUpon>F_Master_Grid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inheratenz_Forms\F_Master_List.resx">
+      <DependentUpon>F_Master_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inheratenz_Forms\F_Master_Inheretanz.resx">
       <DependentUpon>F_Master_Inheretanz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />

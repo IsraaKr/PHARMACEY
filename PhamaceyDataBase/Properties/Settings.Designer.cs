@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PhamaceySystem.Properties {
+namespace PhamaceyDataBase.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,13 +25,13 @@ namespace PhamaceySystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Server_Name {
+        [global::System.Configuration.DefaultSettingValueAttribute(".")]
+        public string Server_Name_DB {
             get {
-                return ((string)(this["Server_Name"]));
+                return ((string)(this["Server_Name_DB"]));
             }
             set {
-                this["Server_Name"] = value;
+                this["Server_Name_DB"] = value;
             }
         }
     }

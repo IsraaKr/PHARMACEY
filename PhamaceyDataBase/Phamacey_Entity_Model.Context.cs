@@ -15,17 +15,20 @@ namespace PhamaceyDataBase
     
     public partial class PHANACEY_DBEntities : DbContext
     {
-        public PHANACEY_DBEntities()
-            : base("name=PHANACEY_DBEntities")
+        //public PHANACEY_DBEntities()
+        //    : base("name=PHANACEY_DBEntities")
+        //{
+        //}
+        public PHANACEY_DBEntities( string connstr)
+           : base( connstr )
         {
-        }
 
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
-        }
-   
+        }  
     
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<T_Med_Category> T_Med_Category { get; set; }

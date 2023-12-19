@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhamaceySystem.Inheratenz_Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,8 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms
 {
-    public partial class F_Medecian : F_Master_Inheretanz
+    public partial class F_Medecian : F_Master_Add_Update
+
     {
         public F_Medecian()
         {
@@ -21,7 +23,8 @@ namespace PhamaceySystem.Forms
         {
             base.Title(s_title);
         }
-        private void simpleButton2_Click(object sender, EventArgs e)
+
+        private void simpleButton1_Click(object sender, EventArgs e)
         {
 
         }

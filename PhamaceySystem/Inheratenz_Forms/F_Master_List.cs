@@ -11,18 +11,12 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem
 {
-    public partial class F_Master_ADD : Form
+    public partial class F_Master_List : Form
     {
-        public F_Master_ADD()
+        public F_Master_List()
         {
             InitializeComponent();
-        }
-
-
-
-        private void bar_delete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
+            Get_Data("");
         }
 
 
@@ -196,19 +190,19 @@ namespace PhamaceySystem
         }
 
 
-        private void bar_delete_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bar_delete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
             Delete_Data();
             timer_states_bar.Enabled = true;
         }
 
-        private void bar_print_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bar_print_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Print_Data();
         }
 
-        private void timer_states_bar_Tick_1(object sender, EventArgs e)
+        private void timer_states_bar_Tick(object sender, EventArgs e)
         {
             change_states_message("");
             timer_states_bar.Enabled = false;
@@ -247,6 +241,23 @@ namespace PhamaceySystem
         public virtual void bar_close_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.Close();
+        }
+
+        public virtual void txt_addd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                 Insert_Data();
+            //if (e.KeyCode == Keys.F2)
+            //    new();
+            if (e.KeyCode == Keys.Delete)
+                Delete_Data();
+            if (e.KeyCode == Keys.Escape)
+                Clear_Data(this.Controls);
+        }
+
+        public virtual void gv_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

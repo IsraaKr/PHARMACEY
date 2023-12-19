@@ -1,4 +1,5 @@
-﻿using PhamaceySystem.Forms.Medicin_Forms;
+﻿using PhamaceySystem.Forms;
+using PhamaceySystem.Forms.Medicin_Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace PhamaceySystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new F_Med_Categories());
+            Application.Run(new F_Medecian());
         }
     }
 }

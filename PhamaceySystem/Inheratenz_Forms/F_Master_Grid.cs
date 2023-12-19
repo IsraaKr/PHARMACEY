@@ -18,7 +18,7 @@ namespace PhamaceySystem.Inheratenz_Forms
             InitializeComponent();
             Get_Data("");
         }
-
+        Form c_form;
 
         private void barr_search_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -77,13 +77,20 @@ namespace PhamaceySystem.Inheratenz_Forms
         //الادخال
         public virtual void Insert_Data()
         {
-            timer_states_bar.Enabled = true;
+//timer_states_bar.Enabled = true;
+
+        }
+        public virtual void Open_form( Form f)
+        {
+            c_form = f;
+            f = new Form();
+            f.ShowDialog();
 
         }
         //التعديل
         public virtual void Update_Data()
         {
-            timer_states_bar.Enabled = true;
+            //timer_states_bar.Enabled = true;
 
         }
         public virtual void Print_Data()
@@ -180,32 +187,28 @@ namespace PhamaceySystem.Inheratenz_Forms
         private void barr_save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Insert_Data();
-            timer_states_bar.Enabled = true;
+            //timer_states_bar.Enabled = true;
         }
 
-        private void barr_save_insert_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Insert_Data();
-            timer_states_bar.Enabled = true;
-        }
+    
 
         private void timer_states_bar_Tick(object sender, EventArgs e)
         {
-            change_states_message("");
-            timer_states_bar.Enabled = false;
+            //change_states_message("");
+            //timer_states_bar.Enabled = false;
         }
 
         private void F_Master_Add_Update_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-                // Insert_Data();
-                MessageBox.Show("");
-            //if (e.KeyCode == Keys.F2)
-            //    new();
-            if (e.KeyCode == Keys.Delete)
-                Delete_Data();
-            if (e.KeyCode == Keys.Escape)
-                Clear_Data(this.Controls);
+            //if (e.KeyCode == Keys.Enter)
+            //    // Insert_Data();
+            //    MessageBox.Show("");
+            ////if (e.KeyCode == Keys.F2)
+            ////    new();
+            //if (e.KeyCode == Keys.Delete)
+            //    Delete_Data();
+            //if (e.KeyCode == Keys.Escape)
+            //    Clear_Data(this.Controls);
         }
 
         private void bar_close_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -221,12 +224,20 @@ namespace PhamaceySystem.Inheratenz_Forms
         private void barr_edit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Update_Data();
-            timer_states_bar.Enabled = true;
+            //timer_states_bar.Enabled = true;
         }
 
         private void F_Master_Grid_Load(object sender, EventArgs e)
         {
 
+        }
+
+     
+ 
+        private void timer_date_Tick(object sender, EventArgs e)
+        {
+            bar_date.Caption = DateTime.Now.ToShortDateString();
+            bar_time.Caption = DateTime.Now.ToShortTimeString();
         }
     }
 }

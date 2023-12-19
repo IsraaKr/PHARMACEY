@@ -221,9 +221,9 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 698);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 696);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(360, 22);
+            this.barDockControlBottom.Size = new System.Drawing.Size(360, 24);
             // 
             // barDockControlLeft
             // 
@@ -231,7 +231,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 674);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 672);
             // 
             // barDockControlRight
             // 
@@ -239,7 +239,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(360, 24);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 674);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 672);
             // 
             // dataLayoutControl1
             // 
@@ -251,7 +251,7 @@
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(360, 619);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(360, 617);
             this.dataLayoutControl1.TabIndex = 11;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -260,7 +260,7 @@
             this.gc.Location = new System.Drawing.Point(17, 59);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(326, 501);
+            this.gc.Size = new System.Drawing.Size(326, 499);
             this.gc.TabIndex = 12;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -306,7 +306,7 @@
             // 
             // txt_id
             // 
-            this.txt_id.Location = new System.Drawing.Point(25, 572);
+            this.txt_id.Location = new System.Drawing.Point(25, 570);
             this.txt_id.Margin = new System.Windows.Forms.Padding(5);
             this.txt_id.Name = "txt_id";
             this.txt_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -326,7 +326,7 @@
             this.txt_add1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 15);
-            this.Root.Size = new System.Drawing.Size(360, 619);
+            this.Root.Size = new System.Drawing.Size(360, 617);
             this.Root.TextVisible = false;
             // 
             // txt
@@ -346,7 +346,7 @@
             this.layoutControlItem2.Control = this.gc;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 42);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(330, 505);
+            this.layoutControlItem2.Size = new System.Drawing.Size(330, 503);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -355,15 +355,15 @@
             this.txt_add1.Control = this.txt_id;
             this.txt_add1.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.txt_add1.CustomizationFormText = "txt_add";
-            this.txt_add1.Location = new System.Drawing.Point(0, 547);
+            this.txt_add1.Location = new System.Drawing.Point(0, 545);
             this.txt_add1.Name = "txt_add1";
             this.txt_add1.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
             this.txt_add1.Size = new System.Drawing.Size(330, 42);
             this.txt_add1.Text = "txt_add";
-            this.txt_add1.TextSize = new System.Drawing.Size(38, 13);
+            this.txt_add1.TextSize = new System.Drawing.Size(38, 15);
             this.txt_add1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
-            // F_Master_ADD
+            // F_Master_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -375,7 +375,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "F_Master_ADD";
+            this.Name = "F_Master_List";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

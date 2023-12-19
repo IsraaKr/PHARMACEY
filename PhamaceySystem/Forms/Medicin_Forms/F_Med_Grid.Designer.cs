@@ -36,16 +36,15 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Location = new System.Drawing.Point(0, 40);
             this.lbl_tiltle.Size = new System.Drawing.Size(800, 55);
             // 
             // gc
             // 
             this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc.Location = new System.Drawing.Point(0, 95);
+            this.gc.Location = new System.Drawing.Point(0, 55);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(800, 327);
+            this.gc.Size = new System.Drawing.Size(800, 326);
             this.gc.TabIndex = 18;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});

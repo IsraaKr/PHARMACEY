@@ -35,21 +35,25 @@
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barr_save = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.bar_clear = new DevExpress.XtraBars.BarButtonItem();
+            this.barr_edit = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.bar_close = new DevExpress.XtraBars.BarButtonItem();
-            this.barr_edit = new DevExpress.XtraBars.BarButtonItem();
+            this.bar_delete = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barr_print = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.bar4 = new DevExpress.XtraBars.Bar();
             this.bar_3 = new DevExpress.XtraBars.BarStaticItem();
             this.bar_states = new DevExpress.XtraBars.BarStaticItem();
+            this.bar_time = new DevExpress.XtraBars.BarStaticItem();
+            this.bar_date = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.timer_states_bar = new System.Windows.Forms.Timer(this.components);
+            this.timer_date = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +82,7 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barr_save,
-            this.bar_clear,
+            this.bar_delete,
             this.bar_3,
             this.bar_states,
             this.bar_close,
@@ -87,9 +91,12 @@
             this.barButtonItem3,
             this.barButtonItem4,
             this.barr_edit,
-            this.barr_print});
+            this.barr_print,
+            this.bar_time,
+            this.bar_date,
+            this.barStaticItem3});
             this.barManager1.MainMenu = this.bar3;
-            this.barManager1.MaxItemId = 19;
+            this.barManager1.MaxItemId = 22;
             this.barManager1.StatusBar = this.bar4;
             // 
             // bar3
@@ -114,10 +121,10 @@
             this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barr_save),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem2),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_clear),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barr_edit),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_close),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barr_edit),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_delete),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3),
             new DevExpress.XtraBars.LinkPersistInfo(this.barr_print),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4)});
@@ -128,7 +135,7 @@
             // barr_save
             // 
             this.barr_save.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.barr_save.Caption = "حفظ";
+            this.barr_save.Caption = "إضافة";
             this.barr_save.Id = 0;
             this.barr_save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barr_save.ImageOptions.Image")));
             this.barr_save.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barr_save.ImageOptions.LargeImage")));
@@ -141,16 +148,16 @@
             this.barButtonItem2.Id = 14;
             this.barButtonItem2.Name = "barButtonItem2";
             // 
-            // bar_clear
+            // barr_edit
             // 
-            this.bar_clear.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.bar_clear.Caption = "مسح";
-            this.bar_clear.Id = 3;
-            this.bar_clear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_clear.ImageOptions.Image")));
-            this.bar_clear.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_clear.ImageOptions.LargeImage")));
-            this.bar_clear.Name = "bar_clear";
-            this.bar_clear.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.bar_clear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_clear_ItemClick);
+            this.barr_edit.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.barr_edit.Caption = "تعديل";
+            this.barr_edit.Id = 17;
+            this.barr_edit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barr_edit.ImageOptions.Image")));
+            this.barr_edit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barr_edit.ImageOptions.LargeImage")));
+            this.barr_edit.Name = "barr_edit";
+            this.barr_edit.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barr_edit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barr_edit_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -167,16 +174,16 @@
             this.bar_close.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionInMenu;
             this.bar_close.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_close_ItemClick);
             // 
-            // barr_edit
+            // bar_delete
             // 
-            this.barr_edit.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.barr_edit.Caption = "تعديل";
-            this.barr_edit.Id = 17;
-            this.barr_edit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barr_edit.ImageOptions.Image")));
-            this.barr_edit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barr_edit.ImageOptions.LargeImage")));
-            this.barr_edit.Name = "barr_edit";
-            this.barr_edit.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.barr_edit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barr_edit_ItemClick);
+            this.bar_delete.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.bar_delete.Caption = "حذف";
+            this.bar_delete.Id = 3;
+            this.bar_delete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_delete.ImageOptions.Image")));
+            this.bar_delete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_delete.ImageOptions.LargeImage")));
+            this.bar_delete.Name = "bar_delete";
+            this.bar_delete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bar_delete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_clear_ItemClick);
             // 
             // barButtonItem3
             // 
@@ -210,7 +217,10 @@
             this.bar4.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.bar4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_3),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_states)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_states),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem3),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_date),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_time)});
             this.bar4.OptionsBar.AllowQuickCustomization = false;
             this.bar4.OptionsBar.DrawDragBorder = false;
             this.bar4.OptionsBar.UseWholeRow = true;
@@ -228,6 +238,33 @@
             this.bar_states.Id = 0;
             this.bar_states.Name = "bar_states";
             this.bar_states.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // bar_time
+            // 
+            this.bar_time.Caption = "..";
+            this.bar_time.Id = 19;
+            this.bar_time.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.ImageOptions.Image")));
+            this.bar_time.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.ImageOptions.LargeImage")));
+            this.bar_time.Name = "bar_time";
+            this.bar_time.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // bar_date
+            // 
+            this.bar_date.Caption = "..";
+            this.bar_date.Id = 20;
+            this.bar_date.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem2.ImageOptions.Image")));
+            this.bar_date.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem2.ImageOptions.LargeImage")));
+            this.bar_date.Name = "bar_date";
+            this.bar_date.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barStaticItem3
+            // 
+            this.barStaticItem3.Caption = "..";
+            this.barStaticItem3.Id = 21;
+            this.barStaticItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.Image")));
+            this.barStaticItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem3.ImageOptions.LargeImage")));
+            this.barStaticItem3.Name = "barStaticItem3";
+            this.barStaticItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barDockControlTop
             // 
@@ -266,6 +303,10 @@
             this.timer_states_bar.Interval = 10000;
             this.timer_states_bar.Tick += new System.EventHandler(this.timer_states_bar_Tick);
             // 
+            // timer_date
+            // 
+            this.timer_date.Tick += new System.EventHandler(this.timer_date_Tick);
+            // 
             // F_Master_Grid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -298,7 +339,7 @@
         public DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        public DevExpress.XtraBars.BarButtonItem bar_clear;
+        public DevExpress.XtraBars.BarButtonItem bar_delete;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         public DevExpress.XtraBars.BarButtonItem barr_save;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
@@ -313,5 +354,9 @@
         private System.Windows.Forms.Timer timer_states_bar;
         private DevExpress.XtraBars.BarButtonItem barr_edit;
         private DevExpress.XtraBars.BarButtonItem barr_print;
+        private DevExpress.XtraBars.BarStaticItem bar_time;
+        private DevExpress.XtraBars.BarStaticItem bar_date;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem3;
+        private System.Windows.Forms.Timer timer_date;
     }
 }

@@ -18,7 +18,7 @@ namespace PhamaceySystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new F_Medecian());
+            Application.Run(new F_Med_Grid());
         }
     }
 }

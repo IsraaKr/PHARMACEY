@@ -80,9 +80,9 @@
             // pan_nav
             // 
             this.pan_nav.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pan_nav.Location = new System.Drawing.Point(0, 158);
+            this.pan_nav.Location = new System.Drawing.Point(0, 162);
             this.pan_nav.Name = "pan_nav";
-            this.pan_nav.Size = new System.Drawing.Size(923, 464);
+            this.pan_nav.Size = new System.Drawing.Size(923, 460);
             this.pan_nav.TabIndex = 3;
             // 
             // ribbon
@@ -122,7 +122,7 @@
             this.ribbonPage5,
             this.ribbonPage3,
             this.ribbonPage4});
-            this.ribbon.Size = new System.Drawing.Size(923, 158);
+            this.ribbon.Size = new System.Drawing.Size(923, 162);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // barButtonItem1
@@ -130,18 +130,21 @@
             this.barButtonItem1.Caption = "ادخال دواء";
             this.barButtonItem1.Id = 1;
             this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.Tag = "F_Med_add_update";
             // 
             // barButtonItem2
             // 
             this.barButtonItem2.Caption = "الادوية";
             this.barButtonItem2.Id = 2;
             this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.Tag = "F_Med_Grid";
             // 
             // barButtonItem3
             // 
             this.barButtonItem3.Caption = "أشكال الأدوية";
             this.barButtonItem3.Id = 3;
             this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.Tag = "F_Med_Grid";
             // 
             // barButtonItem4
             // 
@@ -395,11 +398,11 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 598);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 600);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(923, 24);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(923, 22);
             // 
             // F_Main
             // 

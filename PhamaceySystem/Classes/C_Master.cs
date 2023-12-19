@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,34 @@ namespace PhamaceySystem
           MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
         }
+        //طباعة هيدر في التقرير
+        public static void print_header(string header, DevExpress.XtraGrid.GridControl gc)
+        {
+            PrintingSystem print = new PrintingSystem();
+
+            PrintableComponentLink link = new PrintableComponentLink(print);
+            print.Links.Add(link);
+            link.Component = gc;
+
+            string _printheadear = header;
+            PageHeaderFooter phf = link.PageHeaderFooter as PageHeaderFooter;
+            phf.Header.Content.Clear();
+            phf.Header.Content.AddRange(new string[] { "", _printheadear, "" });
+            phf.Header.Font = new System.Drawing.Font("song Ti", 14, System.Drawing.FontStyle.Bold);
+            phf.Header.LineAlignment = BrickAlignment.Center;
+
+            string strfooter = DateTime.Now.ToShortDateString();
+            phf.Footer.Content.Clear();
+            phf.Footer.Content.AddRange(new string[] { "", strfooter, "" });
+            phf.Footer.Font = new System.Drawing.Font("song Ti", 14, System.Drawing.FontStyle.Bold);
+            phf.Footer.LineAlignment = BrickAlignment.Near;
+
+            link.CreateDocument();
+            print.Document.RightToLeftLayout = true;
+            print.PreviewRibbonFormEx.StartPosition = FormStartPosition.CenterScreen;
+            print.PreviewRibbonFormEx.Show();
+        }
+
         #region validation
         public static bool is_text_valid(this TextEdit txt)
         {

@@ -48,11 +48,25 @@ namespace PhamaceySystem
                 {
                     var instances = (string[])key?.GetValue("InstalledInstances");
                     if (instances != null)
+
                         foreach (var element in instances)
+                        {
                             if (element == "MSSQLSERVER")
+                            {
                                 server_name = System.Environment.MachineName;
+                                Properties.Settings.Default.Server_Name = server_name;
+                                Properties.Settings.Default.Save();
+                            }
                             else
+                            {
                                 server_name = System.Environment.MachineName + @"\" + element;
+                                Properties.Settings.Default.Server_Name = server_name;
+                                Properties.Settings.Default.Save();
+
+                            }
+                          //  Properties.Settings.Default.Save();
+                        }
+
                 }
             }
             return server_name;
@@ -77,7 +91,8 @@ namespace PhamaceySystem
         //select
         public static DataTable select(string sql)
         {
-            comnd = new SqlCommand(sql, con);
+            db_conection(".", "PHANACEY_DB");
+             comnd = new SqlCommand(sql, con);
             dr = comnd.ExecuteReader();
             dt = new DataTable();
             dt.Load(dr);
@@ -111,7 +126,7 @@ namespace PhamaceySystem
 
 
 
-        private bool runSqlScriptFile(string pathStoreProceduresFile, string connectionString)
+        public static bool runSqlScriptFile(string pathStoreProceduresFile)
         {
             try
             {
@@ -120,14 +135,12 @@ namespace PhamaceySystem
                 // split script on GO command
                 System.Collections.Generic.IEnumerable<string> commandStrings = System.Text.RegularExpressions.Regex.Split(script, @"^\s*GO\s*$",
                                          RegexOptions.Multiline | RegexOptions.IgnoreCase);
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
+              
                     foreach (string commandString in commandStrings)
                     {
                         if (commandString.Trim() != "")
                         {
-                            using (var command = new SqlCommand(commandString, connection))
+                            using (var command = new SqlCommand(commandString, con))
                             {
                                 try
                                 {
@@ -142,7 +155,7 @@ namespace PhamaceySystem
                             }
                         }
                     }
-                }
+                
                 return true;
             }
             catch (Exception ex)
@@ -151,5 +164,46 @@ namespace PhamaceySystem
                 return false;
             }
         }
+
+        //private bool runSqlScriptFile(string pathStoreProceduresFile, string connectionString)
+        //{
+        //    try
+        //    {
+        //        string script = File.ReadAllText(pathStoreProceduresFile);
+
+        //        // split script on GO command
+        //        System.Collections.Generic.IEnumerable<string> commandStrings = System.Text.RegularExpressions.Regex.Split(script, @"^\s*GO\s*$",
+        //                                 RegexOptions.Multiline | RegexOptions.IgnoreCase);
+        //        using (SqlConnection connection = new SqlConnection(connectionString))
+        //        {
+        //            connection.Open();
+        //            foreach (string commandString in commandStrings)
+        //            {
+        //                if (commandString.Trim() != "")
+        //                {
+        //                    using (var command = new SqlCommand(commandString, connection))
+        //                    {
+        //                        try
+        //                        {
+        //                            command.ExecuteNonQuery();
+        //                        }
+        //                        catch (SqlException ex)
+        //                        {
+        //                            string spError = commandString.Length > 100 ? commandString.Substring(0, 100) + " ...\n..." : commandString;
+        //                            MessageBox.Show(string.Format("Please check the SqlServer script.\nFile: {0} \nLine: {1} \nError: {2} \nSQL Command: \n{3}", pathStoreProceduresFile, ex.LineNumber, ex.Message, spError), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //                            return false;
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        return false;
+        //    }
+        //}
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//فيرتشول من اجل اعمله اوفر رايدينغ عند الوراثة و 
 
 namespace PhamaceySystem
 {
@@ -16,17 +17,55 @@ namespace PhamaceySystem
         public F_Master_Inheretanz()
         {
             InitializeComponent();
+            // view_inheretanz_butomes(true,false, true, true, true, true);
         }
-
-       
+       //عرض و إخفاء الأزرار
+        public virtual void view_inheretanz_butomes(bool save ,bool add , bool add_save , bool edite , bool delete , bool clear , bool print)
+        {
+            if (save)
+            {
+                bar_save.Visibility =0 ;
+                sp_save.Visibility = 0;
+            }
+            if (add)
+            {
+                bar_add.Visibility = 0;
+                sp_add.Visibility = 0;
+            }
+            if (add_save)
+            {
+                bar_add_save.Visibility = 0;
+                sp_add_save.Visibility = 0;
+            }
+            if (edite)
+            {
+                bar_edit.Visibility = 0;
+                sp_edite.Visibility = 0;
+            }
+            if (delete)
+            {
+                bar_delete.Visibility = 0;
+                sp_delete.Visibility = 0;
+            }
+            if (clear)
+            {
+                bar_clear.Visibility = 0;
+                sp_clear.Visibility = 0;
+            }
+            if (print)
+            {
+                bar_print.Visibility = 0;
+                sp_print.Visibility = 0;
+            }
+            
+        }
         private void F_Master_Inheretanz_Load(object sender, EventArgs e)
         {
             Get_Data("");
+           
+            timer_date.Enabled = true;
         }
-        public virtual void Title(string s_title)
-        {
-            lbl_tiltle.Text = s_title;
-        }
+        //تغير رسالة الستاتس
         public void change_states_message(string status_mess)
         {
             bar_states.Caption = "...";
@@ -62,12 +101,27 @@ namespace PhamaceySystem
             }
 
         }
-        //فيرتشول من اجل اعمله اوفر رايدينغ عند الوراثة و 
-        // البراميتر من نوع الداتا بيس انتتي
+        //************************************
+        //توابع الوراثة
+
+        //تغير العنوان و اللون 
+        public virtual void Title(string s_title , Color back_colore)
+        {
+            lbl_tiltle.Text = s_title;
+            lbl_tiltle.BackColor = back_colore;
+        }
+       //تغير العنوان
+        public virtual void Title(string s_title)
+        {
+            lbl_tiltle.Text = s_title;            
+        }
+  
+       //تحميل 
         public virtual void Get_Data(string status_mess)
         {
             change_states_message(status_mess);
         }
+      //التأكد من الصحة
         public virtual bool Validate_Data()
         {
             return true;
@@ -78,12 +132,19 @@ namespace PhamaceySystem
             timer_states_bar.Enabled = true;
 
         }
+        //حفظ و إدخال
+        public virtual void Insert_save_Data()
+        {
+            timer_states_bar.Enabled = true;
+
+        }
         //التعديل
         public virtual void Update_Data()
         {
             timer_states_bar.Enabled = true;
 
         }
+        //الطباعة
         public virtual void Print_Data()
         {
 
@@ -95,43 +156,7 @@ namespace PhamaceySystem
             timer_states_bar.Enabled = true;
 
         }
-
-        public virtual void Clear_Data(Control.ControlCollection Controls)
-        {
-            Action<Control.ControlCollection> func = null;
-            func = (controls) =>
-            {
-                foreach (Control control in controls)
-                    if (control is TextBox)
-                        (control as TextBox).Text = null;
-                    else if (control is DateEdit)
-                        (control as DateEdit).DateTime = DateTime.Now;
-                    else if (control is TimeSpanEdit)
-                        (control as TimeSpanEdit).EditValue = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
-                    else if (control is TimeEdit)
-                        (control as TimeEdit).Time = DateTime.Now;
-                    else if (control is SearchLookUpEdit)
-                    {
-                        (control as SearchLookUpEdit).Text = "";
-                        (control as SearchLookUpEdit).EditValue = null;
-                    }
-                    else if (control is LookUpEdit)
-                    {
-                        control.Text = null;
-                        (control as LookUpEdit).EditValue = null;
-                    }
-                    else if (control is PictureEdit)
-                        (control as PictureEdit).Image = null;
-
-                    else
-                        func(control.Controls);
-            };
-            func(Controls);
-
-        }
-
-
-        //لتفريغ الحقول و لتغير جملة الستاتس
+        //لتفريغ الحقول    
         public virtual void clear_data(Control.ControlCollection s_controls)
         {    //كود لتفريغ كل محتوى الكونترولات
             Action<Control.ControlCollection> func = null;
@@ -156,67 +181,91 @@ namespace PhamaceySystem
                     }
                     else if (c is PictureEdit)
                         (c as PictureEdit).Image = null;
-                    //else if (c is DateTimePicker)
-                    //    (c as DateTimePicker).Value = DateTime.Now;
-                    //else if (c is System.Windows.Forms.ComboBox)
-                    //    (c as System.Windows.Forms.ComboBox).SelectedIndex = -1;
-                    //else if (c is TimeEdit)
-                    //    (c as TimeEdit).Time = DateTime.Now;
+                    else if (c is DateTimePicker)
+                        (c as DateTimePicker).Value = DateTime.Now;
+                    else if (c is System.Windows.Forms.ComboBox)
+                        (c as System.Windows.Forms.ComboBox).SelectedIndex = -1;
+                    else if (c is TimeEdit)
+                        (c as TimeEdit).Time = DateTime.Now;
                     else
                         func(c.Controls);
             };
             func(s_controls);
         }
 
-        private void bar_edite_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Update_Data();
-            timer_states_bar.Enabled = true;
-        }
+  //*****************************************
+  //الأحداث
 
-        private void bar_clear_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            clear_data(this.Controls);
-            Get_Data("");
-            timer_states_bar.Enabled = true;
-        }
-
-        private void barr_save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Insert_Data();
-            timer_states_bar.Enabled = true;
-        }
-
-
-        private void bar_delete_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-            Delete_Data();
-            timer_states_bar.Enabled = true;
-        }
-
-        private void bar_print_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Print_Data();
-        }
-
-        private void timer_states_bar_Tick_1(object sender, EventArgs e)
-        {
-            change_states_message("");
-            timer_states_bar.Enabled = false;
-        }
-
+        //ضغط أي زر في الفورم
         private void F_Master_Inheretanz_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                // Insert_Data();
-                MessageBox.Show("");
+                 Insert_Data();
+           //     MessageBox.Show("");
             //if (e.KeyCode == Keys.F2)
             //    new();
             if (e.KeyCode == Keys.Delete)
                 Delete_Data();
             if (e.KeyCode == Keys.Escape)
-                Clear_Data(this.Controls);
+                clear_data(this.Controls);
+        }
+        //ضغط حفظ
+        private void bar_save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Insert_Data();
+        //    timer_states_bar.Enabled = true;
+        }
+        //ضغط إضافة
+        private void bar_add_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Insert_Data();
+          //  timer_states_bar.Enabled = true;
+        }
+        //ضغط تعديل
+        private void bar_edit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Update_Data();
+            //timer_states_bar.Enabled = true;
+        }
+        //ضغط الحذف
+        private void bar_delete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Delete_Data();
+            //timer_states_bar.Enabled = true;
+        }
+        //ضغط مسح
+        private void bar_clear_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            clear_data(this.Controls);
+            Get_Data("");
+          //  timer_states_bar.Enabled = true;
+        }
+        //ضغط طباعة
+        private void bar_print_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Print_Data();
+        }
+        //ضغط إغلاق
+        private void bar_close_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+        //تايمر الستاتس
+        private void timer_states_bar_Tick(object sender, EventArgs e)
+        {
+            change_states_message("");
+            timer_states_bar.Enabled = false;
+        }
+        //تايمر التاريخ
+        private void timer_date_Tick(object sender, EventArgs e)
+        {
+            bar_date.Caption = DateTime.Now.ToShortDateString();
+            bar_time.Caption = DateTime.Now.ToShortTimeString();
+        }
+
+        private void bar_add_save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Insert_save_Data();
         }
     }
 }

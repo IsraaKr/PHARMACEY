@@ -20,9 +20,9 @@ namespace PhamaceyDataBase
         public Nullable<int> Med_id { get; set; }
         public int In_op_id { get; set; }
     
-        public virtual T_Medician T_Medician { get; set; }
         public virtual T_OPeration_IN T_OPeration_IN { get; set; }
         public virtual T_OPeration_Type T_OPeration_Type { get; set; }
         public virtual T_Pers_Emploee T_Pers_Emploee { get; set; }
+        public virtual T_Medician T_Medician { get; set; }
     }
 }

@@ -20,20 +20,24 @@ namespace PhamaceySystem
         {
             InitializeComponent();
             load_first_frame();
+          //  if (IsFirstTime())            
+               //  create_db();
         }
+        private bool IsFirstTime()
+        {
+            return Properties.Settings.Default.Server_Name == "-";
 
+        }
         private void load_first_frame()
         {
 
-            //F_SOURA_GRID f = new F_SOURA_GRID();
-            //nav(f, pan_nav);
+            F_Quiek_Accses f = new F_Quiek_Accses();
+            nav(f, pan_nav);
            
 
         }
         string server_nam = "";
         string db_nam = "PHANACEY_DB";
-
-
 
         //انشاء قاعدة البيانات
         private void create_db()
@@ -41,15 +45,15 @@ namespace PhamaceySystem
             try//جلب اسم السيرفر و  الاتصال بالسيرفر
             {
                 server_nam = c_db.get_server_name();
-                //  MessageBox.Show("تم جلب اسم السيرفر : " + server_nam);
+                  MessageBox.Show("تم جلب اسم السيرفر : " + server_nam);
             }
             catch (Exception)
             {
-                //  MessageBox.Show("Error in ServerName part");
+                  MessageBox.Show("Error in ServerName part");
             }
             c_db.server_connection(server_nam);
-            c_db.server_connection(server_nam);
-            //     MessageBox.Show ("تم الاتصال بالسيرف " + server_nam);
+          
+                 MessageBox.Show ("تم الاتصال بالسيرف " + server_nam);
 
             // ******************************************
             string sql = "select name from sys.databases"; //تجلب اسماء قواعد البيانات التي عندي
@@ -58,25 +62,25 @@ namespace PhamaceySystem
             try//إنشاء قاعدة  البيانات و الاتصال بها
             {
                 c_db.create_DB(db_nam);
-                //  MessageBox.Show("تم إنشاء قاعدة البيانات : " + db_nam);
+                  MessageBox.Show("تم إنشاء قاعدة البيانات : " + db_nam);
             }
             catch (Exception)
             {
-                //  MessageBox.Show("Error in data base part");
+                  MessageBox.Show("Error in data base part");
             }
             c_db.db_conection(server_nam, db_nam);
-            //  MessageBox.Show ("تم الاتصال بقاعدة البيانات " + db_nam);
+              MessageBox.Show ("تم الاتصال بقاعدة البيانات " + db_nam);
 
             //************************************************
-            //try//إنشاء الجداول
-            //{
-            //    c_db.Create_Tables();
-            //    //  MessageBox.Show("تم إنشاء كل الجداول  ");
-            //}
-            //catch (Exception)
-            //{
-            //    //  MessageBox.Show("Error in tables part"); 
-            //}
+            try//إنشاء الجداول
+            {
+              bool run=  c_db.runSqlScriptFile(@"C:\Users\user\Desktop\sss.sql");
+                  MessageBox.Show("تم إنشاء كل الجداول  "+ run);
+            }
+            catch (Exception)
+            {
+                  MessageBox.Show("Error in tables part"); 
+            }
 
         }
         //نستدعيه عند كل فتحة فورم جديد 
@@ -131,10 +135,6 @@ namespace PhamaceySystem
             }
         }
 
-        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            F_Medecian f = new F_Medecian();
-            nav(f, pan_nav);
-        }
+    
     }
 }

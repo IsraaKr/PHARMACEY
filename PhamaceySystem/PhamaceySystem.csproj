@@ -73,12 +73,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\c_db.cs" />
-    <Compile Include="Classes\C_Master.cs" />
-    <Compile Include="Forms\Medicin_Forms\F_Medecian.cs">
+    <Compile Include="C_Master.cs" />
+    <Compile Include="Forms\F_Master.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Medicin_Forms\F_Medecian.Designer.cs">
-      <DependentUpon>F_Medecian.cs</DependentUpon>
+    <Compile Include="Forms\F_Master.Designer.cs">
+      <DependentUpon>F_Master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\F_Quiek_Accses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\F_Quiek_Accses.Designer.cs">
+      <DependentUpon>F_Quiek_Accses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medicin_Forms\F_Med.Designer.cs">
+      <DependentUpon>F_Med.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Medicin_Forms\F_Med_Categories.cs">
       <SubType>Form</SubType>
@@ -97,6 +109,18 @@
     </Compile>
     <Compile Include="Forms\Medicin_Forms\F_Med_Shape.Designer.cs">
       <DependentUpon>F_Med_Shape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\F_Server_Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\F_Server_Setting.Designer.cs">
+      <DependentUpon>F_Server_Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Store_Forms\F_In_Op.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store_Forms\F_In_Op.Designer.cs">
+      <DependentUpon>F_In_Op.cs</DependentUpon>
     </Compile>
     <Compile Include="F_Main.cs">
       <SubType>Form</SubType>
@@ -130,8 +154,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Medicin_Forms\F_Medecian.resx">
-      <DependentUpon>F_Medecian.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\F_Master.resx">
+      <DependentUpon>F_Master.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\F_Quiek_Accses.resx">
+      <DependentUpon>F_Quiek_Accses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medicin_Forms\F_Med.resx">
+      <DependentUpon>F_Med.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Categories.resx">
       <DependentUpon>F_Med_Categories.cs</DependentUpon>
@@ -141,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Medicin_Forms\F_Med_Shape.resx">
       <DependentUpon>F_Med_Shape.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting_Forms\F_Server_Setting.resx">
+      <DependentUpon>F_Server_Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store_Forms\F_In_Op.resx">
+      <DependentUpon>F_In_Op.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Main.resx">
       <DependentUpon>F_Main.cs</DependentUpon>
@@ -168,6 +204,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\PhamaceyDataBase.T_Medician.datasource" />
+    <None Include="Properties\DataSources\PhamaceyDataBase.T_Med_Shape.datasource" />
+    <None Include="Properties\DataSources\PhamaceyDataBase.T_OPeration_IN.datasource" />
+    <None Include="Properties\DataSources\PhamaceyDataBase.T_OPeration_IN_Item.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

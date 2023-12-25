@@ -15,30 +15,23 @@ namespace PhamaceyDataBase
     
     public partial class PHANACEY_DBEntities : DbContext
     {
-        //public PHANACEY_DBEntities()
-        //    : base("name=PHANACEY_DBEntities")
-        //{
-        //}
-        public PHANACEY_DBEntities( string connstr)
-           : base( connstr )
+        public PHANACEY_DBEntities( string con)
+            : base(con)
         {
-
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
-        }  
+        }
     
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<T_Med_Category> T_Med_Category { get; set; }
         public virtual DbSet<T_Med_Shape> T_Med_Shape { get; set; }
         public virtual DbSet<T_Med_Storage_Shape> T_Med_Storage_Shape { get; set; }
-        public virtual DbSet<T_Medician> T_Medician { get; set; }
         public virtual DbSet<T_Medicin_Move> T_Medicin_Move { get; set; }
         public virtual DbSet<T_OPeration_Damage> T_OPeration_Damage { get; set; }
         public virtual DbSet<T_OPeration_IN> T_OPeration_IN { get; set; }
-        public virtual DbSet<T_OPeration_IN_Item> T_OPeration_IN_Item { get; set; }
         public virtual DbSet<T_OPeration_Out> T_OPeration_Out { get; set; }
         public virtual DbSet<T_OPeration_Out_Item> T_OPeration_Out_Item { get; set; }
         public virtual DbSet<T_OPeration_Type> T_OPeration_Type { get; set; }
@@ -46,5 +39,7 @@ namespace PhamaceyDataBase
         public virtual DbSet<T_Pers_Emploee> T_Pers_Emploee { get; set; }
         public virtual DbSet<T_PERS_Recivers> T_PERS_Recivers { get; set; }
         public virtual DbSet<T_Pharmcey_Info> T_Pharmcey_Info { get; set; }
+        public virtual DbSet<T_Medician> T_Medician { get; set; }
+        public virtual DbSet<T_OPeration_IN_Item> T_OPeration_IN_Item { get; set; }
     }
 }

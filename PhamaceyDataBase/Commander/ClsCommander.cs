@@ -17,7 +17,7 @@ namespace PhamaceyDataBase.Commander
     ثم ملف الانتتي .context.cs */
     public  class test
     {
-        public static string ser = PhamaceyDataBase.Properties.Settings.Default.Server_Name_DB.ToString();
+        public static string ser = C_SqlCon.Server_Name;
         public static string x = @" App=EntityFramework ""; ";
         public static string connstr =
             @"metadata=res://*/Phamacey_Entity_Model.csdl|

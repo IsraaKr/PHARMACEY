@@ -19,8 +19,8 @@ namespace PhamaceyDataBase
         {
             this.T_Medicin_Move = new HashSet<T_Medicin_Move>();
             this.T_OPeration_Damage = new HashSet<T_OPeration_Damage>();
-            this.T_OPeration_IN_Item = new HashSet<T_OPeration_IN_Item>();
             this.T_OPeration_Out_Item = new HashSet<T_OPeration_Out_Item>();
+            this.T_OPeration_IN_Item = new HashSet<T_OPeration_IN_Item>();
         }
     
         public int med_id { get; set; }
@@ -29,22 +29,18 @@ namespace PhamaceyDataBase
         public Nullable<int> med_minimum { get; set; }
         public Nullable<bool> med_state { get; set; }
         public string med_note { get; set; }
-        public Nullable<int> ph_id { get; set; }
         public Nullable<int> med_shape_id { get; set; }
         public Nullable<int> med_cat_id { get; set; }
-        public Nullable<int> med_stor_shape_id { get; set; }
     
         public virtual T_Med_Category T_Med_Category { get; set; }
         public virtual T_Med_Shape T_Med_Shape { get; set; }
-        public virtual T_Med_Storage_Shape T_Med_Storage_Shape { get; set; }
-        public virtual T_Pharmcey_Info T_Pharmcey_Info { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Medicin_Move> T_Medicin_Move { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_OPeration_Damage> T_OPeration_Damage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<T_OPeration_IN_Item> T_OPeration_IN_Item { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_OPeration_Out_Item> T_OPeration_Out_Item { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_OPeration_IN_Item> T_OPeration_IN_Item { get; set; }
     }
 }

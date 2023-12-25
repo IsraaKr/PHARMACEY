@@ -16,7 +16,7 @@ namespace PhamaceySystem.Inheratenz_Forms
         public F_Master_Add_Update()
         {
             InitializeComponent();
-        Get_Data("");
+           Get_Data("");
     }
 
 
@@ -98,39 +98,39 @@ namespace PhamaceySystem.Inheratenz_Forms
 
     }
 
-    public virtual void Clear_Data(Control.ControlCollection Controls)
-    {
-        Action<Control.ControlCollection> func = null;
-        func = (controls) =>
-        {
-            foreach (Control control in controls)
-                if (control is TextBox)
-                    (control as TextBox).Text = null;
-                else if (control is DateEdit)
-                    (control as DateEdit).DateTime = DateTime.Now;
-                else if (control is TimeSpanEdit)
-                    (control as TimeSpanEdit).EditValue = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
-                else if (control is TimeEdit)
-                    (control as TimeEdit).Time = DateTime.Now;
-                else if (control is SearchLookUpEdit)
-                {
-                    (control as SearchLookUpEdit).Text = "";
-                    (control as SearchLookUpEdit).EditValue = null;
-                }
-                else if (control is LookUpEdit)
-                {
-                    control.Text = null;
-                    (control as LookUpEdit).EditValue = null;
-                }
-                else if (control is PictureEdit)
-                    (control as PictureEdit).Image = null;
+    //public virtual void Clear_Data(Control.ControlCollection Controls)
+    //{
+    //    Action<Control.ControlCollection> func = null;
+    //    func = (controls) =>
+    //    {
+    //        foreach (Control control in controls)
+    //            if (control is TextBox)
+    //                (control as TextBox).Text = null;
+    //            else if (control is DateEdit)
+    //                (control as DateEdit).DateTime = DateTime.Now;
+    //            else if (control is TimeSpanEdit)
+    //                (control as TimeSpanEdit).EditValue = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
+    //            else if (control is TimeEdit)
+    //                (control as TimeEdit).Time = DateTime.Now;
+    //            else if (control is SearchLookUpEdit)
+    //            {
+    //                (control as SearchLookUpEdit).Text = "";
+    //                (control as SearchLookUpEdit).EditValue = null;
+    //            }
+    //            else if (control is LookUpEdit)
+    //            {
+    //                control.Text = null;
+    //                (control as LookUpEdit).EditValue = null;
+    //            }
+    //            else if (control is PictureEdit)
+    //                (control as PictureEdit).Image = null;
 
-                else
-                    func(control.Controls);
-        };
-        func(Controls);
+    //            else
+    //                func(control.Controls);
+    //    };
+    //    func(Controls);
 
-    }
+    //}
 
 
     //لتفريغ الحقول و لتغير جملة الستاتس
@@ -158,12 +158,12 @@ namespace PhamaceySystem.Inheratenz_Forms
                 }
                 else if (c is PictureEdit)
                     (c as PictureEdit).Image = null;
-                //else if (c is DateTimePicker)
-                //    (c as DateTimePicker).Value = DateTime.Now;
-                //else if (c is System.Windows.Forms.ComboBox)
-                //    (c as System.Windows.Forms.ComboBox).SelectedIndex = -1;
-                //else if (c is TimeEdit)
-                //    (c as TimeEdit).Time = DateTime.Now;
+                else if (c is DateTimePicker)
+                    (c as DateTimePicker).Value = DateTime.Now;
+                else if (c is System.Windows.Forms.ComboBox)
+                    (c as System.Windows.Forms.ComboBox).SelectedIndex = -1;
+                else if (c is TimeEdit)
+                    (c as TimeEdit).Time = DateTime.Now;
                 else
                     func(c.Controls);
         };
@@ -198,14 +198,13 @@ namespace PhamaceySystem.Inheratenz_Forms
         private void F_Master_Add_Update_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                // Insert_Data();
-                MessageBox.Show("");
+                 Insert_Data();           
             //if (e.KeyCode == Keys.F2)
             //    new();
             if (e.KeyCode == Keys.Delete)
                 Delete_Data();
             if (e.KeyCode == Keys.Escape)
-                Clear_Data(this.Controls);
+                clear_data(this.Controls);
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

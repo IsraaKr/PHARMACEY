@@ -19,6 +19,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             InitializeComponent();
             Title("Med Shape ,  شكل الدواء ");
             txt.Text = "اسم الشكل ";
+         //   MessageBox.Show("" + Properties.Settings.Default.Server_Name);
         }
 
         ClsCommander<T_Med_Shape> cmdMedSape = new ClsCommander<T_Med_Shape>();
@@ -125,6 +126,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             int number_of_errores = 0;
 
             number_of_errores += txt_addd.is_text_valid() ? 0 : 1;
+            number_of_errores += txt_id.is_text_valid() ? 0 : 1;
             return (number_of_errores == 0);
 
         }
@@ -156,17 +158,18 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         }
         private void Fill_Graid()
         {
-            gc.DataSource = (from Emp_s in cmdMedSape.Get_All()
-                             select new
-                             {
-                                 id = Emp_s.med_shape_id,
-                                 name = Emp_s.med_shape_name,
-                             }).OrderBy(c_id => c_id.id).ToList();
-
+             Object x = new object();
+           x = (from Emp_s in cmdMedSape.Get_All()
+                          select new
+                          {
+                              id = Emp_s.med_shape_id,
+                              name = Emp_s.med_shape_name,                             
+                          }).OrderBy(c_id => c_id.name);
+            gc.DataSource = x;
             gv.Columns["id"].Visible = false;
             gv.Columns["name"].Caption = "اسم الشكل";
-
-
+          //  comboBox1.DataSource = x;
+         //   searchLookUpEdit1.Properties.DataSource = x;
             gv.BestFitColumns();
         }
         private void Set_Auto_Id()
@@ -208,6 +211,16 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public override void gv_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
             Is_Double_Click = true;
+        }
+
+        private void searchLookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchLookUpEdit1_EditValueChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

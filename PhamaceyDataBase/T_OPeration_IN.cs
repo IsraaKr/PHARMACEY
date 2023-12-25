@@ -36,10 +36,10 @@ namespace PhamaceyDataBase
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_OPeration_Damage> T_OPeration_Damage { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<T_OPeration_IN_Item> T_OPeration_IN_Item { get; set; }
         public virtual T_OPeration_Type T_OPeration_Type { get; set; }
         public virtual T_Pers_Donars T_Pers_Donars { get; set; }
         public virtual T_Pers_Emploee T_Pers_Emploee { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_OPeration_IN_Item> T_OPeration_IN_Item { get; set; }
     }
 }

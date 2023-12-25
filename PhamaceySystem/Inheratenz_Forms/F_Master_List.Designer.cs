@@ -28,239 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Master_List));
-            this.timer_states_bar = new System.Windows.Forms.Timer(this.components);
-            this.lbl_tiltle = new System.Windows.Forms.Label();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.bar3 = new DevExpress.XtraBars.Bar();
-            this.barr_save = new DevExpress.XtraBars.BarButtonItem();
-            this.bar_edite = new DevExpress.XtraBars.BarButtonItem();
-            this.bar_delete = new DevExpress.XtraBars.BarButtonItem();
-            this.bar_clear = new DevExpress.XtraBars.BarButtonItem();
-            this.bar_close = new DevExpress.XtraBars.BarButtonItem();
-            this.bar4 = new DevExpress.XtraBars.Bar();
-            this.bar_3 = new DevExpress.XtraBars.BarStaticItem();
-            this.bar_states = new DevExpress.XtraBars.BarStaticItem();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.gc = new DevExpress.XtraGrid.GridControl();
             this.gv = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txt_addd = new DevExpress.XtraEditors.TextEdit();
             this.txt_id = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.txt = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.txt_add1 = new DevExpress.XtraLayout.LayoutControlItem();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            this.txt = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txt_addd = new DevExpress.XtraEditors.TextEdit();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_addd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_add1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_addd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // timer_states_bar
-            // 
-            this.timer_states_bar.Interval = 10000;
-            this.timer_states_bar.Tick += new System.EventHandler(this.timer_states_bar_Tick);
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.BackColor = System.Drawing.Color.OliveDrab;
-            this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_tiltle.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_tiltle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbl_tiltle.Location = new System.Drawing.Point(0, 24);
-            this.lbl_tiltle.Name = "lbl_tiltle";
-            this.lbl_tiltle.Size = new System.Drawing.Size(360, 55);
-            this.lbl_tiltle.TabIndex = 6;
-            this.lbl_tiltle.Text = "....";
-            this.lbl_tiltle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_tiltle.Size = new System.Drawing.Size(646, 56);
+            this.lbl_tiltle.TabIndex = 0;
+            this.lbl_tiltle.Text = "...";
             // 
-            // barManager1
+            // timer_date
             // 
-            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar3,
-            this.bar4});
-            this.barManager1.DockControls.Add(this.barDockControlTop);
-            this.barManager1.DockControls.Add(this.barDockControlBottom);
-            this.barManager1.DockControls.Add(this.barDockControlLeft);
-            this.barManager1.DockControls.Add(this.barDockControlRight);
-            this.barManager1.Form = this;
-            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barr_save,
-            this.bar_edite,
-            this.bar_delete,
-            this.bar_clear,
-            this.bar_3,
-            this.bar_states,
-            this.bar_close});
-            this.barManager1.MainMenu = this.bar3;
-            this.barManager1.MaxItemId = 12;
-            this.barManager1.StatusBar = this.bar4;
-            // 
-            // bar3
-            // 
-            this.bar3.BarAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bar3.BarAppearance.Disabled.Options.UseFont = true;
-            this.bar3.BarAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bar3.BarAppearance.Hovered.Options.UseFont = true;
-            this.bar3.BarAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bar3.BarAppearance.Normal.Options.UseFont = true;
-            this.bar3.BarAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bar3.BarAppearance.Pressed.Options.UseFont = true;
-            this.bar3.BarName = "Main menu";
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barr_save),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_edite),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_delete),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_clear),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_close)});
-            this.bar3.OptionsBar.MultiLine = true;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Main menu";
-            // 
-            // barr_save
-            // 
-            this.barr_save.Caption = "حفظ";
-            this.barr_save.Id = 0;
-            this.barr_save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barr_save.ImageOptions.Image")));
-            this.barr_save.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barr_save.ImageOptions.LargeImage")));
-            this.barr_save.Name = "barr_save";
-            this.barr_save.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.barr_save.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barr_save_ItemClick);
-            // 
-            // bar_edite
-            // 
-            this.bar_edite.Caption = "تعديل";
-            this.bar_edite.Id = 1;
-            this.bar_edite.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_edite.ImageOptions.Image")));
-            this.bar_edite.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_edite.ImageOptions.LargeImage")));
-            this.bar_edite.Name = "bar_edite";
-            this.bar_edite.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.bar_edite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_edite_ItemClick);
-            // 
-            // bar_delete
-            // 
-            this.bar_delete.Caption = "حذف";
-            this.bar_delete.Id = 2;
-            this.bar_delete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_delete.ImageOptions.Image")));
-            this.bar_delete.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_delete.ImageOptions.LargeImage")));
-            this.bar_delete.Name = "bar_delete";
-            this.bar_delete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.bar_delete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_delete_ItemClick);
-            // 
-            // bar_clear
-            // 
-            this.bar_clear.Caption = "مسح";
-            this.bar_clear.Id = 3;
-            this.bar_clear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_clear.ImageOptions.Image")));
-            this.bar_clear.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_clear.ImageOptions.LargeImage")));
-            this.bar_clear.Name = "bar_clear";
-            this.bar_clear.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.bar_clear.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_clear_ItemClick);
-            // 
-            // bar_close
-            // 
-            this.bar_close.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.bar_close.Id = 11;
-            this.bar_close.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_close.ImageOptions.Image")));
-            this.bar_close.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_close.ImageOptions.LargeImage")));
-            this.bar_close.Name = "bar_close";
-            this.bar_close.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_close_ItemClick);
-            // 
-            // bar4
-            // 
-            this.bar4.BarName = "Status bar";
-            this.bar4.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar4.DockCol = 0;
-            this.bar4.DockRow = 0;
-            this.bar4.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_3),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_states)});
-            this.bar4.OptionsBar.AllowQuickCustomization = false;
-            this.bar4.OptionsBar.DrawDragBorder = false;
-            this.bar4.OptionsBar.UseWholeRow = true;
-            this.bar4.Text = "Status bar";
-            // 
-            // bar_3
-            // 
-            this.bar_3.Id = 9;
-            this.bar_3.Name = "bar_3";
-            // 
-            // bar_states
-            // 
-            this.bar_states.AutoSize = DevExpress.XtraBars.BarStaticItemSize.Spring;
-            this.bar_states.Caption = "...";
-            this.bar_states.Id = 0;
-            this.bar_states.Name = "bar_states";
-            this.bar_states.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(360, 24);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 696);
-            this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(360, 24);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
-            this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 672);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(360, 24);
-            this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 672);
+            this.timer_date.Enabled = true;
             // 
             // dataLayoutControl1
             // 
             this.dataLayoutControl1.Controls.Add(this.gc);
-            this.dataLayoutControl1.Controls.Add(this.txt_addd);
             this.dataLayoutControl1.Controls.Add(this.txt_id);
+            this.dataLayoutControl1.Controls.Add(this.txt_addd);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataLayoutControl1.Location = new System.Drawing.Point(0, 79);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(360, 617);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(646, 611);
             this.dataLayoutControl1.TabIndex = 11;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
             // gc
             // 
-            this.gc.Location = new System.Drawing.Point(17, 59);
+            this.gc.Location = new System.Drawing.Point(17, 109);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(326, 499);
+            this.gc.Size = new System.Drawing.Size(612, 443);
             this.gc.TabIndex = 12;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -289,30 +109,15 @@
             this.gv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gv_KeyDown);
             this.gv.DoubleClick += new System.EventHandler(this.gv_DoubleClick);
             // 
-            // txt_addd
-            // 
-            this.txt_addd.Location = new System.Drawing.Point(25, 25);
-            this.txt_addd.Margin = new System.Windows.Forms.Padding(5);
-            this.txt_addd.MenuManager = this.barManager1;
-            this.txt_addd.Name = "txt_addd";
-            this.txt_addd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_addd.Properties.Appearance.Options.UseFont = true;
-            this.txt_addd.Properties.Padding = new System.Windows.Forms.Padding(-1);
-            this.txt_addd.Size = new System.Drawing.Size(269, 22);
-            this.txt_addd.StyleController = this.dataLayoutControl1;
-            this.txt_addd.TabIndex = 4;
-            this.txt_addd.EditValueChanged += new System.EventHandler(this.txt_addd_EditValueChanged);
-            this.txt_addd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_addd_KeyDown);
-            // 
             // txt_id
             // 
-            this.txt_id.Location = new System.Drawing.Point(25, 570);
+            this.txt_id.Location = new System.Drawing.Point(25, 564);
             this.txt_id.Margin = new System.Windows.Forms.Padding(5);
             this.txt_id.Name = "txt_id";
             this.txt_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.Properties.Appearance.Options.UseFont = true;
             this.txt_id.Properties.Padding = new System.Windows.Forms.Padding(-1);
-            this.txt_id.Size = new System.Drawing.Size(269, 22);
+            this.txt_id.Size = new System.Drawing.Size(555, 22);
             this.txt_id.StyleController = this.dataLayoutControl1;
             this.txt_id.TabIndex = 4;
             // 
@@ -323,30 +128,19 @@
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.txt,
             this.layoutControlItem2,
-            this.txt_add1});
+            this.txt_add1,
+            this.emptySpaceItem1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 15);
-            this.Root.Size = new System.Drawing.Size(360, 617);
+            this.Root.Size = new System.Drawing.Size(646, 611);
             this.Root.TextVisible = false;
-            // 
-            // txt
-            // 
-            this.txt.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt.AppearanceItemCaption.Options.UseFont = true;
-            this.txt.Control = this.txt_addd;
-            this.txt.CustomizationFormText = "txt";
-            this.txt.Location = new System.Drawing.Point(0, 0);
-            this.txt.Name = "txt";
-            this.txt.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
-            this.txt.Size = new System.Drawing.Size(330, 42);
-            this.txt.TextSize = new System.Drawing.Size(38, 18);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gc;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 42);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 92);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(330, 503);
+            this.layoutControlItem2.Size = new System.Drawing.Size(616, 447);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -355,73 +149,85 @@
             this.txt_add1.Control = this.txt_id;
             this.txt_add1.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.txt_add1.CustomizationFormText = "txt_add";
-            this.txt_add1.Location = new System.Drawing.Point(0, 545);
+            this.txt_add1.Location = new System.Drawing.Point(0, 539);
             this.txt_add1.Name = "txt_add1";
             this.txt_add1.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
-            this.txt_add1.Size = new System.Drawing.Size(330, 42);
+            this.txt_add1.Size = new System.Drawing.Size(616, 42);
             this.txt_add1.Text = "txt_add";
             this.txt_add1.TextSize = new System.Drawing.Size(38, 15);
             this.txt_add1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // txt
+            // 
+            this.txt.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt.AppearanceItemCaption.Options.UseFont = true;
+            this.txt.Control = this.txt_addd;
+            this.txt.CustomizationFormText = "txt";
+            this.txt.Location = new System.Drawing.Point(0, 50);
+            this.txt.Name = "txt";
+            this.txt.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
+            this.txt.Size = new System.Drawing.Size(616, 42);
+            this.txt.TextSize = new System.Drawing.Size(38, 18);
+            // 
+            // txt_addd
+            // 
+            this.txt_addd.Location = new System.Drawing.Point(25, 75);
+            this.txt_addd.Margin = new System.Windows.Forms.Padding(5);
+            this.txt_addd.Name = "txt_addd";
+            this.txt_addd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_addd.Properties.Appearance.Options.UseFont = true;
+            this.txt_addd.Properties.Padding = new System.Windows.Forms.Padding(-1);
+            this.txt_addd.Size = new System.Drawing.Size(555, 22);
+            this.txt_addd.StyleController = this.dataLayoutControl1;
+            this.txt_addd.TabIndex = 4;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(0, 50);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 50);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(616, 50);
+            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // F_Master_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(360, 720);
+            this.ClientSize = new System.Drawing.Size(646, 720);
             this.Controls.Add(this.dataLayoutControl1);
-            this.Controls.Add(this.lbl_tiltle);
-            this.Controls.Add(this.barDockControlLeft);
-            this.Controls.Add(this.barDockControlRight);
-            this.Controls.Add(this.barDockControlBottom);
-            this.Controls.Add(this.barDockControlTop);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "F_Master_List";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RightToLeftLayout = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_Master_ADD";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.F_Master_ADD_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            this.Controls.SetChildIndex(this.dataLayoutControl1, 0);
+            this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_addd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_add1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_addd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer_states_bar;
-        private DevExpress.XtraBars.BarManager barManager1;
-        private DevExpress.XtraBars.Bar bar3;
-        public DevExpress.XtraBars.BarButtonItem barr_save;
-        public DevExpress.XtraBars.BarButtonItem bar_edite;
-        public DevExpress.XtraBars.BarButtonItem bar_delete;
-        public DevExpress.XtraBars.BarButtonItem bar_clear;
-        private DevExpress.XtraBars.Bar bar4;
-        private DevExpress.XtraBars.BarStaticItem bar_3;
-        public DevExpress.XtraBars.BarStaticItem bar_states;
-        private DevExpress.XtraBars.BarDockControl barDockControlTop;
-        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
-        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
-        private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
-        public System.Windows.Forms.Label lbl_tiltle;
         public DevExpress.XtraGrid.GridControl gc;
         public DevExpress.XtraGrid.Views.Grid.GridView gv;
-        public DevExpress.XtraEditors.TextEdit txt_addd;
         public DevExpress.XtraLayout.LayoutControlGroup Root;
         public DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
         private DevExpress.XtraLayout.LayoutControlItem txt_add1;
         public DevExpress.XtraEditors.TextEdit txt_id;
-        private DevExpress.XtraBars.BarButtonItem bar_close;
+        public DevExpress.XtraEditors.TextEdit txt_addd;
         public DevExpress.XtraLayout.LayoutControlItem txt;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }

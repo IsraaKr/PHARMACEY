@@ -13,30 +13,30 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Medicin_Forms
 {
-    public partial class F_Med_Grid : F_Master_Grid
+    public partial class F_Med_Grid : F_Master_Inheretanz
     {
         public F_Med_Grid()
         {
             InitializeComponent();
+            Title("الأدوية");
+            view_inheretanz_butomes(false, true, false, true, true, false, true);
+
         }
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
   
-                T_Medician TF_Medician;
+        T_Medician TF_Medician;
         Boolean Is_Double_Click = false;
-
+        int id;
         public override void Get_Data(string status_mess)
-        {
-        
+        {        
                 try
                 {
                     clear_data(this.Controls);
                     Is_Double_Click = false;
                     cmdMedician = new ClsCommander<T_Medician>();
-                if (TF_Medician!=null)
-
-                    Fill_Graid();
-
-                   
+                TF_Medician = cmdMedician.Get_All().FirstOrDefault();
+                if (TF_Medician != null)
+                    Fill_Graid();                   
                     base.Get_Data(status_mess);
 
                 }
@@ -50,8 +50,9 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         {
             try
             {
-                F_Medecian f = new F_Medecian();
+                F_Med f = new F_Med();
                 f.ShowDialog();
+                Get_Data("");
             }
             catch (Exception ex)
             {
@@ -64,10 +65,10 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             {
                 if (Is_Double_Click)
                 {
-
-
-
-                        }
+                    F_Med f = new F_Med(id);
+                    f.ShowDialog();
+                    Get_Data("");
+                }
                 else
                     C_Master.Warning_Massege_Box("الرجاء اختيار عنصر لتعديله");
 
@@ -116,6 +117,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public override void Print_Data()
         {
             base.Print_Data();
+            C_Master.print_header("الأدوية" , gc);
         }
 
         public override bool Validate_Data()
@@ -131,7 +133,6 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             gc.DataSource = (from med in cmdMedician.Get_All()
                              select new
                              {
-
                                  id = med.med_id,
                                  code = med.med_code,
                                  name = med.med_name,
@@ -140,30 +141,31 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                                  categorey = med.T_Med_Category.med_cat_name,
                                  shape_id = med.T_Med_Shape.med_shape_id,
                                  shape = med.T_Med_Shape.med_shape_name,
-                             }).OrderBy(l_id => l_id.id).ToList();
+                             }).OrderBy(l_id => l_id.id);
 
-            gv.Columns[0].Visible = false;
-            gv.Columns[1].Caption = "الكود";
-            gv.Columns[2].Caption = "الاسم";
-            gv.Columns[3].Caption = "الحد الأدنى ";
+            gv.Columns["id"].Visible = false;
+            gv.Columns["code"].Caption = "الكود";
+            gv.Columns["name"].Caption = "الاسم";
+            gv.Columns["min"].Caption = "الحد الأدنى ";
             gv.Columns[4].Visible = false;
             gv.Columns[5].Caption = "التصنيف ";
             gv.Columns[6].Visible = false;
-            gv.Columns[5].Caption = "الشكل ";
+            gv.Columns[7].Caption = "الشكل ";
+
             gv.BestFitColumns();
         }
     
         private void Get_Row_ID(int Row_Id)
         {
-            long id;
+           
             if (Row_Id != 0)
             {
-                id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]));
+                id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]));
                 TF_Medician = cmdMedician.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
             }
             else
             {
-                id = Convert.ToInt64(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]));
+                id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]));
                 TF_Medician = cmdMedician.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
             }
         }
@@ -183,8 +185,5 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             if (e.KeyData == Keys.Delete && gv.RowCount > 0)
                 Delete_Data();
         }
-
-
-     
     }
 }

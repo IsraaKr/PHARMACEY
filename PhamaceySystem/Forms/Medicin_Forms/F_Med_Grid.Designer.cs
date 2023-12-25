@@ -36,15 +36,23 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Size = new System.Drawing.Size(800, 55);
+            this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_tiltle.Size = new System.Drawing.Size(838, 72);
+            this.lbl_tiltle.Text = "...";
+            // 
+            // timer_date
+            // 
+            this.timer_date.Enabled = true;
             // 
             // gc
             // 
             this.gc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc.Location = new System.Drawing.Point(0, 55);
+            this.gc.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            this.gc.Location = new System.Drawing.Point(0, 72);
             this.gc.MainView = this.gv;
+            this.gc.Margin = new System.Windows.Forms.Padding(2);
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(800, 326);
+            this.gc.Size = new System.Drawing.Size(838, 184);
             this.gc.TabIndex = 18;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -59,6 +67,8 @@
             this.gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gv.Appearance.Row.Options.UseTextOptions = true;
             this.gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gv.DetailHeight = 239;
+            this.gv.FixedLineWidth = 1;
             this.gv.GridControl = this.gc;
             this.gv.Name = "gv";
             this.gv.OptionsBehavior.Editable = false;
@@ -68,13 +78,17 @@
             this.gv.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gv.OptionsView.EnableAppearanceEvenRow = true;
             this.gv.OptionsView.ShowAutoFilterRow = true;
+            this.gv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gv_KeyDown);
+            this.gv.DoubleClick += new System.EventHandler(this.gv_DoubleClick);
             // 
             // F_Med_Grid
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(838, 365);
             this.Controls.Add(this.gc);
+            this.Location = new System.Drawing.Point(0, 0);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "F_Med_Grid";
             this.Text = "F_Med_Grid";
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);

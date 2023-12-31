@@ -307,6 +307,7 @@
             this.gv.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gv.OptionsView.EnableAppearanceEvenRow = true;
             this.gv.OptionsView.ShowAutoFilterRow = true;
+            this.gv.DoubleClick += new System.EventHandler(this.gv_DoubleClick);
             // 
             // in_item_idTextEdit
             // 
@@ -378,7 +379,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.in_item_expDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.in_item_expDateDateEdit.Properties.DisplayFormat.FormatString = "mm/yyyy";
+            this.in_item_expDateDateEdit.Properties.DisplayFormat.FormatString = "MM/yyyy";
             this.in_item_expDateDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.in_item_expDateDateEdit.Size = new System.Drawing.Size(124, 26);
             this.in_item_expDateDateEdit.StyleController = this.dataLayoutControl2;

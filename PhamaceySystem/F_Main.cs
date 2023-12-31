@@ -144,5 +144,10 @@ namespace PhamaceySystem
         {
 
         }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }

@@ -35,7 +35,7 @@
             this.timer_date = new System.Windows.Forms.Timer(this.components);
             this.barMang = new DevExpress.XtraBars.BarManager(this.components);
             this.menu_bar = new DevExpress.XtraBars.Bar();
-            this.bar_new = new DevExpress.XtraBars.BarButtonItem();
+            this.bar_neew = new DevExpress.XtraBars.BarButtonItem();
             this.sp_new = new DevExpress.XtraBars.BarButtonItem();
             this.bar_add = new DevExpress.XtraBars.BarButtonItem();
             this.sp_add = new DevExpress.XtraBars.BarButtonItem();
@@ -113,7 +113,7 @@
             this.bar_date,
             this.barStaticItem3,
             this.bar_clear,
-            this.bar_new,
+            this.bar_neew,
             this.sp_new,
             this.sp_print,
             this.bar_add_save,
@@ -142,7 +142,7 @@
             this.menu_bar.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.menu_bar.FloatLocation = new System.Drawing.Point(242, 365);
             this.menu_bar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_new),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_neew),
             new DevExpress.XtraBars.LinkPersistInfo(this.sp_new),
             new DevExpress.XtraBars.LinkPersistInfo(this.bar_add),
             new DevExpress.XtraBars.LinkPersistInfo(this.sp_add),
@@ -161,16 +161,16 @@
             this.menu_bar.OptionsBar.UseWholeRow = true;
             this.menu_bar.Text = "Main menu";
             // 
-            // bar_new
+            // bar_neew
             // 
-            this.bar_new.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.bar_new.Caption = "جديد";
-            this.bar_new.Id = 23;
-            this.bar_new.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bar_save.ImageOptions.SvgImage")));
-            this.bar_new.Name = "bar_new";
-            this.bar_new.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.bar_new.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.bar_new.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_save_ItemClick);
+            this.bar_neew.Border = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
+            this.bar_neew.Caption = "جديد";
+            this.bar_neew.Id = 23;
+            this.bar_neew.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bar_new.ImageOptions.SvgImage")));
+            this.bar_neew.Name = "bar_neew";
+            this.bar_neew.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bar_neew.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bar_neew.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bar_neew_ItemClick);
             // 
             // sp_new
             // 
@@ -434,7 +434,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        public DevExpress.XtraBars.BarButtonItem bar_new;
+        public DevExpress.XtraBars.BarButtonItem bar_neew;
         public DevExpress.XtraBars.BarButtonItem barButtonItem6;
         public DevExpress.XtraBars.BarButtonItem sp_add;
         public DevExpress.XtraBars.BarButtonItem sp_new;

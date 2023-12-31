@@ -29,5 +29,10 @@ namespace PhamaceySystem.Forms
         {
             F_In_Op f = new F_In_Op();
         }
+
+        private void F_Quiek_Accses_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

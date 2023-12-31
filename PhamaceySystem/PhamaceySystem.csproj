@@ -74,12 +74,6 @@
   <ItemGroup>
     <Compile Include="Classes\c_db.cs" />
     <Compile Include="C_Master.cs" />
-    <Compile Include="Forms\F_Master.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\F_Master.Designer.cs">
-      <DependentUpon>F_Master.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\F_Quiek_Accses.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +128,12 @@
     <Compile Include="Forms\Store_Forms\F_In_Op.Designer.cs">
       <DependentUpon>F_In_Op.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Store_Forms\F_In_OP_Graid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Store_Forms\F_In_OP_Graid.Designer.cs">
+      <DependentUpon>F_In_OP_Graid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Store_Forms\F_Store_shape.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +145,12 @@
     </Compile>
     <Compile Include="F_Main.Designer.cs">
       <DependentUpon>F_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inheratenz_Forms\F_Master_Graid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inheratenz_Forms\F_Master_Graid.Designer.cs">
+      <DependentUpon>F_Master_Graid.cs</DependentUpon>
     </Compile>
     <Compile Include="Inheratenz_Forms\F_Master_List.cs">
       <SubType>Form</SubType>
@@ -160,9 +166,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\F_Master.resx">
-      <DependentUpon>F_Master.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\F_Quiek_Accses.resx">
       <DependentUpon>F_Quiek_Accses.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,11 +193,17 @@
     <EmbeddedResource Include="Forms\Store_Forms\F_In_Op.resx">
       <DependentUpon>F_In_Op.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Store_Forms\F_In_OP_Graid.resx">
+      <DependentUpon>F_In_OP_Graid.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Store_Forms\F_Store_shape.resx">
       <DependentUpon>F_Store_shape.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Main.resx">
       <DependentUpon>F_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inheratenz_Forms\F_Master_Graid.resx">
+      <DependentUpon>F_Master_Graid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inheratenz_Forms\F_Master_List.resx">
       <DependentUpon>F_Master_List.cs</DependentUpon>

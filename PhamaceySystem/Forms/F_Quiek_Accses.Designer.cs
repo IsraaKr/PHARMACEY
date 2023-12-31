@@ -56,10 +56,10 @@
             this.flowLayoutPanel1.Controls.Add(this.simpleButton2);
             this.flowLayoutPanel1.Controls.Add(this.simpleButton3);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 44);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 36);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(798, 162);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(798, 170);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // simpleButton1
@@ -96,6 +96,7 @@
             this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton3.Appearance.Options.UseBackColor = true;
             this.simpleButton3.Appearance.Options.UseFont = true;
+            this.simpleButton3.Enabled = false;
             this.simpleButton3.Location = new System.Drawing.Point(46, 30);
             this.simpleButton3.Margin = new System.Windows.Forms.Padding(10);
             this.simpleButton3.Name = "simpleButton3";
@@ -116,7 +117,7 @@
             // 
             // F_Quiek_Accses
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 394);
             this.Controls.Add(this.label1);
@@ -129,6 +130,7 @@
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "F_Quiek_Accses";
+            this.Load += new System.EventHandler(this.F_Quiek_Accses_Load);
             this.groupBox1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

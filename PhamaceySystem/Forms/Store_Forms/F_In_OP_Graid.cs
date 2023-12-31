@@ -1,6 +1,5 @@
 ﻿using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
-using PhamaceySystem;
 using PhamaceySystem.Inheratenz_Forms;
 using System;
 using System.Collections.Generic;
@@ -12,45 +11,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PhamaceySystem.Forms.Medicin_Forms
+namespace PhamaceySystem.Forms.Store_Forms
 {
-    public partial class F_Med_Grid : F_Master_Graid
+    public partial class F_In_OP_Graid : F_Master_Graid
     {
-        public F_Med_Grid()
+        public F_In_OP_Graid()
         {
             InitializeComponent();
-            Title("الأدوية");
-       
+            Title("مذكرات الادخال");
+
         }
-        ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
-  
-        T_Medician TF_Medician;
+        ClsCommander<T_OPeration_IN> cmdINOP = new ClsCommander<T_OPeration_IN>();
+
+        T_OPeration_IN TF_OPeration_IN;
         Boolean Is_Double_Click = false;
         int id;
         public override void Get_Data(string status_mess)
-        {        
-                try
-                {
-                    clear_data(this.Controls);
-                    Is_Double_Click = false;
-                    cmdMedician = new ClsCommander<T_Medician>();
-                TF_Medician = cmdMedician.Get_All().FirstOrDefault();
-                if (TF_Medician != null)
-                    Fill_Graid();                   
-                    base.Get_Data(status_mess);
-
-                }
-                catch (Exception ex)
-                {
-                    Get_Data(ex.InnerException.InnerException.ToString() + "/" + ex.Message);
-                }
-            
-        }
-        public override void neew()
         {
             try
             {
-                F_Med f = new F_Med();
+                clear_data(this.Controls);
+                Is_Double_Click = false;
+                cmdINOP = new ClsCommander<T_OPeration_IN>();
+                TF_OPeration_IN = cmdINOP.Get_All().FirstOrDefault();
+                if (TF_OPeration_IN != null)
+                    Fill_Graid();
+                base.Get_Data(status_mess);
+
+            }
+            catch (Exception ex)
+            {
+                Get_Data(ex.InnerException.InnerException.ToString() + "/" + ex.Message);
+            }
+
+        }
+        public override void neew ()
+        {
+            try
+            {
+                F_In_Op f = new F_In_Op();
                 f.ShowDialog();
                 Get_Data("");
             }
@@ -65,8 +64,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             {
                 if (Is_Double_Click)
                 {
-                    F_Med f = new F_Med(id);
-                    f.ShowDialog();
+                   F_In_Op f = new F_In_Op (id);
+                   f.ShowDialog();
                     Get_Data("");
                 }
                 else
@@ -93,7 +92,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdMedician.Delet_Data(TF_Medician);
+                                cmdINOP.Delet_Data(TF_OPeration_IN);
 
                             }
                             base.Delete_Data();
@@ -112,61 +111,63 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public override void clear_data(Control.ControlCollection s_controls)
         {
             base.clear_data(s_controls);
-         
+
         }
         public override void Print_Data()
         {
             base.Print_Data();
-            C_Master.print_header("الأدوية" , gc);
+            C_Master.print_header("مذكرات الادخال", gc);
         }
 
         public override bool Validate_Data()
         {
             int number_of_errores = 0;
-        
+
 
             return (number_of_errores == 0);
         }
 
         private void Fill_Graid()
         {
-            gc.DataSource = (from med in cmdMedician.Get_All()
+            gc.DataSource = (from med in cmdINOP.Get_All()
                              select new
                              {
-                                 id = med.med_id,
-                                 code = med.med_code,
-                                 name = med.med_name,
-                                 min = med.med_minimum,
-                                 cat_id = med.T_Med_Category.med_cat_id,
-                                 categorey = med.T_Med_Category.med_cat_name,
-                                 shape_id = med.T_Med_Shape.med_shape_id,
-                                 shape = med.T_Med_Shape.med_shape_name,
+                                 id = med.in_op_id,
+                                 date = med.in_op_date,
+                                 time = med.in_op_time,
+                                 text = med.in_op_text,
+                                 don_id = med.T_Pers_Donars.Donar_id,
+                                 donar = med.T_Pers_Donars.Donar_name,
+                                 emp_donar=med.donar_emp,
+                                 emp_id = med.T_Pers_Emploee.Emp_id,
+                                 emp = med.T_Pers_Emploee.Emp_name,
                              }).OrderBy(l_id => l_id.id);
 
-            gv.Columns["id"].Visible = false;
-            gv.Columns["code"].Caption = "الكود";
-            gv.Columns["name"].Caption = "الاسم";
-            gv.Columns["min"].Caption = "الحد الأدنى ";
+            gv.Columns[0].Visible = false;
+            gv.Columns[1].Caption = "التاريخ";
+            gv.Columns[2].Caption = "الوقت";
+            gv.Columns[3].Caption =  "البيان";
             gv.Columns[4].Visible = false;
-            gv.Columns[5].Caption = "التصنيف ";
+            gv.Columns[5].Caption = "المتبرع ";
+            gv.Columns[6].Caption = "المسلم ";
             gv.Columns[6].Visible = false;
-            gv.Columns[7].Caption = "الشكل ";
+            gv.Columns[7].Caption = "الموظف ";
 
             gv.BestFitColumns();
         }
-    
+
         private void Get_Row_ID(int Row_Id)
         {
-           
+
             if (Row_Id != 0)
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(Row_Id, gv.Columns[0]));
-                TF_Medician = cmdMedician.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
+                TF_OPeration_IN = cmdINOP.Get_By(c_id => c_id.in_op_id == id).FirstOrDefault();
             }
             else
             {
                 id = Convert.ToInt32(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]));
-                TF_Medician = cmdMedician.Get_By(c_id => c_id.med_id == id).FirstOrDefault();
+                TF_OPeration_IN = cmdINOP.Get_By(c_id => c_id.in_op_id == id).FirstOrDefault();
             }
         }
 
@@ -176,8 +177,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             gv.SelectRow(gv.FocusedRowHandle);
 
             Get_Row_ID(0);
-          //  if (TF_Medician != null)
-               // Fill_Controls();
+            //  if (TF_OPeration_IN != null)
+            // Fill_Controls();
         }
 
         public override void gv_KeyDown(object sender, KeyEventArgs e)

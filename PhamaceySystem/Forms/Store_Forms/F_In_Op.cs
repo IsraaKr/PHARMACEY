@@ -21,8 +21,16 @@ namespace PhamaceySystem.Forms.Store_Forms
             InitializeComponent();
             Title("ادخال  مادة / In Operation");
   
-        view_inheretanz_butomes(false, true, true, false, false, true, false);
+        view_inheretanz_butomes(true, false, false, false, false, false, false);
     }
+        public F_In_Op( int op_id)
+        {
+            id_toUpdate = op_id;
+            InitializeComponent();
+            Title("ادخال  مادة / In Operation");
+
+            view_inheretanz_butomes(true, true, false, false, false, false, false);
+        }
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_Pers_Emploee> cmdEmp = new ClsCommander<T_Pers_Emploee>();
         ClsCommander<T_Pers_Donars> cmdDonars = new ClsCommander<T_Pers_Donars>();
@@ -34,7 +42,9 @@ namespace PhamaceySystem.Forms.Store_Forms
         T_OPeration_IN_Item TF_OP_IN_Item;
         int is_op_insert = 0;
         DateTime d = DateTime.Today;
-    public override void Get_Data(string status_mess)
+        int id_toUpdate = 0;
+
+        public override void Get_Data(string status_mess)
     {
         try
         {
@@ -56,6 +66,15 @@ namespace PhamaceySystem.Forms.Store_Forms
 
                 Set_Auto_Id_item();
                 Set_Auto_Id_op();
+
+                if (id_toUpdate != 0)
+                {
+                    TF_OP_IN = new T_OPeration_IN();
+                    TF_OP_IN = cmdOpIn.Get_By(i => i.in_op_id == id_toUpdate).FirstOrDefault();
+
+                    Fill_Controls_op();
+                    Fill_Graid_item();
+                }
                 base.Get_Data(status_mess);
 
         }
@@ -69,12 +88,25 @@ namespace PhamaceySystem.Forms.Store_Forms
     {
         try
         {
-            if (is_op_insert== 0 && Validate_Data_op()  )            
-                    insert_op();
+                if (id_toUpdate == 0)
+                {
+                    if (is_op_insert == 0 && Validate_Data_op())
+                        insert_op();
 
-                if (Validate_Data_item())
-                    insert_item();
+                    if (Validate_Data_item())
+                        insert_item();
+                }
+                else
+                {
+                    Fill_Entitey_op();
+                    cmdOpIn.Update_Data(TF_OP_IN);
+                    base.Update_Data();
+                    Get_Data("u");
+                }
 
+            
+                clear_data(this.Controls);
+            
         }
         catch (Exception ex)
         {
@@ -129,6 +161,23 @@ namespace PhamaceySystem.Forms.Store_Forms
             TF_OP_IN.donar_id = Convert.ToInt32(donar_idSearchLookUpEdit.EditValue);
             TF_OP_IN.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue);
             TF_OP_IN.op_type_id = Convert.ToInt32("1");
+
+        }
+        public void Fill_Controls_op()
+        {
+            in_op_idTextEdit.Text = TF_OP_IN.in_op_id.ToString();
+           in_op_dateDateEdit.DateTime = Convert.ToDateTime(TF_OP_IN.in_op_date);
+            //    in_op_timeTimeSpanEdit.Text = TF_OP_IN.in_op_time;
+            in_op_stateCheckEdit.Checked = Convert.ToBoolean(TF_OP_IN.in_op_state);
+            in_op_recipt_noTextEdit.Text = TF_OP_IN.in_op_recipt_no.ToString();
+            in_op_recipt_nameTextEdit.Text = TF_OP_IN.in_op_recipt_name;
+            in_op_recipt_dateDateEdit.DateTime = Convert.ToDateTime(TF_OP_IN.in_op_recipt_date);
+
+
+            donar_empTextEdit.Text = TF_OP_IN.donar_emp;
+
+            donar_idSearchLookUpEdit.EditValue = TF_OP_IN.donar_id;
+            emp_idSearchLookUpEdit.EditValue = TF_OP_IN.emp_id;
 
         }
         public void insert_op()
@@ -200,36 +249,65 @@ namespace PhamaceySystem.Forms.Store_Forms
         private void Fill_Graid_item()
         {
             int id = Convert.ToInt32(in_op_idTextEdit.Text);
-            var data_source  = (from item in cmdOpInItem.Get_All().Where(x=>x.In_op_id == id) 
-                           select new
-                           {
-                               id = item.in_item_id,
-                               med_idd = item.T_Medician.med_id,
-                               name = item.T_Medician.med_name,
-                               quntiti = item.in_item_quntity,
-                               prodate = item.in_item_proDate,
-                               expdate= item.in_item_expDate,
-                               storage_shape_id = item.T_Med_Storage_Shape.med_stor_shape_id,
-                               storage_shape = item.T_Med_Storage_Shape.med_stor_shape_name,
+            //var data_source  = (from item in cmdOpInItem.Get_All().Where(x => x.in_op_id == id)
+            //            
+            //                    select new
+            //               {
+            //                   id = item.in_item_id,
+            //                        med_idd = ,
+            //                        name = ,
+            //                        quntiti = item.in_item_quntity,
+            //                   prodate = item.in_item_proDate,
+            //                   expdate= item.in_item_expDate,
+            //                        storage_shape_id = item.T_Med_Storage_Shape.med_stor_shape_id,
+            //                        storage_shape = item.T_Med_Storage_Shape.med_stor_shape_name,
+            //                         inop_id =item.
+            //                    }).OrderBy(l_id => l_id.id).ToList();
+            //  if (data_source != null && data_source.Count() > 0)
 
-                           }).OrderBy(l_id => l_id.id).ToList();
-            if (data_source != null && data_source.Count() > 0)
+            DataTable data_source = c_db.select(@"SELECT        dbo.T_OPeration_IN_Item.in_item_id,
+                                                        dbo.T_Medician.med_id,
+                                                    dbo.T_Medician.med_code,
+                                                   dbo.T_Medician.med_name,
+                                                    dbo.T_OPeration_IN_Item.in_item_quntity, 
+                         dbo.T_OPeration_IN_Item.in_item_proDate,
+                         dbo.T_OPeration_IN_Item.in_item_expDate,
+                       dbo.T_Med_Storage_Shape.med_stor_shape_id, 
+                         dbo.T_Med_Storage_Shape.med_stor_shape_name, 
+                           dbo.T_OPeration_IN_Item.In_op_id
+FROM            dbo.T_OPeration_IN_Item INNER JOIN
+                         dbo.T_Med_Storage_Shape ON dbo.T_OPeration_IN_Item.med_storage_shape_id = dbo.T_Med_Storage_Shape.med_stor_shape_id INNER JOIN
+                         dbo.T_Medician ON dbo.T_OPeration_IN_Item.Med_id = dbo.T_Medician.med_id
+WHERE        (dbo.T_OPeration_IN_Item.In_op_id = "+id+")");
+            if (data_source != null && data_source.Rows.Count > 0)
             {
                 gc.DataSource = data_source;
 
-            gv.Columns[0].Visible = false;
-            gv.Columns[1].Visible = false;
-            gv.Columns[2].Caption = "اسم الدواء";
-            gv.Columns[3].Caption = "الكمية";
-            gv.Columns[4].Caption = "تاريخ الانتاج";
-            gv.Columns[5].Caption = "تاريخ الانتهاء ";
-            gv.Columns[6].Visible = false;
-            gv.Columns[7].Caption = "شكل التخزين ";
+                gv.Columns[0].Visible = false;
+                gv.Columns[1].Visible = false;
+                gv.Columns[2].Caption = "كود الدواء";
+                gv.Columns[3].Caption = "اسم الدواء";
 
-            gv.BestFitColumns();
+                gv.Columns[4].Caption = "الكمية";
+                gv.Columns[5].Caption = "تاريخ الانتاج";
+                gv.Columns[6].Caption = "تاريخ الانتهاء ";
+                gv.Columns[7].Visible = false;
+                gv.Columns[8].Caption = "شكل التخزين ";
+                gv.Columns[9].Visible = false;
+                gv.BestFitColumns();
             }
         }
 
+        private void clear_item()
+        {
+            med_storage_shape_idSearchLookUpEdit.EditValue = null;
+            med_storage_shape_idSearchLookUpEdit.Text = "";
+            in_item_quntityTextEdit.Text = string.Empty;
+            Med_idSearchlookupEdit.EditValue = null;
+            Med_idSearchlookupEdit.Text = "";
+            //in_item_expDateDateEdit.Text = "";
+            //in_item_proDateDateEdit.Text = "";
+        }
 
 
 
@@ -377,7 +455,13 @@ namespace PhamaceySystem.Forms.Store_Forms
         private void btn_add_item_Click(object sender, EventArgs e)
         {
             Insert_Data();
-          Fill_Graid_item();
+            Fill_Graid_item();
+            clear_item();
+        }
+
+        private void gv_DoubleClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

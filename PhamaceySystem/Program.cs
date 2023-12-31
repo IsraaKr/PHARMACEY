@@ -2,6 +2,7 @@
 using PhamaceySystem.Forms;
 using PhamaceySystem.Forms.Medicin_Forms;
 using PhamaceySystem.Forms.Store_Forms;
+using PhamaceySystem.Inheratenz_Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace PhamaceySystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             C_SqlCon.Server_Name = Properties.Settings.Default.Server_Name.ToString(); 
-            Application.Run(new F_In_Op());
+            Application.Run(new F_Main());
         }
     }
 }

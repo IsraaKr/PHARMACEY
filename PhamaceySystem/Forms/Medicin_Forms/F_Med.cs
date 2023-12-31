@@ -89,7 +89,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                         Get_Data("u");
                     }
 
-                    MessageBox.Show("تم الحفظ");
+                  //  MessageBox.Show("تم الحفظ");
                     clear_data(this.Controls);
                 }
 
@@ -240,17 +240,16 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         {
             F_Med_Shape f = new F_Med_Shape();
             f.ShowDialog();
+            GetShape_Data();
         }
 
         private void btn_cat_Click(object sender, EventArgs e)
         {
             F_Med_Categories f = new F_Med_Categories();
             f.ShowDialog();
+            GetCat_Data();
         }
 
-        private void med_idTextEdit_EditValueChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }

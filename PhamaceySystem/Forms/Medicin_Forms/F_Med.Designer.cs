@@ -55,6 +55,7 @@
             this.ItemFormed_state = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.med_idTextEdit.Properties)).BeginInit();
@@ -80,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemFormed_state)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tiltle
@@ -108,14 +110,14 @@
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(970, 458);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(970, 539);
             this.dataLayoutControl1.TabIndex = 17;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
             // btn_cat
             // 
             this.btn_cat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_cat.ImageOptions.SvgImage")));
-            this.btn_cat.Location = new System.Drawing.Point(48, 281);
+            this.btn_cat.Location = new System.Drawing.Point(48, 336);
             this.btn_cat.Margin = new System.Windows.Forms.Padding(5);
             this.btn_cat.Name = "btn_cat";
             this.btn_cat.Padding = new System.Windows.Forms.Padding(5);
@@ -128,7 +130,7 @@
             // btn_shape
             // 
             this.btn_shape.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_shape.ImageOptions.SvgImage")));
-            this.btn_shape.Location = new System.Drawing.Point(48, 231);
+            this.btn_shape.Location = new System.Drawing.Point(48, 286);
             this.btn_shape.Margin = new System.Windows.Forms.Padding(5);
             this.btn_shape.Name = "btn_shape";
             this.btn_shape.Padding = new System.Windows.Forms.Padding(5);
@@ -141,7 +143,7 @@
             // med_idTextEdit
             // 
             this.med_idTextEdit.Enabled = false;
-            this.med_idTextEdit.Location = new System.Drawing.Point(56, 55);
+            this.med_idTextEdit.Location = new System.Drawing.Point(56, 110);
             this.med_idTextEdit.Name = "med_idTextEdit";
             this.med_idTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.med_idTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -153,21 +155,20 @@
             this.med_idTextEdit.Size = new System.Drawing.Size(655, 26);
             this.med_idTextEdit.StyleController = this.dataLayoutControl1;
             this.med_idTextEdit.TabIndex = 4;
-            this.med_idTextEdit.EditValueChanged += new System.EventHandler(this.med_idTextEdit_EditValueChanged);
             // 
             // med_codeTextEdit
             // 
-            this.med_codeTextEdit.Location = new System.Drawing.Point(227, 101);
+            this.med_codeTextEdit.Location = new System.Drawing.Point(226, 156);
             this.med_codeTextEdit.Name = "med_codeTextEdit";
             this.med_codeTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.med_codeTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.med_codeTextEdit.Size = new System.Drawing.Size(484, 26);
+            this.med_codeTextEdit.Size = new System.Drawing.Size(485, 26);
             this.med_codeTextEdit.StyleController = this.dataLayoutControl1;
             this.med_codeTextEdit.TabIndex = 5;
             // 
             // med_nameTextEdit
             // 
-            this.med_nameTextEdit.Location = new System.Drawing.Point(96, 147);
+            this.med_nameTextEdit.Location = new System.Drawing.Point(96, 202);
             this.med_nameTextEdit.Name = "med_nameTextEdit";
             this.med_nameTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.med_nameTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -177,7 +178,7 @@
             // 
             // med_minimumTextEdit
             // 
-            this.med_minimumTextEdit.Location = new System.Drawing.Point(96, 193);
+            this.med_minimumTextEdit.Location = new System.Drawing.Point(96, 248);
             this.med_minimumTextEdit.Name = "med_minimumTextEdit";
             this.med_minimumTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.med_minimumTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -194,17 +195,17 @@
             // med_stateCheckEdit
             // 
             this.med_stateCheckEdit.EditValue = true;
-            this.med_stateCheckEdit.Location = new System.Drawing.Point(46, 101);
+            this.med_stateCheckEdit.Location = new System.Drawing.Point(46, 156);
             this.med_stateCheckEdit.Name = "med_stateCheckEdit";
             this.med_stateCheckEdit.Properties.Caption = "فعال , Active";
             this.med_stateCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.med_stateCheckEdit.Size = new System.Drawing.Size(131, 20);
+            this.med_stateCheckEdit.Size = new System.Drawing.Size(130, 20);
             this.med_stateCheckEdit.StyleController = this.dataLayoutControl1;
             this.med_stateCheckEdit.TabIndex = 8;
             // 
             // med_shape_idSearchLookUpEdit
             // 
-            this.med_shape_idSearchLookUpEdit.Location = new System.Drawing.Point(108, 239);
+            this.med_shape_idSearchLookUpEdit.Location = new System.Drawing.Point(108, 294);
             this.med_shape_idSearchLookUpEdit.Name = "med_shape_idSearchLookUpEdit";
             this.med_shape_idSearchLookUpEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.med_shape_idSearchLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -229,7 +230,7 @@
             // 
             // med_cat_idSearchLookUpEdit
             // 
-            this.med_cat_idSearchLookUpEdit.Location = new System.Drawing.Point(108, 289);
+            this.med_cat_idSearchLookUpEdit.Location = new System.Drawing.Point(108, 344);
             this.med_cat_idSearchLookUpEdit.Name = "med_cat_idSearchLookUpEdit";
             this.med_cat_idSearchLookUpEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.med_cat_idSearchLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -254,11 +255,11 @@
             // 
             // med_noteTextEdit
             // 
-            this.med_noteTextEdit.Location = new System.Drawing.Point(96, 339);
+            this.med_noteTextEdit.Location = new System.Drawing.Point(96, 394);
             this.med_noteTextEdit.Name = "med_noteTextEdit";
             this.med_noteTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.med_noteTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.med_noteTextEdit.Size = new System.Drawing.Size(615, 86);
+            this.med_noteTextEdit.Size = new System.Drawing.Size(615, 112);
             this.med_noteTextEdit.StyleController = this.dataLayoutControl1;
             this.med_noteTextEdit.TabIndex = 9;
             // 
@@ -269,7 +270,7 @@
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(970, 458);
+            this.Root.Size = new System.Drawing.Size(970, 539);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -277,10 +278,11 @@
             this.layoutControlGroup1.AllowDrawBackground = false;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlGroup2});
+            this.layoutControlGroup2,
+            this.emptySpaceItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(950, 438);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(950, 519);
             // 
             // layoutControlGroup2
             // 
@@ -300,10 +302,10 @@
             this.ItemFormed_state,
             this.layoutControlItem2,
             this.layoutControlItem1});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 55);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(33, 33, 10, 10);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(950, 438);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(950, 464);
             this.layoutControlGroup2.Text = "معلومات الدواء";
             // 
             // ItemFormed_id
@@ -319,10 +321,10 @@
             // ItemFormed_code
             // 
             this.ItemFormed_code.Control = this.med_codeTextEdit;
-            this.ItemFormed_code.Location = new System.Drawing.Point(131, 46);
+            this.ItemFormed_code.Location = new System.Drawing.Point(130, 46);
             this.ItemFormed_code.Name = "ItemFormed_code";
             this.ItemFormed_code.Padding = new DevExpress.XtraLayout.Utils.Padding(50, 50, 10, 10);
-            this.ItemFormed_code.Size = new System.Drawing.Size(747, 46);
+            this.ItemFormed_code.Size = new System.Drawing.Size(748, 46);
             this.ItemFormed_code.Text = "الرمز , Code";
             this.ItemFormed_code.TextSize = new System.Drawing.Size(160, 19);
             // 
@@ -352,7 +354,7 @@
             this.ItemFormed_note.Location = new System.Drawing.Point(0, 284);
             this.ItemFormed_note.Name = "ItemFormed_note";
             this.ItemFormed_note.Padding = new DevExpress.XtraLayout.Utils.Padding(50, 50, 10, 10);
-            this.ItemFormed_note.Size = new System.Drawing.Size(878, 106);
+            this.ItemFormed_note.Size = new System.Drawing.Size(878, 132);
             this.ItemFormed_note.Text = "الملاحظات , Nouts";
             this.ItemFormed_note.TextSize = new System.Drawing.Size(160, 19);
             // 
@@ -382,7 +384,7 @@
             this.ItemFormed_state.Location = new System.Drawing.Point(0, 46);
             this.ItemFormed_state.Name = "ItemFormed_state";
             this.ItemFormed_state.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 10, 10);
-            this.ItemFormed_state.Size = new System.Drawing.Size(131, 46);
+            this.ItemFormed_state.Size = new System.Drawing.Size(130, 46);
             this.ItemFormed_state.Text = "med_state";
             this.ItemFormed_state.TextSize = new System.Drawing.Size(0, 0);
             this.ItemFormed_state.TextVisible = false;
@@ -411,6 +413,17 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(0, 55);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 55);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(950, 55);
+            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // F_Med
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,8 +434,8 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "F_Med";
             this.Text = "F_Med";
-            this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.dataLayoutControl1, 0);
+            this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.med_idTextEdit.Properties)).EndInit();
@@ -448,6 +461,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemFormed_state)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,5 +495,6 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemFormed_state;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }

@@ -24,7 +24,7 @@ namespace PhamaceySystem
         {
             if (neew)
             {
-                bar_new.Visibility =0 ;
+                bar_neew.Visibility =0 ;
                 sp_new.Visibility = 0;
             }
             if (add)
@@ -124,7 +124,8 @@ namespace PhamaceySystem
         //جديد 
         public virtual void neew ()
         {
-           
+            clear_data(this.Controls);
+            Get_Data("");
         }
         //التأكد من الصحة
         public virtual bool Validate_Data()
@@ -214,13 +215,7 @@ namespace PhamaceySystem
             if (e.KeyCode == Keys.Escape)
                 clear_data(this.Controls);
         }
-        //ضغط حفظ
-        private void bar_save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            clear_data(this.Controls);
-            neew();
-        //    timer_states_bar.Enabled = true;
-        }
+   
         //ضغط إضافة
         private void bar_add_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -277,6 +272,12 @@ namespace PhamaceySystem
         private void lbl_tiltle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bar_neew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            neew();
+            //    timer_states_bar.Enabled = true;
         }
     }
 }

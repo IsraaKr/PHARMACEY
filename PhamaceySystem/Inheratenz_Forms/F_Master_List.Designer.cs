@@ -32,22 +32,22 @@
             this.gc = new DevExpress.XtraGrid.GridControl();
             this.gv = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txt_id = new DevExpress.XtraEditors.TextEdit();
+            this.txt_name = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.txt = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.txt_add1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txt = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txt_addd = new DevExpress.XtraEditors.TextEdit();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_add1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_addd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             // 
             this.dataLayoutControl1.Controls.Add(this.gc);
             this.dataLayoutControl1.Controls.Add(this.txt_id);
-            this.dataLayoutControl1.Controls.Add(this.txt_addd);
+            this.dataLayoutControl1.Controls.Add(this.txt_name);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
@@ -121,6 +121,19 @@
             this.txt_id.StyleController = this.dataLayoutControl1;
             this.txt_id.TabIndex = 4;
             // 
+            // txt_name
+            // 
+            this.txt_name.Location = new System.Drawing.Point(25, 75);
+            this.txt_name.Margin = new System.Windows.Forms.Padding(5);
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_name.Properties.Appearance.Options.UseFont = true;
+            this.txt_name.Properties.Padding = new System.Windows.Forms.Padding(-1);
+            this.txt_name.Size = new System.Drawing.Size(555, 22);
+            this.txt_name.StyleController = this.dataLayoutControl1;
+            this.txt_name.TabIndex = 4;
+            this.txt_name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_name_KeyDown);
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -134,6 +147,18 @@
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 15);
             this.Root.Size = new System.Drawing.Size(646, 611);
             this.Root.TextVisible = false;
+            // 
+            // txt
+            // 
+            this.txt.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt.AppearanceItemCaption.Options.UseFont = true;
+            this.txt.Control = this.txt_name;
+            this.txt.CustomizationFormText = "txt";
+            this.txt.Location = new System.Drawing.Point(0, 50);
+            this.txt.Name = "txt";
+            this.txt.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
+            this.txt.Size = new System.Drawing.Size(616, 42);
+            this.txt.TextSize = new System.Drawing.Size(38, 18);
             // 
             // layoutControlItem2
             // 
@@ -157,30 +182,6 @@
             this.txt_add1.TextSize = new System.Drawing.Size(38, 15);
             this.txt_add1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
-            // txt
-            // 
-            this.txt.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt.AppearanceItemCaption.Options.UseFont = true;
-            this.txt.Control = this.txt_addd;
-            this.txt.CustomizationFormText = "txt";
-            this.txt.Location = new System.Drawing.Point(0, 50);
-            this.txt.Name = "txt";
-            this.txt.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
-            this.txt.Size = new System.Drawing.Size(616, 42);
-            this.txt.TextSize = new System.Drawing.Size(38, 18);
-            // 
-            // txt_addd
-            // 
-            this.txt_addd.Location = new System.Drawing.Point(25, 75);
-            this.txt_addd.Margin = new System.Windows.Forms.Padding(5);
-            this.txt_addd.Name = "txt_addd";
-            this.txt_addd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_addd.Properties.Appearance.Options.UseFont = true;
-            this.txt_addd.Properties.Padding = new System.Windows.Forms.Padding(-1);
-            this.txt_addd.Size = new System.Drawing.Size(555, 22);
-            this.txt_addd.StyleController = this.dataLayoutControl1;
-            this.txt_addd.TabIndex = 4;
-            // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
@@ -198,6 +199,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 720);
             this.Controls.Add(this.dataLayoutControl1);
+            this.Location = new System.Drawing.Point(0, 0);
             this.Name = "F_Master_List";
             this.Text = "F_Master_ADD";
             this.Controls.SetChildIndex(this.dataLayoutControl1, 0);
@@ -207,11 +209,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_add1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_addd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -226,7 +228,7 @@
         public DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
         private DevExpress.XtraLayout.LayoutControlItem txt_add1;
         public DevExpress.XtraEditors.TextEdit txt_id;
-        public DevExpress.XtraEditors.TextEdit txt_addd;
+        public DevExpress.XtraEditors.TextEdit txt_name;
         public DevExpress.XtraLayout.LayoutControlItem txt;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }

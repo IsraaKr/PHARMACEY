@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PhamaceyDataBase;
+using PhamaceyDataBase.Commander;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,22 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PhamaceyDataBase;
-using PhamaceyDataBase.Commander;
 
-namespace PhamaceySystem.Forms.Medicin_Forms
+namespace PhamaceySystem.Forms.Store_Forms
 {
-    public partial class F_Med_Categories : F_Master_List
+    public partial class F_Store_shape : F_Master_List
     {
-        public F_Med_Categories()
+        public F_Store_shape()
         {
             InitializeComponent();
-            Title("Categoreys , تصنيفات الدواء ");
-            txt.Text = "اسم التصنيف ";
+            Title("Storage Shape ,  شكل التخزين ");
+            txt.Text = "اسم الشكل ";
         }
 
-        ClsCommander<T_Med_Category> cmdMedCat = new ClsCommander<T_Med_Category>();
-        T_Med_Category TF_Med_Cat;
+
+        ClsCommander<T_Med_Storage_Shape> cmdStoreShape = new ClsCommander<T_Med_Storage_Shape>();
+        T_Med_Storage_Shape TF_Storage_Shape;
         Boolean Is_Double_Click = false;
 
         public override void Title(string s_title)
@@ -31,24 +32,24 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         }
         public override void Get_Data(string status_mess)
         {
-            //if (TF_Med_Cat != null)
+            //if (TF_Storage_Shape != null)
             //{
-                try
-                {
-                    clear_data(this.Controls);
-                    Is_Double_Click = false;
-                cmdMedCat = new ClsCommander<T_Med_Category>();
-                TF_Med_Cat = cmdMedCat.Get_All().FirstOrDefault();
-                if (TF_Med_Cat != null)
-                    Fill_Graid();
+            try
+            {
+                clear_data(this.Controls);
+                Is_Double_Click = false;
+                cmdStoreShape = new ClsCommander<T_Med_Storage_Shape>();
+                TF_Storage_Shape = cmdStoreShape.Get_All().FirstOrDefault();
+                if (TF_Storage_Shape!=null)
+                Fill_Graid();
 
-                    base.Get_Data(status_mess);
-                }
-                catch (Exception ex)
-                {
-                    Get_Data(ex.InnerException.InnerException.ToString());
-                }
-           // }
+                base.Get_Data(status_mess);
+            }
+            catch (Exception ex)
+            {
+                Get_Data(ex.InnerException.InnerException.ToString());
+            }
+       
         }
         public override void Insert_Data()
         {
@@ -56,9 +57,9 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             {
                 if (Validate_Data())
                 {
-                    TF_Med_Cat = new T_Med_Category();
+                    TF_Storage_Shape = new T_Med_Storage_Shape();
                     Fill_Entitey();
-                    cmdMedCat.Insert_Data(TF_Med_Cat);
+                    cmdStoreShape.Insert_Data(TF_Storage_Shape);
                     base.Insert_Data();
                     Get_Data("i");
                 }
@@ -75,11 +76,11 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             {
                 if (Is_Double_Click)
                 {
-                    if (Validate_Data() && gv.RowCount > 0 && TF_Med_Cat != null)
+                    if (Validate_Data() && gv.RowCount > 0 && TF_Storage_Shape != null)
                     {
-                   
+
                         Fill_Entitey();
-                        cmdMedCat.Update_Data(TF_Med_Cat);
+                        cmdStoreShape.Update_Data(TF_Storage_Shape);
                         base.Update_Data();
                         Get_Data("u");
                     }
@@ -105,7 +106,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdMedCat.Delet_Data(TF_Med_Cat);
+                                cmdStoreShape.Delet_Data(TF_Storage_Shape);
                             }
                         base.Delete_Data();
                         Get_Data("d");
@@ -125,12 +126,13 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public override bool Validate_Data()
         {
             int number_of_errores = 0;
-       
+
             number_of_errores += txt_name.is_text_valid() ? 0 : 1;
+            number_of_errores += txt_id.is_text_valid() ? 0 : 1;
             return (number_of_errores == 0);
 
         }
-    
+
 
 
         public override void clear_data(Control.ControlCollection s_controls)
@@ -144,37 +146,37 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         }
         public void Fill_Controls()
         {
-            txt_id.Text = TF_Med_Cat.med_cat_id.ToString();
-            txt_name.Text = TF_Med_Cat.med_cat_name;
+            txt_id.Text = TF_Storage_Shape.med_stor_shape_id.ToString();
+            txt_name.Text = TF_Storage_Shape.med_stor_shape_name;
 
         }
         public void Fill_Entitey()
         {
-          //  TF_Med_Cat.med_cat_id = Convert.ToInt32(txt_id.Text);
+            //  TF_Storage_Shape.med_cat_id = Convert.ToInt32(txt_id.Text);
 
-            TF_Med_Cat.med_cat_name = txt_name.Text.Trim();
-        
+            TF_Storage_Shape.med_stor_shape_name = txt_name.Text.Trim();
+
 
         }
         private void Fill_Graid()
         {
-            gc.DataSource = (from Emp_s in cmdMedCat.Get_All()
-                             select new
-                             {
-                                 id = Emp_s.med_cat_id,
-                                 name = Emp_s.med_cat_name,               
-                             }).OrderBy(c_id => c_id.id).ToList();
-
+            Object x = new object();
+            x = (from Emp_s in cmdStoreShape.Get_All()
+                 select new
+                 {
+                     id = Emp_s.med_stor_shape_id,
+                     name = Emp_s.med_stor_shape_name,
+                 }).OrderBy(c_id => c_id.name);
+            gc.DataSource = x;
             gv.Columns["id"].Visible = false;
-            gv.Columns["name"].Caption = "اسم التصنيف";
-
-
+            gv.Columns["name"].Caption = "اسم الشكل";
             gv.BestFitColumns();
         }
         private void Set_Auto_Id()
         {
-            var Max_Id = cmdMedCat.Get_All().Where(c_id => c_id.med_cat_id == cmdMedCat.Get_All().Max(max => max.med_cat_id)).FirstOrDefault();
-            txt_id.Text = Max_Id == null ? "1" : (Max_Id.med_cat_id + 1).ToString();
+            var Max_Id = cmdStoreShape.Get_All().Where(c_id => c_id.med_stor_shape_id
+                                 == cmdStoreShape.Get_All().Max(max => max.med_stor_shape_id)).FirstOrDefault();
+            txt_id.Text = Max_Id == null ? "1" : (Max_Id.med_stor_shape_id + 1).ToString();
 
 
         }
@@ -184,12 +186,12 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             if (Row_Id != 0)
             {
                 id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]));
-                TF_Med_Cat = cmdMedCat.Get_By(c_id => c_id.med_cat_id == id).FirstOrDefault();
+                TF_Storage_Shape = cmdStoreShape.Get_By(c_id => c_id.med_stor_shape_id == id).FirstOrDefault();
             }
             else
             {
                 id = Convert.ToInt64(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]));
-                TF_Med_Cat = cmdMedCat.Get_By(c_id => c_id.med_cat_id == id).FirstOrDefault();
+                TF_Storage_Shape = cmdStoreShape.Get_By(c_id => c_id.med_stor_shape_id == id).FirstOrDefault();
             }
         }
         public override void gv_DoubleClick(object sender, EventArgs e)
@@ -197,7 +199,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             Is_Double_Click = true;
             gv.SelectRow(gv.FocusedRowHandle);
             Get_Row_ID(0);
-            if (TF_Med_Cat != null)
+            if (TF_Storage_Shape != null)
                 Fill_Controls();
         }
         public override void gv_KeyDown(object sender, KeyEventArgs e)

@@ -32,14 +32,14 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         }
         public override void Get_Data(string status_mess)
         {
-            //if (TF_Med_Shape != null)
-            //{
             try
             {
                 clear_data(this.Controls);
                 Is_Double_Click = false;
                 cmdMedSape = new ClsCommander<T_Med_Shape>();
-                Fill_Graid();
+                TF_Med_Shape = cmdMedSape.Get_All().FirstOrDefault();
+                if (TF_Med_Shape != null)
+                    Fill_Graid();
 
                 base.Get_Data(status_mess);
             }
@@ -125,7 +125,7 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         {
             int number_of_errores = 0;
 
-            number_of_errores += txt_addd.is_text_valid() ? 0 : 1;
+            number_of_errores += txt_name.is_text_valid() ? 0 : 1;
             number_of_errores += txt_id.is_text_valid() ? 0 : 1;
             return (number_of_errores == 0);
 
@@ -145,14 +145,14 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         public void Fill_Controls()
         {
             txt_id.Text = TF_Med_Shape.med_shape_id.ToString();
-            txt_addd.Text = TF_Med_Shape.med_shape_name;
+            txt_name.Text = TF_Med_Shape.med_shape_name;
 
         }
         public void Fill_Entitey()
         {
             //  TF_Med_Shape.med_cat_id = Convert.ToInt32(txt_id.Text);
 
-            TF_Med_Shape.med_shape_name = txt_addd.Text.Trim();
+            TF_Med_Shape.med_shape_name = txt_name.Text.Trim();
 
 
         }

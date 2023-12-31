@@ -1,6 +1,6 @@
 ﻿using PhamaceyDataBase.Commander;
 using PhamaceyDataBase;
-using PhamaceySystem.Inheratenz_Forms;
+using PhamaceySystem;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -246,6 +246,11 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         {
             F_Med_Categories f = new F_Med_Categories();
             f.ShowDialog();
+        }
+
+        private void med_idTextEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

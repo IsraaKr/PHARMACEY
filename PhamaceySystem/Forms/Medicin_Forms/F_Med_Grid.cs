@@ -1,6 +1,6 @@
 ﻿using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
-using PhamaceySystem.Inheratenz_Forms;
+using PhamaceySystem;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

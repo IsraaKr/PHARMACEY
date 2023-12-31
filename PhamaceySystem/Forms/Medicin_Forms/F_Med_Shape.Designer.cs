@@ -32,7 +32,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_addd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Size = new System.Drawing.Size(580, 611);
             this.dataLayoutControl1.Controls.SetChildIndex(this.txt_id, 0);
-            this.dataLayoutControl1.Controls.SetChildIndex(this.txt_addd, 0);
+            this.dataLayoutControl1.Controls.SetChildIndex(this.txt_name, 0);
             // 
             // txt_id
             // 
@@ -63,10 +63,10 @@
             // 
             // txt_addd
             // 
-            this.txt_addd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_addd.Properties.Appearance.Options.UseFont = true;
-            this.txt_addd.Size = new System.Drawing.Size(480, 22);
-            this.txt_addd.TabIndex = 0;
+            this.txt_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_name.Properties.Appearance.Options.UseFont = true;
+            this.txt_name.Size = new System.Drawing.Size(480, 22);
+            this.txt_name.TabIndex = 0;
             // 
             // txt
             // 
@@ -90,7 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txt_id.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_addd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

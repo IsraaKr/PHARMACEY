@@ -135,6 +135,14 @@ namespace PhamaceySystem
             }
         }
 
-    
+        private void barButtonItem9_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void pan_nav_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

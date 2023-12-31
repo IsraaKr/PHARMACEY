@@ -20,12 +20,12 @@ namespace PhamaceySystem
             // view_inheretanz_butomes(true,false, true, true, true, true);
         }
        //عرض و إخفاء الأزرار
-        public virtual void view_inheretanz_butomes(bool save ,bool add , bool add_save , bool edite , bool delete , bool clear , bool print)
+        public virtual void view_inheretanz_butomes(bool neew ,bool add , bool add_save , bool edite , bool delete , bool clear , bool print)
         {
-            if (save)
+            if (neew)
             {
-                bar_save.Visibility =0 ;
-                sp_save.Visibility = 0;
+                bar_new.Visibility =0 ;
+                sp_new.Visibility = 0;
             }
             if (add)
             {
@@ -121,7 +121,12 @@ namespace PhamaceySystem
         {
             change_states_message(status_mess);
         }
-      //التأكد من الصحة
+        //جديد 
+        public virtual void neew ()
+        {
+           
+        }
+        //التأكد من الصحة
         public virtual bool Validate_Data()
         {
             return true;
@@ -212,33 +217,34 @@ namespace PhamaceySystem
         //ضغط حفظ
         private void bar_save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Insert_Data();
+            clear_data(this.Controls);
+            neew();
         //    timer_states_bar.Enabled = true;
         }
         //ضغط إضافة
         private void bar_add_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Insert_Data();
-          //  timer_states_bar.Enabled = true;
+         //   timer_states_bar.Enabled = true;
         }
         //ضغط تعديل
         private void bar_edit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Update_Data();
-            //timer_states_bar.Enabled = true;
+            timer_states_bar.Enabled = true;
         }
         //ضغط الحذف
         private void bar_delete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Delete_Data();
-            //timer_states_bar.Enabled = true;
+            timer_states_bar.Enabled = true;
         }
         //ضغط مسح
         private void bar_clear_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             clear_data(this.Controls);
             Get_Data("");
-          //  timer_states_bar.Enabled = true;
+            timer_states_bar.Enabled = true;
         }
         //ضغط طباعة
         private void bar_print_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -266,6 +272,11 @@ namespace PhamaceySystem
         private void bar_add_save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Insert_save_Data();
+        }
+
+        private void lbl_tiltle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

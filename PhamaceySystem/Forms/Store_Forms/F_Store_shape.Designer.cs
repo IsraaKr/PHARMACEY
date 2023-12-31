@@ -1,6 +1,6 @@
-﻿namespace PhamaceySystem.Forms.Medicin_Forms
+﻿namespace PhamaceySystem.Forms.Store_Forms
 {
-    partial class F_Med_Categories
+    partial class F_Store_shape
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@
             // 
             // Root
             // 
-            this.Root.Size = new System.Drawing.Size(611, 611);
+            this.Root.Size = new System.Drawing.Size(800, 341);
             // 
             // dataLayoutControl1
             // 
@@ -50,44 +50,42 @@
             this.dataLayoutControl1.OptionsPrint.AppearanceGroupCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.dataLayoutControl1.OptionsPrint.AppearanceGroupCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(611, 611);
-            this.dataLayoutControl1.Controls.SetChildIndex(this.txt_id, 0);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(800, 341);
             this.dataLayoutControl1.Controls.SetChildIndex(this.txt_name, 0);
+            this.dataLayoutControl1.Controls.SetChildIndex(this.txt_id, 0);
             // 
             // txt_id
             // 
+            this.txt_id.Location = new System.Drawing.Point(25, 294);
             this.txt_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.Properties.Appearance.Options.UseFont = true;
-            this.txt_id.Size = new System.Drawing.Size(511, 22);
+            this.txt_id.Size = new System.Drawing.Size(700, 22);
             this.txt_id.TabIndex = 3;
             // 
-            // txt_addd
+            // txt_name
             // 
             this.txt_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.Properties.Appearance.Options.UseFont = true;
-            this.txt_name.Size = new System.Drawing.Size(511, 22);
+            this.txt_name.Size = new System.Drawing.Size(700, 22);
             this.txt_name.TabIndex = 0;
             // 
             // txt
             // 
             this.txt.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt.AppearanceItemCaption.Options.UseFont = true;
-            this.txt.Size = new System.Drawing.Size(581, 42);
+            this.txt.Size = new System.Drawing.Size(770, 42);
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_tiltle.Size = new System.Drawing.Size(611, 59);
+            this.lbl_tiltle.Size = new System.Drawing.Size(800, 56);
             // 
-            // F_Med_Categories
+            // F_Store_shape
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 720);
-            this.Location = new System.Drawing.Point(0, 0);
-            this.Name = "F_Med_Categories";
-            this.Text = "F_Med_Categories";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "F_Store_shape";
+            this.Text = "F_Store_shape";
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);

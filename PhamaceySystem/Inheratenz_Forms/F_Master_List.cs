@@ -40,7 +40,20 @@ namespace PhamaceySystem
         public virtual void gv_KeyDown(object sender, KeyEventArgs e)
         {
 
+
         }
+        public virtual void txt_name_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Insert_Data();
+            //if (e.KeyCode == Keys.F2)
+            //    new();
+            if (e.KeyCode == Keys.Delete)
+                Delete_Data();
+            if (e.KeyCode == Keys.Escape)
+                clear_data(this.Controls);
+        }
+
         /*    private void barr_search_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
             {
 
@@ -251,18 +264,7 @@ namespace PhamaceySystem
                 this.Close();
             }
 
-            public virtual void txt_addd_KeyDown(object sender, KeyEventArgs e)
-            {
-                if (e.KeyCode == Keys.Enter)
-                     Insert_Data();
-                //if (e.KeyCode == Keys.F2)
-                //    new();
-                if (e.KeyCode == Keys.Delete)
-                    Delete_Data();
-                if (e.KeyCode == Keys.Escape)
-                    Clear_Data(this.Controls);
-            }
-
+           
 
 
             private void gc_Click(object sender, EventArgs e)

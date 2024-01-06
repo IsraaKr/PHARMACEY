@@ -21,7 +21,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             InitializeComponent();
             Title("ادخال  مادة / In Operation");
   
-        view_inheretanz_butomes(true, false, false, false, false, false, false);
+        view_inheretanz_butomes(true, false, false, false, false, false, true);
     }
         public F_In_Op( int op_id)
         {
@@ -155,8 +155,6 @@ namespace PhamaceySystem.Forms.Store_Forms
             TF_OP_IN.in_op_text = in_op_textTextEdit.Text;
             TF_OP_IN.in_op_state = Convert.ToBoolean(in_op_stateCheckEdit.CheckState);
             TF_OP_IN.in_op_recipt_no = Convert.ToInt32("1");//in_op_recipt_noTextEdit.Text);
-            TF_OP_IN.in_op_recipt_name = in_op_recipt_nameTextEdit.Text;
-            TF_OP_IN.in_op_recipt_date = Convert.ToDateTime(in_op_recipt_dateDateEdit.DateTime.ToString("yyyy/MM/dd"));
             TF_OP_IN.donar_emp = donar_empTextEdit.Text;
             TF_OP_IN.donar_id = Convert.ToInt32(donar_idSearchLookUpEdit.EditValue);
             TF_OP_IN.emp_id = Convert.ToInt32(emp_idSearchLookUpEdit.EditValue);
@@ -169,10 +167,7 @@ namespace PhamaceySystem.Forms.Store_Forms
            in_op_dateDateEdit.DateTime = Convert.ToDateTime(TF_OP_IN.in_op_date);
             //    in_op_timeTimeSpanEdit.Text = TF_OP_IN.in_op_time;
             in_op_stateCheckEdit.Checked = Convert.ToBoolean(TF_OP_IN.in_op_state);
-            in_op_recipt_noTextEdit.Text = TF_OP_IN.in_op_recipt_no.ToString();
-            in_op_recipt_nameTextEdit.Text = TF_OP_IN.in_op_recipt_name;
-            in_op_recipt_dateDateEdit.DateTime = Convert.ToDateTime(TF_OP_IN.in_op_recipt_date);
-
+     
 
             donar_empTextEdit.Text = TF_OP_IN.donar_emp;
 
@@ -223,9 +218,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         public void Fill_Entitey_item()
         {
             TF_OP_IN_Item.in_item_quntity = Convert.ToInt32(in_item_quntityTextEdit.Text);
-            TF_OP_IN_Item.in_item_proDate = Convert.ToDateTime(in_item_proDateDateEdit.DateTime.ToString("yyyy/MM/dd"));
             TF_OP_IN_Item.in_item_expDate = Convert.ToDateTime(in_item_expDateDateEdit.DateTime.ToString("yyyy/MM/dd"));
-            TF_OP_IN_Item.in_B_It_state = Convert.ToBoolean(in_B_It_stateCheckEdit.CheckState);
             TF_OP_IN_Item.in_B_It_note = in_B_It_noteMemoEdit.Text;
             TF_OP_IN_Item.Med_id = Convert.ToInt32(Med_idSearchlookupEdit.EditValue);
             TF_OP_IN_Item.med_storage_shape_id = Convert.ToInt32(med_storage_shape_idSearchLookUpEdit.EditValue);
@@ -403,7 +396,7 @@ WHERE        (dbo.T_OPeration_IN_Item.In_op_id = "+id+")");
         }
         private void btn_add_store_shape_Click(object sender, EventArgs e)
         {
-            F_Store_shape f = new F_Store_shape();
+            F_Store_Place f = new F_Store_Place();
             f.ShowDialog();
             GetStorageShape_Data();
      

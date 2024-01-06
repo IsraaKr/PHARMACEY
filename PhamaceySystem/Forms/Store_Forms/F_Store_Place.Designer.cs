@@ -1,6 +1,6 @@
 ﻿namespace PhamaceySystem.Forms.Store_Forms
 {
-    partial class F_Store_shape
+    partial class F_Store_Place
     {
         /// <summary>
         /// Required designer variable.

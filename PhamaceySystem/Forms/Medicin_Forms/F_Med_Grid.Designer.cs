@@ -30,9 +30,21 @@
         {
             this.gc = new DevExpress.XtraGrid.GridControl();
             this.gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_page_num)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
             this.SuspendLayout();
+            // 
+            // cmb_page_num
+            // 
+            this.cmb_page_num.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_page_num.AppearanceItemCaption.Options.UseFont = true;
+            this.cmb_page_num.Location = new System.Drawing.Point(0, 191);
+            // 
+            // comb_page_num
+            // 
+            this.comb_page_num.Location = new System.Drawing.Point(12, 203);
+            this.comb_page_num.TabIndex = 2;
             // 
             // lbl_tiltle
             // 
@@ -40,10 +52,6 @@
             this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_tiltle.Size = new System.Drawing.Size(818, 72);
             this.lbl_tiltle.Text = "...";
-            // 
-            // timer_date
-            // 
-            this.timer_date.Enabled = true;
             // 
             // gc
             // 
@@ -89,13 +97,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 365);
             this.Controls.Add(this.gc);
-            this.Location = new System.Drawing.Point(0, 0);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "F_Med_Grid";
             this.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.Text = "F_Med_Grid";
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             this.Controls.SetChildIndex(this.gc, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_page_num)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv)).EndInit();
             this.ResumeLayout(false);

@@ -28,5 +28,10 @@ namespace PhamaceySystem.Inheratenz_Forms
         {
 
         }
+
+        public virtual void comb_page_num_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

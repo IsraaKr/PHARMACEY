@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Server_Setting));
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
-            this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.btn_restore_database = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_backup_database = new DevExpress.XtraEditors.SimpleButton();
+            this.txt_time = new DevExpress.XtraEditors.TextEdit();
+            this.txt_sqript_bath = new DevExpress.XtraEditors.TextEdit();
+            this.btn_sqript_file = new DevExpress.XtraEditors.SimpleButton();
+            this.rb_network = new System.Windows.Forms.RadioButton();
+            this.rb_local = new System.Windows.Forms.RadioButton();
+            this.txt_pass = new DevExpress.XtraEditors.TextEdit();
+            this.txt_user_name = new DevExpress.XtraEditors.TextEdit();
+            this.txt_database = new DevExpress.XtraEditors.TextEdit();
+            this.txt_server = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -49,20 +51,23 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_time.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_sqript_bath.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_pass.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_user_name.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_database.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_server.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -72,14 +77,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Size = new System.Drawing.Size(955, 82);
+            this.lbl_tiltle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_tiltle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_tiltle.Size = new System.Drawing.Size(955, 60);
             // 
             // timer_date
             // 
@@ -87,139 +99,169 @@
             // 
             // dataLayoutControl1
             // 
-            this.dataLayoutControl1.Controls.Add(this.textEdit6);
-            this.dataLayoutControl1.Controls.Add(this.textEdit5);
-            this.dataLayoutControl1.Controls.Add(this.simpleButton1);
-            this.dataLayoutControl1.Controls.Add(this.radioButton2);
-            this.dataLayoutControl1.Controls.Add(this.radioButton1);
-            this.dataLayoutControl1.Controls.Add(this.textEdit4);
-            this.dataLayoutControl1.Controls.Add(this.textEdit3);
-            this.dataLayoutControl1.Controls.Add(this.textEdit2);
-            this.dataLayoutControl1.Controls.Add(this.textEdit1);
+            this.dataLayoutControl1.Controls.Add(this.btn_restore_database);
+            this.dataLayoutControl1.Controls.Add(this.btn_backup_database);
+            this.dataLayoutControl1.Controls.Add(this.txt_time);
+            this.dataLayoutControl1.Controls.Add(this.txt_sqript_bath);
+            this.dataLayoutControl1.Controls.Add(this.btn_sqript_file);
+            this.dataLayoutControl1.Controls.Add(this.rb_network);
+            this.dataLayoutControl1.Controls.Add(this.rb_local);
+            this.dataLayoutControl1.Controls.Add(this.txt_pass);
+            this.dataLayoutControl1.Controls.Add(this.txt_user_name);
+            this.dataLayoutControl1.Controls.Add(this.txt_database);
+            this.dataLayoutControl1.Controls.Add(this.txt_server);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(955, 353);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(955, 364);
             this.dataLayoutControl1.TabIndex = 0;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
-            // textEdit6
+            // btn_restore_database
             // 
-            this.textEdit6.Enabled = false;
-            this.textEdit6.Location = new System.Drawing.Point(24, 195);
-            this.textEdit6.Name = "textEdit6";
-            this.textEdit6.Size = new System.Drawing.Size(404, 26);
-            this.textEdit6.StyleController = this.dataLayoutControl1;
-            this.textEdit6.TabIndex = 11;
+            this.btn_restore_database.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_restore_database.Appearance.Options.UseFont = true;
+            this.btn_restore_database.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_restore_database.ImageOptions.SvgImage")));
+            this.btn_restore_database.Location = new System.Drawing.Point(24, 304);
+            this.btn_restore_database.Name = "btn_restore_database";
+            this.btn_restore_database.Size = new System.Drawing.Size(290, 36);
+            this.btn_restore_database.StyleController = this.dataLayoutControl1;
+            this.btn_restore_database.TabIndex = 13;
+            this.btn_restore_database.Text = "استعادة نسخة";
+            this.btn_restore_database.Visible = false;
+            this.btn_restore_database.Click += new System.EventHandler(this.btn_restore_database_Click);
             // 
-            // textEdit5
+            // btn_backup_database
             // 
-            this.textEdit5.Location = new System.Drawing.Point(606, 237);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Size = new System.Drawing.Size(308, 26);
-            this.textEdit5.StyleController = this.dataLayoutControl1;
-            this.textEdit5.TabIndex = 10;
+            this.btn_backup_database.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_backup_database.Appearance.Options.UseFont = true;
+            this.btn_backup_database.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_backup_database.ImageOptions.SvgImage")));
+            this.btn_backup_database.Location = new System.Drawing.Point(318, 304);
+            this.btn_backup_database.Name = "btn_backup_database";
+            this.btn_backup_database.Size = new System.Drawing.Size(290, 36);
+            this.btn_backup_database.StyleController = this.dataLayoutControl1;
+            this.btn_backup_database.TabIndex = 12;
+            this.btn_backup_database.Text = "نسخ احتياطي";
+            this.btn_backup_database.Visible = false;
             // 
-            // simpleButton1
+            // txt_time
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(589, 50);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(10);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Padding = new System.Windows.Forms.Padding(10);
-            this.simpleButton1.Size = new System.Drawing.Size(342, 142);
-            this.simpleButton1.StyleController = this.dataLayoutControl1;
-            this.simpleButton1.TabIndex = 1;
-            this.simpleButton1.Text = "اختيار ملف سكريبت قاعدة البيانات ";
+            this.txt_time.Enabled = false;
+            this.txt_time.Location = new System.Drawing.Point(24, 182);
+            this.txt_time.Name = "txt_time";
+            this.txt_time.Size = new System.Drawing.Size(584, 22);
+            this.txt_time.StyleController = this.dataLayoutControl1;
+            this.txt_time.TabIndex = 11;
             // 
-            // radioButton2
+            // txt_sqript_bath
             // 
-            this.radioButton2.Location = new System.Drawing.Point(36, 88);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(248, 31);
-            this.radioButton2.TabIndex = 9;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "شبكي";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.txt_sqript_bath.Location = new System.Drawing.Point(653, 116);
+            this.txt_sqript_bath.Name = "txt_sqript_bath";
+            this.txt_sqript_bath.Size = new System.Drawing.Size(244, 22);
+            this.txt_sqript_bath.StyleController = this.dataLayoutControl1;
+            this.txt_sqript_bath.TabIndex = 10;
+            this.txt_sqript_bath.EditValueChanged += new System.EventHandler(this.textEdit5_EditValueChanged);
             // 
-            // radioButton1
+            // btn_sqript_file
             // 
-            this.radioButton1.Location = new System.Drawing.Point(288, 88);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(261, 31);
-            this.radioButton1.TabIndex = 8;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "محلي";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.btn_sqript_file.Appearance.Font = new System.Drawing.Font("Showcard Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_sqript_file.Appearance.Options.UseFont = true;
+            this.btn_sqript_file.Location = new System.Drawing.Point(636, -11);
+            this.btn_sqript_file.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_sqript_file.Name = "btn_sqript_file";
+            this.btn_sqript_file.Padding = new System.Windows.Forms.Padding(10);
+            this.btn_sqript_file.Size = new System.Drawing.Size(278, 83);
+            this.btn_sqript_file.StyleController = this.dataLayoutControl1;
+            this.btn_sqript_file.TabIndex = 1;
+            this.btn_sqript_file.Text = "اختيار ملف سكريبت قاعدة البيانات ";
+            this.btn_sqript_file.Click += new System.EventHandler(this.btn_sqript_file_Click);
             // 
-            // textEdit4
+            // rb_network
             // 
-            this.textEdit4.Enabled = false;
-            this.textEdit4.Location = new System.Drawing.Point(24, 255);
-            this.textEdit4.Margin = new System.Windows.Forms.Padding(4);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Properties.PasswordChar = '*';
-            this.textEdit4.Properties.UseSystemPasswordChar = true;
-            this.textEdit4.Size = new System.Drawing.Size(404, 26);
-            this.textEdit4.StyleController = this.dataLayoutControl1;
-            this.textEdit4.TabIndex = 7;
+            this.rb_network.Location = new System.Drawing.Point(36, 23);
+            this.rb_network.Margin = new System.Windows.Forms.Padding(4);
+            this.rb_network.Name = "rb_network";
+            this.rb_network.Size = new System.Drawing.Size(278, 25);
+            this.rb_network.TabIndex = 9;
+            this.rb_network.Text = "شبكي";
+            this.rb_network.UseVisualStyleBackColor = true;
+            this.rb_network.CheckedChanged += new System.EventHandler(this.rb_network_CheckedChanged);
             // 
-            // textEdit3
+            // rb_local
             // 
-            this.textEdit3.Enabled = false;
-            this.textEdit3.Location = new System.Drawing.Point(24, 225);
-            this.textEdit3.Margin = new System.Windows.Forms.Padding(4);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Size = new System.Drawing.Size(404, 26);
-            this.textEdit3.StyleController = this.dataLayoutControl1;
-            this.textEdit3.TabIndex = 6;
+            this.rb_local.Checked = true;
+            this.rb_local.Location = new System.Drawing.Point(318, 23);
+            this.rb_local.Margin = new System.Windows.Forms.Padding(4);
+            this.rb_local.Name = "rb_local";
+            this.rb_local.Size = new System.Drawing.Size(278, 25);
+            this.rb_local.TabIndex = 8;
+            this.rb_local.TabStop = true;
+            this.rb_local.Text = "محلي";
+            this.rb_local.UseVisualStyleBackColor = true;
+            this.rb_local.CheckedChanged += new System.EventHandler(this.rb_local_CheckedChanged);
             // 
-            // textEdit2
+            // txt_pass
             // 
-            this.textEdit2.Location = new System.Drawing.Point(24, 165);
-            this.textEdit2.Margin = new System.Windows.Forms.Padding(4);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(404, 26);
-            this.textEdit2.StyleController = this.dataLayoutControl1;
-            this.textEdit2.TabIndex = 5;
+            this.txt_pass.Enabled = false;
+            this.txt_pass.Location = new System.Drawing.Point(24, 278);
+            this.txt_pass.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_pass.Name = "txt_pass";
+            this.txt_pass.Properties.PasswordChar = '*';
+            this.txt_pass.Properties.UseSystemPasswordChar = true;
+            this.txt_pass.Size = new System.Drawing.Size(584, 22);
+            this.txt_pass.StyleController = this.dataLayoutControl1;
+            this.txt_pass.TabIndex = 7;
             // 
-            // textEdit1
+            // txt_user_name
             // 
-            this.textEdit1.Location = new System.Drawing.Point(24, 135);
-            this.textEdit1.Margin = new System.Windows.Forms.Padding(4);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(404, 26);
-            this.textEdit1.StyleController = this.dataLayoutControl1;
-            this.textEdit1.TabIndex = 4;
+            this.txt_user_name.Enabled = false;
+            this.txt_user_name.Location = new System.Drawing.Point(24, 230);
+            this.txt_user_name.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_user_name.Name = "txt_user_name";
+            this.txt_user_name.Size = new System.Drawing.Size(584, 22);
+            this.txt_user_name.StyleController = this.dataLayoutControl1;
+            this.txt_user_name.TabIndex = 6;
+            // 
+            // txt_database
+            // 
+            this.txt_database.Location = new System.Drawing.Point(24, 134);
+            this.txt_database.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_database.Name = "txt_database";
+            this.txt_database.Size = new System.Drawing.Size(584, 22);
+            this.txt_database.StyleController = this.dataLayoutControl1;
+            this.txt_database.TabIndex = 5;
+            // 
+            // txt_server
+            // 
+            this.txt_server.Location = new System.Drawing.Point(24, 86);
+            this.txt_server.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_server.Name = "txt_server";
+            this.txt_server.Size = new System.Drawing.Size(584, 22);
+            this.txt_server.StyleController = this.dataLayoutControl1;
+            this.txt_server.TabIndex = 4;
+            this.txt_server.EditValueChanged += new System.EventHandler(this.txt_server_EditValueChanged);
             // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem1,
             this.layoutControlGroup1,
-            this.layoutControlGroup3});
+            this.layoutControlGroup3,
+            this.emptySpaceItem1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(955, 353);
+            this.Root.Size = new System.Drawing.Size(938, 476);
             this.Root.TextVisible = false;
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 285);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(935, 48);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
             // 
+            this.layoutControlGroup1.AppearanceGroup.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlGroup1.AppearanceGroup.Options.UseFont = true;
+            this.layoutControlGroup1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlGroup1.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlGroup1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
@@ -227,47 +269,53 @@
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.layoutControlGroup2,
-            this.layoutControlItem9});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem9,
+            this.layoutControlItem10,
+            this.layoutControlItem11});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 55);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(565, 285);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(612, 401);
             this.layoutControlGroup1.Text = "اعدادات قاعدة البيانات";
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.textEdit1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 85);
+            this.layoutControlItem1.Control = this.txt_server;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 75);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(541, 30);
+            this.layoutControlItem1.Size = new System.Drawing.Size(588, 48);
             this.layoutControlItem1.Text = "اسم السيرفر";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(130, 20);
+            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(142, 19);
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.textEdit2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 115);
+            this.layoutControlItem2.Control = this.txt_database;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 123);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(541, 30);
+            this.layoutControlItem2.Size = new System.Drawing.Size(588, 48);
             this.layoutControlItem2.Text = "اسم قاعدة البيانات";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(130, 20);
+            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(142, 19);
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.textEdit3;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 175);
+            this.layoutControlItem3.Control = this.txt_user_name;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 219);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(541, 30);
+            this.layoutControlItem3.Size = new System.Drawing.Size(588, 48);
             this.layoutControlItem3.Text = "اسم المستخدم";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(130, 20);
+            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(142, 19);
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.Control = this.textEdit4;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 205);
+            this.layoutControlItem4.Control = this.txt_pass;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 267);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(541, 30);
+            this.layoutControlItem4.Size = new System.Drawing.Size(588, 48);
             this.layoutControlItem4.Text = "كلمة المرور";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(130, 20);
+            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(142, 19);
             // 
             // layoutControlGroup2
             // 
@@ -277,68 +325,112 @@
             this.layoutControlItem5});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(541, 85);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(588, 75);
             this.layoutControlGroup2.Text = "نوع الاتصال";
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.Control = this.radioButton2;
+            this.layoutControlItem6.Control = this.rb_network;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(252, 35);
+            this.layoutControlItem6.Size = new System.Drawing.Size(282, 29);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.radioButton1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(252, 0);
+            this.layoutControlItem5.Control = this.rb_local;
+            this.layoutControlItem5.Location = new System.Drawing.Point(282, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(265, 35);
+            this.layoutControlItem5.Size = new System.Drawing.Size(282, 29);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem9
             // 
-            this.layoutControlItem9.Control = this.textEdit6;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 145);
+            this.layoutControlItem9.Control = this.txt_time;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 171);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(541, 30);
+            this.layoutControlItem9.Size = new System.Drawing.Size(588, 48);
             this.layoutControlItem9.Text = "مدة الاتصال";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(130, 20);
+            this.layoutControlItem9.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(142, 19);
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.btn_backup_database;
+            this.layoutControlItem10.Location = new System.Drawing.Point(294, 315);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(294, 40);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
+            // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.btn_restore_database;
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 315);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(294, 40);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem11.TextVisible = false;
             // 
             // layoutControlGroup3
             // 
+            this.layoutControlGroup3.AppearanceGroup.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlGroup3.AppearanceGroup.Options.UseFont = true;
+            this.layoutControlGroup3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlGroup3.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlGroup3.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem8,
-            this.layoutControlItem7});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(565, 0);
+            this.layoutControlItem7,
+            this.emptySpaceItem2});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(612, 55);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(370, 285);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(306, 401);
             this.layoutControlGroup3.Text = "اعدادات ملف إننشاء الجداول";
             // 
             // layoutControlItem8
             // 
-            this.layoutControlItem8.Control = this.textEdit5;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 146);
+            this.layoutControlItem8.Control = this.txt_sqript_bath;
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 87);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Padding = new DevExpress.XtraLayout.Utils.Padding(19, 19, 20, 20);
-            this.layoutControlItem8.Size = new System.Drawing.Size(346, 89);
+            this.layoutControlItem8.Size = new System.Drawing.Size(282, 84);
             this.layoutControlItem8.Text = "مسار ملف السكريبت";
             this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(130, 20);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(142, 19);
             // 
             // layoutControlItem7
             // 
-            this.layoutControlItem7.Control = this.simpleButton1;
+            this.layoutControlItem7.Control = this.btn_sqript_file;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem7.MinSize = new System.Drawing.Size(169, 28);
+            this.layoutControlItem7.MaxSize = new System.Drawing.Size(0, 87);
+            this.layoutControlItem7.MinSize = new System.Drawing.Size(210, 87);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(346, 146);
+            this.layoutControlItem7.Size = new System.Drawing.Size(282, 87);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 171);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(282, 184);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(0, 55);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(104, 55);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(918, 55);
+            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // openFileDialog1
             // 
@@ -346,26 +438,26 @@
             // 
             // F_Server_Setting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 487);
+            this.ClientSize = new System.Drawing.Size(955, 473);
             this.Controls.Add(this.dataLayoutControl1);
             this.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "F_Server_Setting";
             this.Text = "F_Server_Setting";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.F_Server_Setting_FormClosing);
             this.Controls.SetChildIndex(this.dataLayoutControl1, 0);
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_time.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_sqript_bath.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_pass.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_user_name.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_database.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_server.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -375,9 +467,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,17 +483,16 @@
 
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
-        private DevExpress.XtraEditors.TextEdit textEdit6;
-        private DevExpress.XtraEditors.TextEdit textEdit5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit txt_time;
+        private DevExpress.XtraEditors.TextEdit txt_sqript_bath;
+        private DevExpress.XtraEditors.SimpleButton btn_sqript_file;
+        private System.Windows.Forms.RadioButton rb_network;
+        private System.Windows.Forms.RadioButton rb_local;
+        private DevExpress.XtraEditors.TextEdit txt_pass;
+        private DevExpress.XtraEditors.TextEdit txt_user_name;
+        private DevExpress.XtraEditors.TextEdit txt_database;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
@@ -410,5 +505,11 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.SimpleButton btn_restore_database;
+        private DevExpress.XtraEditors.SimpleButton btn_backup_database;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+        private DevExpress.XtraEditors.TextEdit txt_server;
     }
 }

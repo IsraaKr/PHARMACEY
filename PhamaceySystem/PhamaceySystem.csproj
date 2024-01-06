@@ -40,6 +40,7 @@
     <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Sparkline.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -60,7 +61,10 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,7 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\c_db.cs" />
-    <Compile Include="C_Master.cs" />
+    <Compile Include="Classes\C_GC_Page_Nav.cs" />
+    <Compile Include="Classes\C_Master.cs" />
     <Compile Include="Forms\F_Quiek_Accses.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +127,12 @@
     <Compile Include="Forms\Setting_Forms\F_Server_Setting.Designer.cs">
       <DependentUpon>F_Server_Setting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Setting_Forms\F_System_Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\F_System_Setting.Designer.cs">
+      <DependentUpon>F_System_Setting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Store_Forms\F_In_Op.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,11 +145,11 @@
     <Compile Include="Forms\Store_Forms\F_In_OP_Graid.Designer.cs">
       <DependentUpon>F_In_OP_Graid.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Store_Forms\F_Store_shape.cs">
+    <Compile Include="Forms\Store_Forms\F_Store_Place.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Store_Forms\F_Store_shape.Designer.cs">
-      <DependentUpon>F_Store_shape.cs</DependentUpon>
+    <Compile Include="Forms\Store_Forms\F_Store_Place.Designer.cs">
+      <DependentUpon>F_Store_Place.cs</DependentUpon>
     </Compile>
     <Compile Include="F_Main.cs">
       <SubType>Form</SubType>
@@ -196,8 +207,8 @@
     <EmbeddedResource Include="Forms\Store_Forms\F_In_OP_Graid.resx">
       <DependentUpon>F_In_OP_Graid.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Store_Forms\F_Store_shape.resx">
-      <DependentUpon>F_Store_shape.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Store_Forms\F_Store_Place.resx">
+      <DependentUpon>F_Store_Place.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Main.resx">
       <DependentUpon>F_Main.cs</DependentUpon>
@@ -221,10 +232,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Properties\DataSources\PhamaceyDataBase.T_Medician.datasource" />
-    <None Include="Properties\DataSources\PhamaceyDataBase.T_Med_Shape.datasource" />
-    <None Include="Properties\DataSources\PhamaceyDataBase.T_OPeration_IN.datasource" />
-    <None Include="Properties\DataSources\PhamaceyDataBase.T_OPeration_IN_Item.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -243,6 +250,9 @@
       <Project>{656e5a30-aed5-4093-8f6c-e6ca5156ea03}</Project>
       <Name>PhamaceyDataBase</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

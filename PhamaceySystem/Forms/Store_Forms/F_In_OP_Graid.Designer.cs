@@ -28,7 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_page_num)).BeginInit();
             this.SuspendLayout();
+            // 
+            // cmb_page_num
+            // 
+            this.cmb_page_num.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_page_num.AppearanceItemCaption.Options.UseFont = true;
+            this.cmb_page_num.Location = new System.Drawing.Point(0, 296);
+            // 
+            // comb_page_num
+            // 
+            this.comb_page_num.Location = new System.Drawing.Point(12, 308);
+            this.comb_page_num.TabIndex = 2;
+            // 
+            // lbl_tiltle
+            // 
+            this.lbl_tiltle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_tiltle.Dock = System.Windows.Forms.DockStyle.Top;
             // 
             // F_In_OP_Graid
             // 
@@ -37,6 +54,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "F_In_OP_Graid";
             this.Text = "F_In_OP_Graid";
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_page_num)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

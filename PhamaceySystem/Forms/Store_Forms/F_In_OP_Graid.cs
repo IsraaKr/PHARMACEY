@@ -1,5 +1,6 @@
 ﻿using PhamaceyDataBase;
 using PhamaceyDataBase.Commander;
+using PhamaceySystem.Classes;
 using PhamaceySystem.Inheratenz_Forms;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace PhamaceySystem.Forms.Store_Forms
         T_OPeration_IN TF_OPeration_IN;
         Boolean Is_Double_Click = false;
         int id;
+        int row_to_show;
         public override void Get_Data(string status_mess)
         {
             try
@@ -33,6 +35,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                 clear_data(this.Controls);
                 Is_Double_Click = false;
                 cmdINOP = new ClsCommander<T_OPeration_IN>();
+                row_to_show = Properties.Settings.Default.gc_row_count;
                 TF_OPeration_IN = cmdINOP.Get_All().FirstOrDefault();
                 if (TF_OPeration_IN != null)
                     Fill_Graid();
@@ -126,10 +129,32 @@ namespace PhamaceySystem.Forms.Store_Forms
 
             return (number_of_errores == 0);
         }
+        public override void comb_page_num_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // base.comb_page_num_SelectedIndexChanged(sender, e);
+            var data = (from med in cmdINOP.Get_All()
+                        select new
+                        {
+                            id = med.in_op_id,
+                            date = med.in_op_date,
+                            time = med.in_op_time,
+                            text = med.in_op_text,
+                            don_id = med.T_Pers_Donars.Donar_id,
+                            donar = med.T_Pers_Donars.Donar_name,
+                            emp_donar = med.donar_emp,
+                            emp_id = med.T_Pers_Emploee.Emp_id,
+                            emp = med.T_Pers_Emploee.Emp_name,
+                        }).OrderBy(l_id => l_id.id).ToList();
+            //جلب جزء من البيانات
+            var data_id = data.Select(x => x.id).ToArray();//مصفوفة ايديات
+           int ind=C_GC_Page_Nav.combo_gc_data(comb_page_num);
+            gc.DataSource = data.Where(x => x.id >= data_id[ind]).Take(row_to_show).ToList();
 
+        }
+       
         private void Fill_Graid()
         {
-            gc.DataSource = (from med in cmdINOP.Get_All()
+           var data = (from med in cmdINOP.Get_All()
                              select new
                              {
                                  id = med.in_op_id,
@@ -141,8 +166,11 @@ namespace PhamaceySystem.Forms.Store_Forms
                                  emp_donar=med.donar_emp,
                                  emp_id = med.T_Pers_Emploee.Emp_id,
                                  emp = med.T_Pers_Emploee.Emp_name,
-                             }).OrderBy(l_id => l_id.id);
-
+                             }).OrderBy(l_id => l_id.id).ToList();
+            //جلب جزء من البيانات
+            
+            gc.DataSource = data.Take(row_to_show).ToList();
+          
             gv.Columns[0].Visible = false;
             gv.Columns[1].Caption = "التاريخ";
             gv.Columns[2].Caption = "الوقت";
@@ -154,8 +182,13 @@ namespace PhamaceySystem.Forms.Store_Forms
             gv.Columns[7].Caption = "الموظف ";
 
             gv.BestFitColumns();
-        }
+            //اضافة عدد الصفحات الكعى الكومبو بوكس
 
+          C_GC_Page_Nav.fill_combo_page_num(data.Count(), comb_page_num);
+
+
+        }
+       
         private void Get_Row_ID(int Row_Id)
         {
 

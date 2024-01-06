@@ -20,8 +20,8 @@ namespace PhamaceySystem
         {
             InitializeComponent();
             load_first_frame();
-          //  if (IsFirstTime())            
-               //  create_db();
+            if (IsFirstTime())            
+                 create_db();
         }
         private bool IsFirstTime()
         {

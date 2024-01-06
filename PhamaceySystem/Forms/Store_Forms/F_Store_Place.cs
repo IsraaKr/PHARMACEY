@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Store_Forms
 {
-    public partial class F_Store_shape : F_Master_List
+    public partial class F_Store_Place : F_Master_List
     {
-        public F_Store_shape()
+        public F_Store_Place()
         {
             InitializeComponent();
             Title("Storage Shape ,  شكل التخزين ");

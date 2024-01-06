@@ -31,7 +31,6 @@ namespace PhamaceyDataBase.Commander
         // البي هي اسم الاكسبريشن
         IEnumerable<TEntity> Max_Id(Expression<Func<TEntity, bool>> p);
 
-     
     }
     
     

@@ -39,6 +39,7 @@ namespace PhamaceyDataBase.Commander
             Context.SaveChanges();
         }
 
+
         public void Detached_Data(TEntity entity)
         {
             Context.Entry(entity).State = System.Data.Entity.EntityState.Detached;

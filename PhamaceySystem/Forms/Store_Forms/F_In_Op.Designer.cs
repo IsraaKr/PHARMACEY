@@ -40,9 +40,7 @@
             this.gv = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.in_item_idTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.in_item_quntityTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.in_item_proDateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.in_item_expDateDateEdit = new DevExpress.XtraEditors.DateEdit();
-            this.in_B_It_stateCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.in_B_It_noteMemoEdit = new DevExpress.XtraEditors.MemoEdit();
             this.med_storage_shape_idSearchLookUpEdit = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -51,9 +49,6 @@
             this.in_op_timeTimeSpanEdit = new DevExpress.XtraEditors.TimeSpanEdit();
             this.in_op_textTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.in_op_stateCheckEdit = new DevExpress.XtraEditors.CheckEdit();
-            this.in_op_recipt_noTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.in_op_recipt_nameTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.in_op_recipt_dateDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.donar_empTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.donar_idSearchLookUpEdit = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -66,8 +61,6 @@
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.ItemForin_item_quntity = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForin_item_proDate = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForin_B_It_state = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_B_It_note = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForMed_id = new DevExpress.XtraLayout.LayoutControlItem();
@@ -80,18 +73,18 @@
             this.ItemForin_op_date = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_op_text = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForin_op_recipt_no = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemFordonar_id = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForemp_id = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_op_state = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForin_op_time = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForin_op_recipt_name = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ItemForin_op_recipt_date = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemFordonar_emp = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.med_countTextEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.ItemFordonar_emp1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl2)).BeginInit();
@@ -100,11 +93,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_idTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_quntityTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_item_proDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_item_proDateDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_expDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_expDateDateEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_B_It_stateCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_B_It_noteMemoEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.med_storage_shape_idSearchLookUpEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -114,10 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.in_op_timeTimeSpanEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_textTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_stateCheckEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_op_recipt_noTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_op_recipt_nameTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_op_recipt_dateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_op_recipt_dateDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.donar_empTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.donar_idSearchLookUpEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
@@ -129,8 +115,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_quntity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_proDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_B_It_state)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_B_It_note)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMed_id)).BeginInit();
@@ -143,18 +127,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_date)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_text)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_recipt_no)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForemp_id)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_state)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_time)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_recipt_name)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_recipt_date)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_emp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.med_countTextEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_emp1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_tiltle
@@ -193,9 +177,7 @@
             this.dataLayoutControl2.Controls.Add(this.gc);
             this.dataLayoutControl2.Controls.Add(this.in_item_idTextEdit);
             this.dataLayoutControl2.Controls.Add(this.in_item_quntityTextEdit);
-            this.dataLayoutControl2.Controls.Add(this.in_item_proDateDateEdit);
             this.dataLayoutControl2.Controls.Add(this.in_item_expDateDateEdit);
-            this.dataLayoutControl2.Controls.Add(this.in_B_It_stateCheckEdit);
             this.dataLayoutControl2.Controls.Add(this.in_B_It_noteMemoEdit);
             this.dataLayoutControl2.Controls.Add(this.med_storage_shape_idSearchLookUpEdit);
             this.dataLayoutControl2.Controls.Add(this.in_op_idTextEdit);
@@ -203,14 +185,12 @@
             this.dataLayoutControl2.Controls.Add(this.in_op_timeTimeSpanEdit);
             this.dataLayoutControl2.Controls.Add(this.in_op_textTextEdit);
             this.dataLayoutControl2.Controls.Add(this.in_op_stateCheckEdit);
-            this.dataLayoutControl2.Controls.Add(this.in_op_recipt_noTextEdit);
-            this.dataLayoutControl2.Controls.Add(this.in_op_recipt_nameTextEdit);
-            this.dataLayoutControl2.Controls.Add(this.in_op_recipt_dateDateEdit);
             this.dataLayoutControl2.Controls.Add(this.donar_empTextEdit);
             this.dataLayoutControl2.Controls.Add(this.donar_idSearchLookUpEdit);
             this.dataLayoutControl2.Controls.Add(this.emp_idSearchLookUpEdit);
             this.dataLayoutControl2.Controls.Add(this.btn_add_store_shape);
             this.dataLayoutControl2.Controls.Add(this.Med_idSearchlookupEdit);
+            this.dataLayoutControl2.Controls.Add(this.med_countTextEdit1);
             this.dataLayoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl2.Location = new System.Drawing.Point(0, 0);
             this.dataLayoutControl2.Margin = new System.Windows.Forms.Padding(2);
@@ -241,7 +221,7 @@
             // btn_add_emp
             // 
             this.btn_add_emp.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_emp.ImageOptions.SvgImage")));
-            this.btn_add_emp.Location = new System.Drawing.Point(560, 259);
+            this.btn_add_emp.Location = new System.Drawing.Point(560, 229);
             this.btn_add_emp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_emp.Name = "btn_add_emp";
             this.btn_add_emp.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -265,7 +245,7 @@
             // btn_add_donar
             // 
             this.btn_add_donar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_add_donar.ImageOptions.SvgImage")));
-            this.btn_add_donar.Location = new System.Drawing.Point(560, 220);
+            this.btn_add_donar.Location = new System.Drawing.Point(560, 190);
             this.btn_add_donar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_add_donar.Name = "btn_add_donar";
             this.btn_add_donar.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -312,7 +292,7 @@
             // in_item_idTextEdit
             // 
             this.in_item_idTextEdit.Enabled = false;
-            this.in_item_idTextEdit.Location = new System.Drawing.Point(273, 100);
+            this.in_item_idTextEdit.Location = new System.Drawing.Point(23, 100);
             this.in_item_idTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.in_item_idTextEdit.MenuManager = this.barMang;
             this.in_item_idTextEdit.Name = "in_item_idTextEdit";
@@ -323,7 +303,7 @@
             this.in_item_idTextEdit.Properties.Mask.EditMask = "N0";
             this.in_item_idTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.in_item_idTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.in_item_idTextEdit.Size = new System.Drawing.Size(126, 26);
+            this.in_item_idTextEdit.Size = new System.Drawing.Size(376, 26);
             this.in_item_idTextEdit.StyleController = this.dataLayoutControl2;
             this.in_item_idTextEdit.TabIndex = 4;
             // 
@@ -345,26 +325,6 @@
             this.in_item_quntityTextEdit.StyleController = this.dataLayoutControl2;
             this.in_item_quntityTextEdit.TabIndex = 5;
             // 
-            // in_item_proDateDateEdit
-            // 
-            this.in_item_proDateDateEdit.EditValue = null;
-            this.in_item_proDateDateEdit.Location = new System.Drawing.Point(286, 209);
-            this.in_item_proDateDateEdit.Margin = new System.Windows.Forms.Padding(2);
-            this.in_item_proDateDateEdit.MenuManager = this.barMang;
-            this.in_item_proDateDateEdit.Name = "in_item_proDateDateEdit";
-            this.in_item_proDateDateEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.in_item_proDateDateEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.in_item_proDateDateEdit.Properties.Appearance.Options.UseFont = true;
-            this.in_item_proDateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.in_item_proDateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.in_item_proDateDateEdit.Properties.DisplayFormat.FormatString = "MM/yyyy";
-            this.in_item_proDateDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.in_item_proDateDateEdit.Size = new System.Drawing.Size(113, 26);
-            this.in_item_proDateDateEdit.StyleController = this.dataLayoutControl2;
-            this.in_item_proDateDateEdit.TabIndex = 6;
-            // 
             // in_item_expDateDateEdit
             // 
             this.in_item_expDateDateEdit.EditValue = null;
@@ -381,24 +341,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.in_item_expDateDateEdit.Properties.DisplayFormat.FormatString = "MM/yyyy";
             this.in_item_expDateDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.in_item_expDateDateEdit.Size = new System.Drawing.Size(124, 26);
+            this.in_item_expDateDateEdit.Size = new System.Drawing.Size(376, 26);
             this.in_item_expDateDateEdit.StyleController = this.dataLayoutControl2;
             this.in_item_expDateDateEdit.TabIndex = 7;
-            // 
-            // in_B_It_stateCheckEdit
-            // 
-            this.in_B_It_stateCheckEdit.EditValue = true;
-            this.in_B_It_stateCheckEdit.Location = new System.Drawing.Point(23, 100);
-            this.in_B_It_stateCheckEdit.Margin = new System.Windows.Forms.Padding(2);
-            this.in_B_It_stateCheckEdit.MenuManager = this.barMang;
-            this.in_B_It_stateCheckEdit.Name = "in_B_It_stateCheckEdit";
-            this.in_B_It_stateCheckEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.in_B_It_stateCheckEdit.Properties.Appearance.Options.UseFont = true;
-            this.in_B_It_stateCheckEdit.Properties.Caption = "حالة المادة";
-            this.in_B_It_stateCheckEdit.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.in_B_It_stateCheckEdit.Size = new System.Drawing.Size(246, 23);
-            this.in_B_It_stateCheckEdit.StyleController = this.dataLayoutControl2;
-            this.in_B_It_stateCheckEdit.TabIndex = 8;
             // 
             // in_B_It_noteMemoEdit
             // 
@@ -523,57 +468,9 @@
             this.in_op_stateCheckEdit.StyleController = this.dataLayoutControl2;
             this.in_op_stateCheckEdit.TabIndex = 17;
             // 
-            // in_op_recipt_noTextEdit
-            // 
-            this.in_op_recipt_noTextEdit.Location = new System.Drawing.Point(938, 190);
-            this.in_op_recipt_noTextEdit.Margin = new System.Windows.Forms.Padding(2);
-            this.in_op_recipt_noTextEdit.MenuManager = this.barMang;
-            this.in_op_recipt_noTextEdit.Name = "in_op_recipt_noTextEdit";
-            this.in_op_recipt_noTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.in_op_recipt_noTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.in_op_recipt_noTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.in_op_recipt_noTextEdit.Properties.Appearance.Options.UseTextOptions = true;
-            this.in_op_recipt_noTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.in_op_recipt_noTextEdit.Properties.Mask.EditMask = "N0";
-            this.in_op_recipt_noTextEdit.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.in_op_recipt_noTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.in_op_recipt_noTextEdit.Size = new System.Drawing.Size(50, 26);
-            this.in_op_recipt_noTextEdit.StyleController = this.dataLayoutControl2;
-            this.in_op_recipt_noTextEdit.TabIndex = 18;
-            // 
-            // in_op_recipt_nameTextEdit
-            // 
-            this.in_op_recipt_nameTextEdit.Location = new System.Drawing.Point(749, 190);
-            this.in_op_recipt_nameTextEdit.Margin = new System.Windows.Forms.Padding(2);
-            this.in_op_recipt_nameTextEdit.MenuManager = this.barMang;
-            this.in_op_recipt_nameTextEdit.Name = "in_op_recipt_nameTextEdit";
-            this.in_op_recipt_nameTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.in_op_recipt_nameTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.in_op_recipt_nameTextEdit.Size = new System.Drawing.Size(50, 26);
-            this.in_op_recipt_nameTextEdit.StyleController = this.dataLayoutControl2;
-            this.in_op_recipt_nameTextEdit.TabIndex = 19;
-            // 
-            // in_op_recipt_dateDateEdit
-            // 
-            this.in_op_recipt_dateDateEdit.EditValue = null;
-            this.in_op_recipt_dateDateEdit.Location = new System.Drawing.Point(560, 190);
-            this.in_op_recipt_dateDateEdit.Margin = new System.Windows.Forms.Padding(2);
-            this.in_op_recipt_dateDateEdit.MenuManager = this.barMang;
-            this.in_op_recipt_dateDateEdit.Name = "in_op_recipt_dateDateEdit";
-            this.in_op_recipt_dateDateEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.in_op_recipt_dateDateEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.in_op_recipt_dateDateEdit.Properties.Appearance.Options.UseFont = true;
-            this.in_op_recipt_dateDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.in_op_recipt_dateDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.in_op_recipt_dateDateEdit.Size = new System.Drawing.Size(50, 26);
-            this.in_op_recipt_dateDateEdit.StyleController = this.dataLayoutControl2;
-            this.in_op_recipt_dateDateEdit.TabIndex = 20;
-            // 
             // donar_empTextEdit
             // 
-            this.donar_empTextEdit.Location = new System.Drawing.Point(866, 223);
+            this.donar_empTextEdit.Location = new System.Drawing.Point(866, 193);
             this.donar_empTextEdit.Margin = new System.Windows.Forms.Padding(2);
             this.donar_empTextEdit.MenuManager = this.barMang;
             this.donar_empTextEdit.Name = "donar_empTextEdit";
@@ -585,7 +482,7 @@
             // 
             // donar_idSearchLookUpEdit
             // 
-            this.donar_idSearchLookUpEdit.Location = new System.Drawing.Point(603, 223);
+            this.donar_idSearchLookUpEdit.Location = new System.Drawing.Point(603, 193);
             this.donar_idSearchLookUpEdit.Margin = new System.Windows.Forms.Padding(2);
             this.donar_idSearchLookUpEdit.MenuManager = this.barMang;
             this.donar_idSearchLookUpEdit.Name = "donar_idSearchLookUpEdit";
@@ -613,7 +510,7 @@
             // 
             // emp_idSearchLookUpEdit
             // 
-            this.emp_idSearchLookUpEdit.Location = new System.Drawing.Point(603, 262);
+            this.emp_idSearchLookUpEdit.Location = new System.Drawing.Point(603, 232);
             this.emp_idSearchLookUpEdit.Margin = new System.Windows.Forms.Padding(2);
             this.emp_idSearchLookUpEdit.MenuManager = this.barMang;
             this.emp_idSearchLookUpEdit.Name = "emp_idSearchLookUpEdit";
@@ -712,8 +609,6 @@
             this.layoutControlGroup3.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.ItemForin_item_quntity,
-            this.ItemForin_item_proDate,
-            this.ItemForin_B_It_state,
             this.ItemForin_B_It_note,
             this.layoutControlItem7,
             this.ItemForMed_id,
@@ -727,7 +622,7 @@
             this.layoutControlGroup3.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlGroup3.Size = new System.Drawing.Size(537, 249);
             this.layoutControlGroup3.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlGroup3.Text = "تفاصيل المواد في مذكرة الإدخال";
+            this.layoutControlGroup3.Text = "ادخال المواد إلى الفاتورة";
             // 
             // ItemForin_item_quntity
             // 
@@ -738,25 +633,6 @@
             this.ItemForin_item_quntity.Size = new System.Drawing.Size(252, 39);
             this.ItemForin_item_quntity.Text = "الكمية";
             this.ItemForin_item_quntity.TextSize = new System.Drawing.Size(132, 19);
-            // 
-            // ItemForin_item_proDate
-            // 
-            this.ItemForin_item_proDate.Control = this.in_item_proDateDateEdit;
-            this.ItemForin_item_proDate.Location = new System.Drawing.Point(263, 109);
-            this.ItemForin_item_proDate.Name = "ItemForin_item_proDate";
-            this.ItemForin_item_proDate.Size = new System.Drawing.Size(252, 30);
-            this.ItemForin_item_proDate.Text = "تاريخ الانتاج";
-            this.ItemForin_item_proDate.TextSize = new System.Drawing.Size(132, 19);
-            // 
-            // ItemForin_B_It_state
-            // 
-            this.ItemForin_B_It_state.Control = this.in_B_It_stateCheckEdit;
-            this.ItemForin_B_It_state.Location = new System.Drawing.Point(0, 0);
-            this.ItemForin_B_It_state.Name = "ItemForin_B_It_state";
-            this.ItemForin_B_It_state.Size = new System.Drawing.Size(250, 30);
-            this.ItemForin_B_It_state.Text = "in_B_It_state";
-            this.ItemForin_B_It_state.TextSize = new System.Drawing.Size(0, 0);
-            this.ItemForin_B_It_state.TextVisible = false;
             // 
             // ItemForin_B_It_note
             // 
@@ -804,7 +680,7 @@
             this.ItemForin_item_expDate.Control = this.in_item_expDateDateEdit;
             this.ItemForin_item_expDate.Location = new System.Drawing.Point(0, 109);
             this.ItemForin_item_expDate.Name = "ItemForin_item_expDate";
-            this.ItemForin_item_expDate.Size = new System.Drawing.Size(263, 30);
+            this.ItemForin_item_expDate.Size = new System.Drawing.Size(515, 30);
             this.ItemForin_item_expDate.Text = "تاريخ انتهاء الصلاحية";
             this.ItemForin_item_expDate.TextSize = new System.Drawing.Size(132, 19);
             // 
@@ -815,7 +691,7 @@
             this.ItemFormed_storage_shape_id.Name = "ItemFormed_storage_shape_id";
             this.ItemFormed_storage_shape_id.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.ItemFormed_storage_shape_id.Size = new System.Drawing.Size(223, 39);
-            this.ItemFormed_storage_shape_id.Text = "شكل التخزين";
+            this.ItemFormed_storage_shape_id.Text = "موقع التخزين";
             this.ItemFormed_storage_shape_id.TextSize = new System.Drawing.Size(132, 19);
             // 
             // layoutControlItem4
@@ -836,9 +712,9 @@
             // ItemForin_item_id
             // 
             this.ItemForin_item_id.Control = this.in_item_idTextEdit;
-            this.ItemForin_item_id.Location = new System.Drawing.Point(250, 0);
+            this.ItemForin_item_id.Location = new System.Drawing.Point(0, 0);
             this.ItemForin_item_id.Name = "ItemForin_item_id";
-            this.ItemForin_item_id.Size = new System.Drawing.Size(265, 30);
+            this.ItemForin_item_id.Size = new System.Drawing.Size(515, 30);
             this.ItemForin_item_id.Text = "رقم المادة";
             this.ItemForin_item_id.TextSize = new System.Drawing.Size(132, 19);
             // 
@@ -855,23 +731,22 @@
             this.ItemForin_op_date,
             this.ItemForin_op_text,
             this.layoutControlItem1,
-            this.ItemForin_op_recipt_no,
             this.ItemFordonar_id,
             this.ItemForemp_id,
             this.ItemForin_op_state,
             this.layoutControlItem3,
             this.layoutControlItem6,
             this.ItemForin_op_time,
-            this.ItemForin_op_recipt_name,
-            this.ItemForin_op_recipt_date,
-            this.ItemFordonar_emp});
+            this.ItemFordonar_emp,
+            this.ItemFordonar_emp1,
+            this.emptySpaceItem2});
             this.layoutControlGroup4.Location = new System.Drawing.Point(537, 55);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.layoutControlGroup4.ShowTabPageCloseButton = true;
             this.layoutControlGroup4.Size = new System.Drawing.Size(589, 249);
             this.layoutControlGroup4.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlGroup4.Text = "تفاصيل عملية الأدخال إلى المستودع";
+            this.layoutControlGroup4.Text = " إدخال فاتورة  إلى المستودع";
             // 
             // ItemForin_op_date
             // 
@@ -900,19 +775,10 @@
             this.layoutControlItem1.Text = "رقم عملية الادخال";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(132, 19);
             // 
-            // ItemForin_op_recipt_no
-            // 
-            this.ItemForin_op_recipt_no.Control = this.in_op_recipt_noTextEdit;
-            this.ItemForin_op_recipt_no.Location = new System.Drawing.Point(378, 90);
-            this.ItemForin_op_recipt_no.Name = "ItemForin_op_recipt_no";
-            this.ItemForin_op_recipt_no.Size = new System.Drawing.Size(189, 30);
-            this.ItemForin_op_recipt_no.Text = "رقم وصل الاستلام";
-            this.ItemForin_op_recipt_no.TextSize = new System.Drawing.Size(132, 19);
-            // 
             // ItemFordonar_id
             // 
             this.ItemFordonar_id.Control = this.donar_idSearchLookUpEdit;
-            this.ItemFordonar_id.Location = new System.Drawing.Point(40, 120);
+            this.ItemFordonar_id.Location = new System.Drawing.Point(40, 90);
             this.ItemFordonar_id.Name = "ItemFordonar_id";
             this.ItemFordonar_id.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.ItemFordonar_id.Size = new System.Drawing.Size(263, 39);
@@ -922,10 +788,10 @@
             // ItemForemp_id
             // 
             this.ItemForemp_id.Control = this.emp_idSearchLookUpEdit;
-            this.ItemForemp_id.Location = new System.Drawing.Point(40, 159);
+            this.ItemForemp_id.Location = new System.Drawing.Point(40, 129);
             this.ItemForemp_id.Name = "ItemForemp_id";
             this.ItemForemp_id.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.ItemForemp_id.Size = new System.Drawing.Size(527, 46);
+            this.ItemForemp_id.Size = new System.Drawing.Size(527, 39);
             this.ItemForemp_id.Text = "الموظف المسؤول";
             this.ItemForemp_id.TextSize = new System.Drawing.Size(132, 19);
             // 
@@ -942,7 +808,7 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btn_add_donar;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 90);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(40, 39);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(40, 39);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -954,11 +820,11 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btn_add_emp;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 159);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 129);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(40, 39);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(40, 39);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(40, 46);
+            this.layoutControlItem6.Size = new System.Drawing.Size(40, 39);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
@@ -972,33 +838,23 @@
             this.ItemForin_op_time.Text = "وقت الادخال";
             this.ItemForin_op_time.TextSize = new System.Drawing.Size(132, 19);
             // 
-            // ItemForin_op_recipt_name
-            // 
-            this.ItemForin_op_recipt_name.Control = this.in_op_recipt_nameTextEdit;
-            this.ItemForin_op_recipt_name.Location = new System.Drawing.Point(189, 90);
-            this.ItemForin_op_recipt_name.Name = "ItemForin_op_recipt_name";
-            this.ItemForin_op_recipt_name.Size = new System.Drawing.Size(189, 30);
-            this.ItemForin_op_recipt_name.Text = "اسم وصل الاستلام";
-            this.ItemForin_op_recipt_name.TextSize = new System.Drawing.Size(132, 19);
-            // 
-            // ItemForin_op_recipt_date
-            // 
-            this.ItemForin_op_recipt_date.Control = this.in_op_recipt_dateDateEdit;
-            this.ItemForin_op_recipt_date.Location = new System.Drawing.Point(0, 90);
-            this.ItemForin_op_recipt_date.Name = "ItemForin_op_recipt_date";
-            this.ItemForin_op_recipt_date.Size = new System.Drawing.Size(189, 30);
-            this.ItemForin_op_recipt_date.Text = "تاريخ وصل الاستلام";
-            this.ItemForin_op_recipt_date.TextSize = new System.Drawing.Size(132, 19);
-            // 
             // ItemFordonar_emp
             // 
             this.ItemFordonar_emp.Control = this.donar_empTextEdit;
-            this.ItemFordonar_emp.Location = new System.Drawing.Point(303, 120);
+            this.ItemFordonar_emp.Location = new System.Drawing.Point(303, 90);
             this.ItemFordonar_emp.Name = "ItemFordonar_emp";
             this.ItemFordonar_emp.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.ItemFordonar_emp.Size = new System.Drawing.Size(264, 39);
             this.ItemFordonar_emp.Text = "المسلم";
             this.ItemFordonar_emp.TextSize = new System.Drawing.Size(132, 19);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 168);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(283, 37);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem1
             // 
@@ -1019,6 +875,30 @@
             this.layoutControlItem2.Size = new System.Drawing.Size(1126, 156);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
+            // 
+            // med_countTextEdit1
+            // 
+            this.med_countTextEdit1.Enabled = false;
+            this.med_countTextEdit1.Location = new System.Drawing.Point(846, 271);
+            this.med_countTextEdit1.Margin = new System.Windows.Forms.Padding(2);
+            this.med_countTextEdit1.Name = "med_countTextEdit1";
+            this.med_countTextEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.med_countTextEdit1.Properties.Appearance.Options.UseFont = true;
+            this.med_countTextEdit1.Size = new System.Drawing.Size(139, 26);
+            this.med_countTextEdit1.StyleController = this.dataLayoutControl2;
+            this.med_countTextEdit1.TabIndex = 21;
+            // 
+            // ItemFordonar_emp1
+            // 
+            this.ItemFordonar_emp1.Control = this.med_countTextEdit1;
+            this.ItemFordonar_emp1.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.ItemFordonar_emp1.CustomizationFormText = "المسلم";
+            this.ItemFordonar_emp1.Location = new System.Drawing.Point(283, 168);
+            this.ItemFordonar_emp1.Name = "ItemFordonar_emp1";
+            this.ItemFordonar_emp1.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.ItemFordonar_emp1.Size = new System.Drawing.Size(284, 37);
+            this.ItemFordonar_emp1.Text = "عدد المواد";
+            this.ItemFordonar_emp1.TextSize = new System.Drawing.Size(132, 19);
             // 
             // F_In_Op
             // 
@@ -1042,11 +922,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_idTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_quntityTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_item_proDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_item_proDateDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_expDateDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_item_expDateDateEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_B_It_stateCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_B_It_noteMemoEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.med_storage_shape_idSearchLookUpEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -1056,10 +933,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.in_op_timeTimeSpanEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_textTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.in_op_stateCheckEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_op_recipt_noTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_op_recipt_nameTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_op_recipt_dateDateEdit.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.in_op_recipt_dateDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.donar_empTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.donar_idSearchLookUpEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
@@ -1071,8 +944,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_quntity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_item_proDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_B_It_state)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_B_It_note)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForMed_id)).EndInit();
@@ -1085,18 +956,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_date)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_text)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_recipt_no)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_id)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForemp_id)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_state)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_time)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_recipt_name)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ItemForin_op_recipt_date)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_emp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.med_countTextEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemFordonar_emp1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1109,9 +980,7 @@
         private DevExpress.XtraDataLayout.DataLayoutControl dataLayoutControl2;
         private DevExpress.XtraEditors.TextEdit in_item_idTextEdit;
         private DevExpress.XtraEditors.TextEdit in_item_quntityTextEdit;
-        private DevExpress.XtraEditors.DateEdit in_item_proDateDateEdit;
         private DevExpress.XtraEditors.DateEdit in_item_expDateDateEdit;
-        private DevExpress.XtraEditors.CheckEdit in_B_It_stateCheckEdit;
         private DevExpress.XtraEditors.MemoEdit in_B_It_noteMemoEdit;
         private DevExpress.XtraEditors.SearchLookUpEdit med_storage_shape_idSearchLookUpEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -1120,9 +989,6 @@
         private DevExpress.XtraEditors.TimeSpanEdit in_op_timeTimeSpanEdit;
         private DevExpress.XtraEditors.TextEdit in_op_textTextEdit;
         private DevExpress.XtraEditors.CheckEdit in_op_stateCheckEdit;
-        private DevExpress.XtraEditors.TextEdit in_op_recipt_noTextEdit;
-        private DevExpress.XtraEditors.TextEdit in_op_recipt_nameTextEdit;
-        private DevExpress.XtraEditors.DateEdit in_op_recipt_dateDateEdit;
         private DevExpress.XtraEditors.TextEdit donar_empTextEdit;
         private DevExpress.XtraEditors.SearchLookUpEdit donar_idSearchLookUpEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
@@ -1132,9 +998,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlItem ItemForin_item_id;
         private DevExpress.XtraLayout.LayoutControlItem ItemForin_item_quntity;
-        private DevExpress.XtraLayout.LayoutControlItem ItemForin_item_proDate;
         private DevExpress.XtraLayout.LayoutControlItem ItemForin_item_expDate;
-        private DevExpress.XtraLayout.LayoutControlItem ItemForin_B_It_state;
         private DevExpress.XtraLayout.LayoutControlItem ItemForin_B_It_note;
         private DevExpress.XtraLayout.LayoutControlItem ItemForMed_id;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
@@ -1142,9 +1006,6 @@
         private DevExpress.XtraLayout.LayoutControlItem ItemForin_op_time;
         private DevExpress.XtraLayout.LayoutControlItem ItemForin_op_text;
         private DevExpress.XtraLayout.LayoutControlItem ItemForin_op_state;
-        private DevExpress.XtraLayout.LayoutControlItem ItemForin_op_recipt_no;
-        private DevExpress.XtraLayout.LayoutControlItem ItemForin_op_recipt_name;
-        private DevExpress.XtraLayout.LayoutControlItem ItemForin_op_recipt_date;
         private DevExpress.XtraLayout.LayoutControlItem ItemFordonar_emp;
         private DevExpress.XtraLayout.LayoutControlItem ItemFordonar_id;
         private DevExpress.XtraLayout.LayoutControlItem ItemForemp_id;
@@ -1167,5 +1028,8 @@
         public DevExpress.XtraLayout.LayoutControlItem ItemFormed_storage_shape_id;
         private DevExpress.XtraEditors.SearchLookUpEdit Med_idSearchlookupEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.TextEdit med_countTextEdit1;
+        private DevExpress.XtraLayout.LayoutControlItem ItemFordonar_emp1;
     }
 }

@@ -72,7 +72,7 @@
             // comb_page_num
             // 
             this.comb_page_num.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.comb_page_num.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comb_page_num.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.comb_page_num.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comb_page_num.FormattingEnabled = true;
             this.comb_page_num.Location = new System.Drawing.Point(12, 308);

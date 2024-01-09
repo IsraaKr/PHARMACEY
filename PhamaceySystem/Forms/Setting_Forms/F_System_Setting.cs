@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Setting_Forms
 {
-    public partial class F_System_Setting : Form
+    public partial class F_System_Setting : F_Master_Inheretanz
     {
         public F_System_Setting()
         {

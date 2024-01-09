@@ -115,5 +115,40 @@ namespace PhamaceySystem.Properties {
                 this["time_server"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkOrange")]
+        public global::System.Drawing.Color titel_master_color {
+            get {
+                return ((global::System.Drawing.Color)(this["titel_master_color"]));
+            }
+            set {
+                this["titel_master_color"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DarkOrange")]
+        public global::System.Drawing.Color titel_list_colore {
+            get {
+                return ((global::System.Drawing.Color)(this["titel_list_colore"]));
+            }
+            set {
+                this["titel_list_colore"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Drawing.Color titel_graid_colore {
+            get {
+                return ((global::System.Drawing.Color)(this["titel_graid_colore"]));
+            }
+            set {
+                this["titel_graid_colore"] = value;
+            }
+        }
     }
 }

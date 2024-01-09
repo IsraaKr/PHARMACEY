@@ -29,6 +29,6 @@ namespace PhamaceyDataBase
         public virtual ICollection<T_OPeration_Out_Item> T_OPeration_Out_Item { get; set; }
         public virtual T_OPeration_Type T_OPeration_Type { get; set; }
         public virtual T_Pers_Emploee T_Pers_Emploee { get; set; }
-        public virtual T_PERS_Recivers T_PERS_Recivers { get; set; }
+        public virtual T_Pers_Recivers T_Pers_Recivers { get; set; }
     }
 }

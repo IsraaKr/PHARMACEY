@@ -144,51 +144,59 @@ namespace PhamaceySystem.Forms.Store_Forms
                             emp_donar = med.donar_emp,
                             emp_id = med.T_Pers_Emploee.Emp_id,
                             emp = med.T_Pers_Emploee.Emp_name,
+                            count =med.med_count
                         }).OrderBy(l_id => l_id.id).ToList();
             //جلب جزء من البيانات
             var data_id = data.Select(x => x.id).ToArray();//مصفوفة ايديات
            int ind=C_GC_Page_Nav.combo_gc_data(comb_page_num);
             gc.DataSource = data.Where(x => x.id >= data_id[ind]).Take(row_to_show).ToList();
-
+            gv_column_names();
         }
        
         private void Fill_Graid()
         {
-           var data = (from med in cmdINOP.Get_All()
-                             select new
-                             {
-                                 id = med.in_op_id,
-                                 date = med.in_op_date,
-                                 time = med.in_op_time,
-                                 text = med.in_op_text,
-                                 don_id = med.T_Pers_Donars.Donar_id,
-                                 donar = med.T_Pers_Donars.Donar_name,
-                                 emp_donar=med.donar_emp,
-                                 emp_id = med.T_Pers_Emploee.Emp_id,
-                                 emp = med.T_Pers_Emploee.Emp_name,
-                             }).OrderBy(l_id => l_id.id).ToList();
+            var data = (from med in cmdINOP.Get_All()
+                        select new
+                        {
+                            id = med.in_op_id,
+                            date = med.in_op_date,
+                            time = med.in_op_time,
+                            text = med.in_op_text,
+                            don_id = med.T_Pers_Donars.Donar_id,
+                            donar = med.T_Pers_Donars.Donar_name,
+                            emp_donar = med.donar_emp,
+                            emp_id = med.T_Pers_Emploee.Emp_id,
+                            emp = med.T_Pers_Emploee.Emp_name,
+                            count = med.med_count
+                        }).OrderBy(l_id => l_id.id).ToList();
             //جلب جزء من البيانات
-            
+
             gc.DataSource = data.Take(row_to_show).ToList();
-          
+
+            gv_column_names();
+            //اضافة عدد الصفحات الكعى الكومبو بوكس
+
+            C_GC_Page_Nav.fill_combo_page_num(data.Count(), comb_page_num);
+
+
+        }
+
+        private void gv_column_names()
+        {
             gv.Columns[0].Visible = false;
             gv.Columns[1].Caption = "التاريخ";
             gv.Columns[2].Caption = "الوقت";
-            gv.Columns[3].Caption =  "البيان";
+            gv.Columns[3].Caption = "البيان";
             gv.Columns[4].Visible = false;
             gv.Columns[5].Caption = "المتبرع ";
             gv.Columns[6].Caption = "المسلم ";
             gv.Columns[6].Visible = false;
             gv.Columns[7].Caption = "الموظف ";
+            gv.Columns[8].Caption = "عدد المواد  ";
 
             gv.BestFitColumns();
-            //اضافة عدد الصفحات الكعى الكومبو بوكس
-
-          C_GC_Page_Nav.fill_combo_page_num(data.Count(), comb_page_num);
-
-
         }
-       
+
         private void Get_Row_ID(int Row_Id)
         {
 

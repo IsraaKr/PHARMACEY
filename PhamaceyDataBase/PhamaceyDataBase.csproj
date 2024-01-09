@@ -84,7 +84,7 @@
     <Compile Include="T_Med_Shape.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="T_Med_Storage_Shape.cs">
+    <Compile Include="T_Med_Unites.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="T_OPeration_Damage.cs">
@@ -111,10 +111,10 @@
     <Compile Include="T_Pers_Emploee.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="T_PERS_Recivers.cs">
+    <Compile Include="T_Pers_Recivers.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="T_Pharmcey_Info.cs">
+    <Compile Include="T_Store_Placees.cs">
       <DependentUpon>Phamacey_Entity_Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -18,7 +18,12 @@ namespace PhamaceySystem.Inheratenz_Forms
             view_inheretanz_butomes(true, false, false, true, true, false, true);
 
         }
+        public override void Title(string s_title)
+        {
+            lbl_tiltle.Text = s_title;
+            lbl_tiltle.BackColor = Properties.Settings.Default.titel_graid_colore;
 
+        }
         public virtual void gv_DoubleClick(object sender, EventArgs e)
         {
 

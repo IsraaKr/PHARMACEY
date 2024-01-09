@@ -105,15 +105,11 @@ namespace PhamaceySystem
         //توابع الوراثة
 
         //تغير العنوان و اللون 
-        public virtual void Title(string s_title , Color back_colore)
-        {
-            lbl_tiltle.Text = s_title;
-            lbl_tiltle.BackColor = back_colore;
-        }
-       //تغير العنوان
+            
         public virtual void Title(string s_title)
         {
-            lbl_tiltle.Text = s_title;            
+            lbl_tiltle.Text = s_title;
+            lbl_tiltle.BackColor = Properties.Settings.Default.titel_master_color;
         }
   
        //تحميل 

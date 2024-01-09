@@ -19,8 +19,8 @@ namespace PhamaceyDataBase
         {
             this.T_Medicin_Move = new HashSet<T_Medicin_Move>();
             this.T_OPeration_Damage = new HashSet<T_OPeration_Damage>();
-            this.T_OPeration_Out_Item = new HashSet<T_OPeration_Out_Item>();
             this.T_OPeration_IN_Item = new HashSet<T_OPeration_IN_Item>();
+            this.T_OPeration_Out_Item = new HashSet<T_OPeration_Out_Item>();
         }
     
         public int med_id { get; set; }
@@ -31,6 +31,7 @@ namespace PhamaceyDataBase
         public string med_note { get; set; }
         public Nullable<int> med_shape_id { get; set; }
         public Nullable<int> med_cat_id { get; set; }
+        public Nullable<int> med_unites_id { get; set; }
     
         public virtual T_Med_Category T_Med_Category { get; set; }
         public virtual T_Med_Shape T_Med_Shape { get; set; }
@@ -39,8 +40,9 @@ namespace PhamaceyDataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_OPeration_Damage> T_OPeration_Damage { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<T_OPeration_Out_Item> T_OPeration_Out_Item { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_OPeration_IN_Item> T_OPeration_IN_Item { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_OPeration_Out_Item> T_OPeration_Out_Item { get; set; }
+        public virtual T_Med_Unites T_Med_Unites { get; set; }
     }
 }

@@ -12,18 +12,18 @@ namespace PhamaceyDataBase
     using System;
     using System.Collections.Generic;
     
-    public partial class T_Med_Storage_Shape
+    public partial class T_Pers_Recivers1
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public T_Med_Storage_Shape()
+        public T_Pers_Recivers1()
         {
-            this.T_OPeration_IN_Item = new HashSet<T_OPeration_IN_Item>();
+            this.T_OPeration_Out = new HashSet<T_OPeration_Out>();
         }
     
-        public int med_stor_shape_id { get; set; }
-        public string med_stor_shape_name { get; set; }
+        public string name { get; set; }
+        public int id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<T_OPeration_IN_Item> T_OPeration_IN_Item { get; set; }
+        public virtual ICollection<T_OPeration_Out> T_OPeration_Out { get; set; }
     }
 }

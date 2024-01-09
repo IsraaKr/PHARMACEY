@@ -19,10 +19,12 @@ namespace PhamaceySystem
              view_inheretanz_butomes(false,true,false , true, true, true, false);
            // Title("");
         }
-        //public override void Title(string s_title)
-        //{
-        //    base.Title(s_title);
-        //}
+        public override void Title(string s_title)
+        {
+            lbl_tiltle.Text = s_title;
+            lbl_tiltle.BackColor = Properties.Settings.Default.titel_list_colore;
+
+        }
         public virtual void gv_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
         {
 

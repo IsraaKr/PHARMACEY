@@ -53,6 +53,7 @@
             this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem21 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -117,10 +118,11 @@
             this.barButtonItem19,
             this.barButtonItem20,
             this.barButtonItem21,
-            this.barButtonItem22});
+            this.barButtonItem22,
+            this.barButtonItem23});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbon.MaxItemId = 25;
+            this.ribbon.MaxItemId = 26;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -278,20 +280,29 @@
             // 
             // barButtonItem21
             // 
-            this.barButtonItem21.Caption = "أشكال التخزين";
+            this.barButtonItem21.Caption = "موقع التخزين";
             this.barButtonItem21.Id = 23;
             this.barButtonItem21.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem21.ImageOptions.SvgImage")));
             this.barButtonItem21.Name = "barButtonItem21";
-            this.barButtonItem21.Tag = "F_Store_shape";
+            this.barButtonItem21.Tag = "F_Store_places";
             // 
             // barButtonItem22
             // 
-            this.barButtonItem22.Caption = "مذكرات الإدخال";
+            this.barButtonItem22.Caption = "فواتير الإدخال";
             this.barButtonItem22.Id = 24;
             this.barButtonItem22.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem22.ImageOptions.Image")));
             this.barButtonItem22.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem22.ImageOptions.LargeImage")));
             this.barButtonItem22.Name = "barButtonItem22";
             this.barButtonItem22.Tag = "F_In_OP_Graid";
+            // 
+            // barButtonItem23
+            // 
+            this.barButtonItem23.Caption = "الوحدات";
+            this.barButtonItem23.Id = 25;
+            this.barButtonItem23.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem23.ImageOptions.Image")));
+            this.barButtonItem23.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem23.ImageOptions.LargeImage")));
+            this.barButtonItem23.Name = "barButtonItem23";
+            this.barButtonItem23.Tag = "F_Med_Unites";
             // 
             // ribbonPage1
             // 
@@ -312,6 +323,7 @@
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem23);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "مستلزمات الأدوية";
             // 
@@ -338,7 +350,7 @@
             this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem6);
             this.ribbonPageGroup18.ItemLinks.Add(this.barButtonItem22);
             this.ribbonPageGroup18.Name = "ribbonPageGroup18";
-            this.ribbonPageGroup18.Text = "عمليات الإدخال";
+            this.ribbonPageGroup18.Text = " الإدخال";
             // 
             // ribbonPageGroup6
             // 
@@ -520,5 +532,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem21;
         private DevExpress.XtraBars.BarButtonItem barButtonItem22;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup18;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem23;
     }
 }

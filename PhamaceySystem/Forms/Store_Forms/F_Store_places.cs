@@ -12,18 +12,17 @@ using System.Windows.Forms;
 
 namespace PhamaceySystem.Forms.Store_Forms
 {
-    public partial class F_Store_Place : F_Master_List
+    public partial class F_Store_places : F_Master_List
     {
-        public F_Store_Place()
+        public F_Store_places()
         {
             InitializeComponent();
-            Title("Storage Shape ,  شكل التخزين ");
-            txt.Text = "اسم الشكل ";
+            Title("Store Places ,  مواقع التخزين ");
+            txt.Text = "اسم الموقع ";
         }
 
-
-        ClsCommander<T_Med_Storage_Shape> cmdStoreShape = new ClsCommander<T_Med_Storage_Shape>();
-        T_Med_Storage_Shape TF_Storage_Shape;
+        ClsCommander<T_Store_Placees> cmdStorePalces = new ClsCommander<T_Store_Placees>();
+        T_Store_Placees TF_Store_Places;
         Boolean Is_Double_Click = false;
 
         public override void Title(string s_title)
@@ -32,16 +31,14 @@ namespace PhamaceySystem.Forms.Store_Forms
         }
         public override void Get_Data(string status_mess)
         {
-            //if (TF_Storage_Shape != null)
-            //{
             try
             {
                 clear_data(this.Controls);
                 Is_Double_Click = false;
-                cmdStoreShape = new ClsCommander<T_Med_Storage_Shape>();
-                TF_Storage_Shape = cmdStoreShape.Get_All().FirstOrDefault();
-                if (TF_Storage_Shape!=null)
-                Fill_Graid();
+                cmdStorePalces = new ClsCommander<T_Store_Placees>();
+                TF_Store_Places = cmdStorePalces.Get_All().FirstOrDefault();
+                if (TF_Store_Places != null)
+                    Fill_Graid();
 
                 base.Get_Data(status_mess);
             }
@@ -49,7 +46,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             {
                 Get_Data(ex.InnerException.InnerException.ToString());
             }
-       
+            // }
         }
         public override void Insert_Data()
         {
@@ -57,9 +54,9 @@ namespace PhamaceySystem.Forms.Store_Forms
             {
                 if (Validate_Data())
                 {
-                    TF_Storage_Shape = new T_Med_Storage_Shape();
+                    TF_Store_Places = new T_Store_Placees();
                     Fill_Entitey();
-                    cmdStoreShape.Insert_Data(TF_Storage_Shape);
+                    cmdStorePalces.Insert_Data(TF_Store_Places);
                     base.Insert_Data();
                     Get_Data("i");
                 }
@@ -76,11 +73,11 @@ namespace PhamaceySystem.Forms.Store_Forms
             {
                 if (Is_Double_Click)
                 {
-                    if (Validate_Data() && gv.RowCount > 0 && TF_Storage_Shape != null)
+                    if (Validate_Data() && gv.RowCount > 0 && TF_Store_Places != null)
                     {
 
                         Fill_Entitey();
-                        cmdStoreShape.Update_Data(TF_Storage_Shape);
+                        cmdStorePalces.Update_Data(TF_Store_Places);
                         base.Update_Data();
                         Get_Data("u");
                     }
@@ -106,7 +103,7 @@ namespace PhamaceySystem.Forms.Store_Forms
                             foreach (int row_id in gv.GetSelectedRows())
                             {
                                 Get_Row_ID(row_id);
-                                cmdStoreShape.Delet_Data(TF_Storage_Shape);
+                                cmdStorePalces.Delet_Data(TF_Store_Places);
                             }
                         base.Delete_Data();
                         Get_Data("d");
@@ -146,37 +143,41 @@ namespace PhamaceySystem.Forms.Store_Forms
         }
         public void Fill_Controls()
         {
-            txt_id.Text = TF_Storage_Shape.med_stor_shape_id.ToString();
-            txt_name.Text = TF_Storage_Shape.med_stor_shape_name;
-
+            txt_id.Text = TF_Store_Places.id.ToString();
+            txt_name.Text = TF_Store_Places.name;
+            txt_group.Text = TF_Store_Places.groupe;
+            txt_shuffel.Text = TF_Store_Places.shufel;
         }
         public void Fill_Entitey()
         {
-            //  TF_Storage_Shape.med_cat_id = Convert.ToInt32(txt_id.Text);
-
-            TF_Storage_Shape.med_stor_shape_name = txt_name.Text.Trim();
-
-
+            TF_Store_Places.name = txt_name.Text.Trim();
+            TF_Store_Places.groupe = txt_group.Text.Trim();
+            TF_Store_Places.shufel = txt_shuffel.Text.Trim();
         }
         private void Fill_Graid()
         {
             Object x = new object();
-            x = (from Emp_s in cmdStoreShape.Get_All()
+            x = (from Emp_s in cmdStorePalces.Get_All()
                  select new
                  {
-                     id = Emp_s.med_stor_shape_id,
-                     name = Emp_s.med_stor_shape_name,
+                     id = Emp_s.id,
+                     name = Emp_s.name ,
+                     grou =Emp_s.groupe,
+                     shuf=Emp_s.shufel          
                  }).OrderBy(c_id => c_id.name);
             gc.DataSource = x;
             gv.Columns["id"].Visible = false;
             gv.Columns["name"].Caption = "اسم الشكل";
+            gv.Columns[2].Caption = "المجموعة";
+            gv.Columns[3].Caption = "الرف";
+
             gv.BestFitColumns();
         }
         private void Set_Auto_Id()
         {
-            var Max_Id = cmdStoreShape.Get_All().Where(c_id => c_id.med_stor_shape_id
-                                 == cmdStoreShape.Get_All().Max(max => max.med_stor_shape_id)).FirstOrDefault();
-            txt_id.Text = Max_Id == null ? "1" : (Max_Id.med_stor_shape_id + 1).ToString();
+            var Max_Id = cmdStorePalces.Get_All().Where(c_id => c_id.id
+                                 == cmdStorePalces.Get_All().Max(max => max.id)).FirstOrDefault();
+            txt_id.Text = Max_Id == null ? "1" : (Max_Id.id + 1).ToString();
 
 
         }
@@ -186,12 +187,12 @@ namespace PhamaceySystem.Forms.Store_Forms
             if (Row_Id != 0)
             {
                 id = Convert.ToInt64(gv.GetRowCellValue(Row_Id, gv.Columns[0]));
-                TF_Storage_Shape = cmdStoreShape.Get_By(c_id => c_id.med_stor_shape_id == id).FirstOrDefault();
+                TF_Store_Places = cmdStorePalces.Get_By(c_id => c_id.id == id).FirstOrDefault();
             }
             else
             {
                 id = Convert.ToInt64(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]));
-                TF_Storage_Shape = cmdStoreShape.Get_By(c_id => c_id.med_stor_shape_id == id).FirstOrDefault();
+                TF_Store_Places = cmdStorePalces.Get_By(c_id => c_id.id == id).FirstOrDefault();
             }
         }
         public override void gv_DoubleClick(object sender, EventArgs e)
@@ -199,7 +200,7 @@ namespace PhamaceySystem.Forms.Store_Forms
             Is_Double_Click = true;
             gv.SelectRow(gv.FocusedRowHandle);
             Get_Row_ID(0);
-            if (TF_Storage_Shape != null)
+            if (TF_Store_Places != null)
                 Fill_Controls();
         }
         public override void gv_KeyDown(object sender, KeyEventArgs e)

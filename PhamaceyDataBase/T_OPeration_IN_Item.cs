@@ -16,16 +16,14 @@ namespace PhamaceyDataBase
     {
         public int in_item_id { get; set; }
         public Nullable<int> in_item_quntity { get; set; }
-        public Nullable<System.DateTime> in_item_proDate { get; set; }
         public Nullable<System.DateTime> in_item_expDate { get; set; }
-        public Nullable<bool> in_B_It_state { get; set; }
         public string in_B_It_note { get; set; }
         public Nullable<int> Med_id { get; set; }
         public int In_op_id { get; set; }
-        public Nullable<int> med_storage_shape_id { get; set; }
+        public Nullable<int> store_place_id { get; set; }
     
-        public virtual T_Med_Storage_Shape T_Med_Storage_Shape { get; set; }
         public virtual T_Medician T_Medician { get; set; }
         public virtual T_OPeration_IN T_OPeration_IN { get; set; }
+        public virtual T_Store_Placees T_Store_Placees { get; set; }
     }
 }

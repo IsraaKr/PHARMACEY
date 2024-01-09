@@ -33,7 +33,8 @@ namespace PhamaceySystem.Forms.Medicin_Forms
         ClsCommander<T_Medician> cmdMedician = new ClsCommander<T_Medician>();
         ClsCommander<T_Med_Category> cmdMedCat = new ClsCommander<T_Med_Category>();
         ClsCommander<T_Med_Shape> cmdMedShape = new ClsCommander<T_Med_Shape>();
-     
+        ClsCommander<T_Med_Unites> cmdMedUnite = new ClsCommander<T_Med_Unites>();
+
         T_Medician TF_Medician;
        
         DateTime d = DateTime.Today;
@@ -47,9 +48,10 @@ namespace PhamaceySystem.Forms.Medicin_Forms
                 cmdMedician = new ClsCommander<T_Medician>();
                 cmdMedCat = new ClsCommander<T_Med_Category>();
                 cmdMedShape = new ClsCommander<T_Med_Shape>();
-     
+                cmdMedUnite = new ClsCommander<T_Med_Unites>();
                 GetCat_Data();
                 GetShape_Data();
+                GetUnite_Data();
                 if (id_toUpdate !=0)
                 {
                     TF_Medician = new T_Medician();
@@ -250,6 +252,38 @@ namespace PhamaceySystem.Forms.Medicin_Forms
             GetCat_Data();
         }
 
+        private void med_unite_idSearchLookUpEdit1_CustomDisplayText(object sender, DevExpress.XtraEditors.Controls.CustomDisplayTextEventArgs e)
+        {
+            if (e.Value != null && e.Value.ToString() != string.Empty)
+            {
+                long e_id = Convert.ToInt64(e.Value);
+                e.DisplayText = cmdMedUnite.Get_By(id => id.id == e_id).FirstOrDefault().name;
+            }
+            else
+                e.DisplayText = "";
+        }
+        public void GetUnite_Data()
+        {
 
+            var unite_list = (from Emp in cmdMedUnite.Get_All()
+                              select new
+                              {
+                                  id = Emp.id,
+                                  name = Emp.name,
+                              }).OrderBy(id => id.id);
+            if (unite_list != null && unite_list.Count() > 0)
+            {
+                med_unite_idSearchLookUpEdit1.slkp_iniatalize_data(unite_list, "name", "id");
+                med_unite_idSearchLookUpEdit1.Properties.View.Columns[0].Caption = "الرقم";
+                med_unite_idSearchLookUpEdit1.Properties.View.Columns[1].Caption = "الاسم ";
+            }
+
+        }
+        private void btn_unite_Click(object sender, EventArgs e)
+        {
+            F_Med_Unites f = new F_Med_Unites();
+            f.ShowDialog();
+            GetUnite_Data();
+        }
     }
 }

@@ -53,7 +53,7 @@
             // 
             // lbl_tiltle
             // 
-            this.lbl_tiltle.Size = new System.Drawing.Size(646, 56);
+            this.lbl_tiltle.Size = new System.Drawing.Size(720, 56);
             this.lbl_tiltle.TabIndex = 0;
             this.lbl_tiltle.Text = "...";
             // 
@@ -71,7 +71,7 @@
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(646, 611);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(720, 611);
             this.dataLayoutControl1.TabIndex = 11;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -80,7 +80,7 @@
             this.gc.Location = new System.Drawing.Point(17, 109);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(612, 443);
+            this.gc.Size = new System.Drawing.Size(686, 443);
             this.gc.TabIndex = 12;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -117,7 +117,7 @@
             this.txt_id.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_id.Properties.Appearance.Options.UseFont = true;
             this.txt_id.Properties.Padding = new System.Windows.Forms.Padding(-1);
-            this.txt_id.Size = new System.Drawing.Size(555, 22);
+            this.txt_id.Size = new System.Drawing.Size(629, 22);
             this.txt_id.StyleController = this.dataLayoutControl1;
             this.txt_id.TabIndex = 4;
             // 
@@ -129,7 +129,7 @@
             this.txt_name.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.Properties.Appearance.Options.UseFont = true;
             this.txt_name.Properties.Padding = new System.Windows.Forms.Padding(-1);
-            this.txt_name.Size = new System.Drawing.Size(555, 22);
+            this.txt_name.Size = new System.Drawing.Size(629, 22);
             this.txt_name.StyleController = this.dataLayoutControl1;
             this.txt_name.TabIndex = 4;
             this.txt_name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_name_KeyDown);
@@ -145,7 +145,7 @@
             this.emptySpaceItem1});
             this.Root.Name = "Root";
             this.Root.Padding = new DevExpress.XtraLayout.Utils.Padding(15, 15, 15, 15);
-            this.Root.Size = new System.Drawing.Size(646, 611);
+            this.Root.Size = new System.Drawing.Size(720, 611);
             this.Root.TextVisible = false;
             // 
             // txt
@@ -157,7 +157,7 @@
             this.txt.Location = new System.Drawing.Point(0, 50);
             this.txt.Name = "txt";
             this.txt.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
-            this.txt.Size = new System.Drawing.Size(616, 42);
+            this.txt.Size = new System.Drawing.Size(690, 42);
             this.txt.TextSize = new System.Drawing.Size(38, 18);
             // 
             // layoutControlItem2
@@ -165,7 +165,7 @@
             this.layoutControlItem2.Control = this.gc;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 92);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(616, 447);
+            this.layoutControlItem2.Size = new System.Drawing.Size(690, 447);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -177,7 +177,7 @@
             this.txt_add1.Location = new System.Drawing.Point(0, 539);
             this.txt_add1.Name = "txt_add1";
             this.txt_add1.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
-            this.txt_add1.Size = new System.Drawing.Size(616, 42);
+            this.txt_add1.Size = new System.Drawing.Size(690, 42);
             this.txt_add1.Text = "txt_add";
             this.txt_add1.TextSize = new System.Drawing.Size(38, 15);
             this.txt_add1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -189,7 +189,7 @@
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(0, 50);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(10, 50);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(616, 50);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(690, 50);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -197,11 +197,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 720);
+            this.ClientSize = new System.Drawing.Size(720, 720);
             this.Controls.Add(this.dataLayoutControl1);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "F_Master_List";
             this.Text = "F_Master_ADD";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.Controls.SetChildIndex(this.dataLayoutControl1, 0);
             this.Controls.SetChildIndex(this.lbl_tiltle, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
